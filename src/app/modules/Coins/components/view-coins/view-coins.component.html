@@ -1,0 +1,24 @@
+<!-- <table>
+<tbody>
+  <tr *ngFor="let coin of coins; let i = index"></tr>
+  <td {{i + 1}} ></td>
+  <td> {{ coins.id }}></td>
+  <td> {{ coin.name }}</td>
+</tbody>
+</table> -->
+
+<table>
+  <thead>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coin of coins; let i = index">
+      <td>{{ i + 1}}</td>
+      <td>{{ coin.id }} <img [src]="coin.image"></td>
+      <td> {{ coin.name }}</td>
+      <td> ${{ coin.current_price }} </td>
+      <td> {{ coin.last_updated }} </td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- https://github.com/FaztWeb/angular-coingecko-api/blob/master/src/app/app.component.html -->
