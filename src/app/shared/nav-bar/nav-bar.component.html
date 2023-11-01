@@ -1,0 +1,15 @@
+<button class="boton-Sd" (click)="viewSideBar()">Menu</button>
+<div class="sidebar" *ngIf="sideBarOn" >
+    <ul>
+        <li class="sidebar-link" (click)="goTohome()" >Home</li>
+        <br>
+        <li class="sidebar-link" (click)=" goToLogin()" >Iniciar sesion</li>
+        <br>
+        <li  class="sidebar-link"  >Proximamente</li>
+        <br>
+        <li class="sidebar-link" >Contacto</li>
+    </ul>
+
+</div>
+
+<!-- cambiar nombre a sidebar si queda asi sino hacer nav bar -->
