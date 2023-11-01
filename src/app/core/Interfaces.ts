@@ -8,3 +8,8 @@ export interface ICoin {
   total_volume: number;
   last_updated: string;
 }
+export interface IUser{
+  id: number | null;
+  email: string;
+  password: string;
+}

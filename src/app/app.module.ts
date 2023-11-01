@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
+import {MatDialogModule} from '@angular/material/dialog'
 
 
 import { AppComponent } from './app.component';
@@ -11,8 +12,9 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { RegistroComponent } from './modules/auth/registro/registro.component';
 import { LandingPageComponent } from './modules/landing/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavBarComponent } from './shared/nav-bar/nav-bar.component';
+
 import { SharedModule } from './shared/shared.module';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule,
     CoinsModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule,
+    FormsModule
 
   ],
   providers: [],

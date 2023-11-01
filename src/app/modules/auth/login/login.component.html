@@ -1,11 +1,11 @@
 <div>
-    <form >
+    <form (ngSubmit)=" checkLog()" >
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="email">
+        <input type="email" id="email" placeholder="email"  [(ngModel)]="user.email" name="email" required >
         <br>
         <label for="password">Password</label>
-        <input type="password" id="password" name="password" placeholder="Password">
+        <input type="password" id="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
         <br>
-        <button type="submit" (click)="IniciarSesion()">Inisiar sesion</button>
+        <button type="submit" >Inisiar sesion</button>
     </form>
 </div>
