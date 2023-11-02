@@ -1,24 +1,75 @@
 import { Injectable } from '@angular/core';
-import { ApiService } from './api.service';
+import { UserApiService } from './user-api.service';
 import { User } from '../Models';
-import {lastValueFrom} from 'rxjs';
+import { lastValueFrom } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
-  constructor(private apiService:ApiService) { }
+  constructor(private userApiService: UserApiService) { }
 
-  public async checkLog(email:string, password:string){
-    let user: User[]=[];
+  public async checkLog(email: string, password: string) {
+
+    let user: User[] = [];
+
     try {
-      let apiResponse = this.apiService.getuserToAuth(email,password);
-      user= await lastValueFrom (apiResponse);
-      
+
+      let apiResponse = this.userApiService.getuserToAuth(email, password);
+
+      user = await lastValueFrom(apiResponse);
+
     } catch (error) {
-      console.log(error);
+      console.log('Erro en checklog', error);
     }
-    return user.length ==1;
+
+    return user.length == 1;
   }
+
+  public async checkRegister(user: User) {
+
+    let exist = true;
+
+    try {
+
+      let apiResposnse = this.userApiService.getLogApi();
+
+      let data = await lastValueFrom(apiResposnse);
+
+      const userApi = data.find((dataUser) => dataUser.document == user.document || dataUser.email == user.email);
+
+      if (userApi != undefined) {
+        exist = true;
+      } else {
+        this.registerUser(user);
+        exist = false;
+      }
+
+
+    }
+    catch (error) {
+      console.log('Error en checkRegister', error);
+    }
+
+    return exist;
+
+  }
+
+  public registerUser(user: User) {
+
+    this.userApiService.addUser(user).subscribe({
+      next: () => {
+        // alert('Registrado con exito')
+      },
+      error: () => {
+        // alert('Erro en registrar')
+      }
+    })
+  }
+
+
+
+
 }

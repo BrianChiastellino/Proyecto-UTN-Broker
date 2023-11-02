@@ -1,1 +1,21 @@
 <p>registro works!</p>
+
+<form #formRegister="ngForm" (ngSubmit)="registerUser()">
+
+  <label for="document">Ingrese documento</label>
+  <input type="text" [(ngModel)]="user.document" name="document" required>
+
+  <br>
+
+  <label for="email">Ingrese email</label>
+  <input type="text" [(ngModel)]="user.email" name="email" required>
+
+  <br>
+
+  <label for="password">Ingrese contraseña</label>
+  <input type="password" [(ngModel)]="user.password" required name="password">
+
+
+<button type="submit" [disabled]="formRegister.invalid">Registrarme</button>
+
+</form>

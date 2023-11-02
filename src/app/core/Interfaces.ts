@@ -10,6 +10,7 @@ export interface ICoin {
 }
 export interface IUser{
   id: number | null;
+  document: string;
   email: string;
   password: string;
 }

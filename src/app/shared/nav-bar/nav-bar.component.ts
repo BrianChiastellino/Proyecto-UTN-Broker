@@ -6,24 +6,29 @@ import { Router } from '@angular/router';
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit{
+export class NavBarComponent implements OnInit {
 
-  constructor(private router:Router){}
+  constructor(private router: Router) { }
   ngOnInit(): void {
-    
+
   }
 
   sideBarOn = false;
 
-  viewSideBar(){
+  viewSideBar() {
     this.sideBarOn = !this.sideBarOn;
   }
-  goTohome(){
+  
+  goTohome() {
     this.router.navigate(['/landing']);
 
   }
 
-  goToLogin(){
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
+
+  goToLogin() {
     this.router.navigate(['/login']);
   }
 

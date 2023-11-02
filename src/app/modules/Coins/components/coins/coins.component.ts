@@ -22,10 +22,10 @@ export class CoinsComponent implements OnInit {
   //!Hay un límite de 30 solicitudes por minuto a la API pública.
   public updateViewCoins(): void {
     this.getCoins();
+    alert('Se actualizo la lista');
   }
 
   public async getCoins() {
-
 
     try {
 

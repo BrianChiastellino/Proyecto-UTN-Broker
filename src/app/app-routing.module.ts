@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { LandingPageComponent } from './modules/landing/landing-page.component';
+import { RegistroComponent } from './modules/auth/registro/registro.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     loadChildren:()=> import('./modules/auth/auth.module').then(m=>m.AuthModule)
+  },
+  {
+    path: 'register',
+    component: RegistroComponent,
+    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
   },
   {
     path: '',
