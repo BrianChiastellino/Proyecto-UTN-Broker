@@ -1,0 +1,28 @@
+.header {
+    background-color: #ffffff; /* Color de fondo del header */
+    color: #000000;
+    padding: 5px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0; /* Posición en la esquina superior izquierda */
+    width: 100%;
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.header img {
+    width: 30px; /* Establece el ancho de la imagen */
+    margin-right: 10px; /* Agrega un margen derecho para separar el icono del título */
+}
+.titulo{
+    margin: 10px;
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 1000;
+    font-size: 38px;
+    color: #ff6e25;
+    cursor: pointer;
+    text-decoration: none;
+
+}

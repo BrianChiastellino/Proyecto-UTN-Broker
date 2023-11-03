@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Red+Hat+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Montserrat:wght@100&family=Red+Hat+Display&display=swap');
+
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

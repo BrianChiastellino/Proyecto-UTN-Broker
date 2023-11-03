@@ -25,6 +25,9 @@ export class RegistroComponent {
     }
 
   }
+  goToIniciarSesion(){
+    this.router.navigate(["/login"]);
+  }
 
 
 }

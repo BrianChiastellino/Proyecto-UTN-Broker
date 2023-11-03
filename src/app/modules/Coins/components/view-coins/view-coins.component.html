@@ -7,18 +7,42 @@
 </tbody>
 </table> -->
 
-<table>
-  <thead>
-  </thead>
-  <tbody>
-    <tr *ngFor="let coin of coins; let i = index">
-      <td>{{ i + 1}}</td>
-      <td>{{ coin.id }} <img [src]="coin.image"></td>
-      <td> {{ coin.name }}</td>
-      <td> ${{ coin.current_price }} </td>
-      <td> {{ coin.last_updated }} </td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Número</th>
+        <th>Nombre</th>
+        <th>Precio</th>
+        <th>Última Actualización</th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let coin of coins; let i = index">
+        <tr *ngIf="i < 3 || mostrarMas">
+          <td>{{ i + 1 }}</td>
+          <td>
+
+            <img class="imgTabla" [src]="coin.image" alt="{{coin.name}}">
+            <span>{{coin.name}}
+    
+            </span>
+           <span>{{coin.symbol}} 
+           </span>
+          </td>
+          <td>${{ coin.current_price }}</td>
+          <td>{{ coin.last_updated }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
+
+<div class="button-vermas" >
+  <button (click)="verMas()">Ver más</button>
+  
+</div>
+
+
 
 <!-- https://github.com/FaztWeb/angular-coingecko-api/blob/master/src/app/app.component.html -->

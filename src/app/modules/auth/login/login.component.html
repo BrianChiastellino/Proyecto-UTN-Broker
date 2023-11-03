@@ -1,11 +1,29 @@
-<div>
-    <form (ngSubmit)=" checkLog()" >
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="email"  [(ngModel)]="user.email" name="email" required >
+<app-header></app-header>
+<div class="  height: 50px;"></div>
+
+
+
+
+<div class="login-container">
+    <h1>Login</h1>
+    <form [formGroup]="formLogin" (submit)="checkLog()" class="login-form">
+        <label for="email" class="label">Email</label>
+        <input type="email" id="email" placeholder="Email" formControlName="email" class="input">
         <br>
-        <label for="password">Password</label>
-        <input type="password" id="password" placeholder="Password" [(ngModel)]="user.password" name="password" required>
+        <label for="password" class="label">Password</label>
+        <input type="password" id="password" placeholder="Password" formControlName="password" class="input">
         <br>
-        <button type="submit" >Inisiar sesion</button>
+        <label>
+            <input type="checkbox" (click)="togglePasswordVisibility()" id="showPassword">
+            Mostrar contraseña
+        </label>
+        <br>
+
+        <button type="submit" class="login-button">Iniciar sesión</button>
+        <br>
     </form>
+    <a (click)="goToRegistro()" class="register-link">Create una cuenta</a>
+
 </div>
+
+

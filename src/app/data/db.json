@@ -29,6 +29,12 @@
       "email": "b@gmail.com",
       "password": "123",
       "document": "brian"
+    },
+    {
+      "id": 6,
+      "email": "tom@gmail.com",
+      "password": "123",
+      "document": "41746338"
     }
   ]
 }

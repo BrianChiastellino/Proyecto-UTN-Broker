@@ -14,7 +14,7 @@ import { LandingPageComponent } from './modules/landing/landing-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -33,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     SharedModule,
     MatDialogModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
 
   ],
   providers: [],

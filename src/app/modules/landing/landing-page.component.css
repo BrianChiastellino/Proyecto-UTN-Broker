@@ -1,7 +1,32 @@
-.title{
-    text-align: center;
-    background-color: black;
-}
-h1{
-    color: white;
-}
+
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+  }
+  
+  .text {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    flex: 1; /* El texto ocupará todo el espacio disponible en el contenedor */
+    padding: 20px; /* Agrega espacio alrededor del texto */
+  }
+  
+  h1 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+    color: rgb(255, 153, 0);
+    line-height: 1.5;
+    font-size: 44px;
+    margin: 0; /* Elimina el margen superior predeterminado */
+  }
+  
+  p {
+    font-family: 'Montserrat', sans-serif;
+
+    font-size: 16px;
+    line-height: 2.5;
+  }
+  

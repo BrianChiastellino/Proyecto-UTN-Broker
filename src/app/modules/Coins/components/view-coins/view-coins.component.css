@@ -1,4 +1,100 @@
-img{
-  height: 2rem;
+/* Estilos para el contenedor de la tabla */
+.table-container {
+
+  display: flex; /* Utilizamos flexbox para alinear los elementos */
+  justify-content: flex-end; /* Alinea los elementos al final del contenedor */
+
+  
+  max-height: 300px;
+  overflow-y: auto;
+
+}
+
+/* Estilos para la tabla */
+table {
+  width: 50%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Estilos para la barra de desplazamiento en WebKit */
+.table-container::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color del pulgar (el control deslizante) */
+  border-radius: 10px; /* Borde redondeado del pulgar */
+}
+
+.table-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color del pulgar al pasar el cursor sobre él */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background-color: #f2f2f2; /* Color de fondo de la pista de desplazamiento */
+  border-radius: 10px; /* Borde redondeado de la pista de desplazamiento */
+}
+
+
+
+
+
+/* Estilos para las filas pares e impares */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilos para las celdas */
+td, th{
+  padding: 12px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
+}
+span{
+  font-family: 'Montserrat', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+/* Estilos para el encabezado de la tabla */
+thead {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Estilos para enlace "Ver más" */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para enlace "Ver más" en estado desactivado */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.imgTabla{
   width: 2rem;
+}
+
+.button-vermas{
+  display: flex; /* Utilizamos flexbox para alinear los elementos */
+  justify-content: flex-end; /* Alinea los elementos al final del contenedor */
+  
 }

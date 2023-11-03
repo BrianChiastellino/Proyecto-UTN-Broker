@@ -10,6 +10,10 @@ export class ViewCoinsComponent {
 
   @Input () coins: Array<Coin> = [];
 
-  
+  mostrarMas = false;
+
+  verMas() {
+    this.mostrarMas = !this.mostrarMas;
+  }
 
 }

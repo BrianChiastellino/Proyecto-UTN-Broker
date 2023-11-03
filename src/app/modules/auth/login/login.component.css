@@ -1,0 +1,87 @@
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin: 100px;
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center;
+    background-color: #FFFFFF; /* Fondo blanco */
+    border: 1px solid #E1E1E1; /* Borde gris claro */
+    border-radius: 8px;
+    max-width: 300px; /* Ancho máximo del formulario */
+    width: 100%; /* Ancho completo del contenedor */
+    text-align: center
+
+}
+
+/* Estilos para el formulario */
+.login-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para las etiquetas en el formulario */
+.label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+/* Estilos para los campos de entrada en el formulario */
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+}
+
+/* Estilos para el botón de inicio de sesión */
+.login-button {
+    background-color: #F7931A;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.login-button:hover {
+    background-color: #E88219;
+
+}
+.register-button {
+    background-color: #58AFFF; 
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.register-button:hover {
+    background-color: #4B9FE8;
+}
+/* Estilos para el enlace de registro */
+.register-link {
+    text-decoration: none; /* Quita la subrayado predeterminado de los enlaces */
+    color: #007bff; /* Color de texto predeterminado */
+    transition: color 0.3s; /* Agrega una transición suave para el cambio de color */
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+  }
+  
+  .register-link:hover {
+    color: #ff5500; /* Cambia el color del texto al pasar el cursor sobre el enlace */
+  }
+
+  label, input{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+}

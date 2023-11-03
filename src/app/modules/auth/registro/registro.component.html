@@ -1,7 +1,9 @@
-<p>registro works!</p>
+<app-header></app-header>
+<div class="register-container" >
 
-<form #formRegister="ngForm" (ngSubmit)="registerUser()">
-
+  
+<form class="register-form" #formRegister="ngForm" (ngSubmit)="registerUser()">
+    <h1 class="text">Registro</h1>
   <label for="document">Ingrese documento</label>
   <input type="text" [(ngModel)]="user.document" name="document" required>
 
@@ -17,5 +19,11 @@
 
 
 <button type="submit" [disabled]="formRegister.invalid">Registrarme</button>
+<br>
+
 
 </form>
+<p>Ya tenes una cuenta?<a (click)="goToIniciarSesion()" class="register-link"> Iniciar sesion</a></p>
+
+
+</div>

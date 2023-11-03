@@ -1,0 +1,87 @@
+/* Estilos para el contenedor principal del formulario de registro */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    margin: 100px;
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center;
+    background-color: #FFFFFF; /* Fondo blanco */
+    border: 1px solid #E1E1E1; /* Borde gris claro */
+    border-radius: 8px;
+    max-width: 300px; /* Ancho máximo del formulario */
+    width: 100%; /* Ancho completo del contenedor */
+    text-align: center
+
+}
+
+/* Estilos para el formulario de registro */
+.register-form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilos para las etiquetas en el formulario de registro */
+.register-form .label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+
+.register-form .input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #E1E1E1;
+    border-radius: 4px;
+}
+
+
+.register-form button[type="submit"] {
+    background-color: #58AFFF; 
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+
+}
+
+.register-form button[type="submit"]:disabled {
+    background-color: #F7931A;
+    color: #FFFFFF;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    margin-top: 15px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.register-form button[type="submit"]:hover {
+    background-color: #4B9FE8;
+}
+
+.text{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+}
+label, input{
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+}
+.register-link {
+    text-decoration: none; /* Quita la subrayado predeterminado de los enlaces */
+    color: #007bff; /* Color de texto predeterminado */
+    transition: color 0.3s; /* Agrega una transición suave para el cambio de color */
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+  }
+  
+  .register-link:hover {
+    color: #ff5500; /* Cambia el color del texto al pasar el cursor sobre el enlace */
+  }
