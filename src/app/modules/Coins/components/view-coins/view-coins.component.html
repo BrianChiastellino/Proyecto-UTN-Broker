@@ -1,11 +1,6 @@
-<!-- <table>
-<tbody>
-  <tr *ngFor="let coin of coins; let i = index"></tr>
-  <td {{i + 1}} ></td>
-  <td> {{ coins.id }}></td>
-  <td> {{ coin.name }}</td>
-</tbody>
-</table> -->
+
+<input *ngIf="userIsLoged" type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
+
 
 <div class="table-container">
   <table>
@@ -18,16 +13,17 @@
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let coin of coins; let i = index">
+      <ng-container *ngFor="let coin of coinsFiltred; let i = index">
         <tr *ngIf="i < 3 || mostrarMas">
+          <tr>
           <td>{{ i + 1 }}</td>
           <td>
 
             <img class="imgTabla" [src]="coin.image" alt="{{coin.name}}">
             <span>{{coin.name}}
-    
+
             </span>
-           <span>{{coin.symbol}} 
+           <span>{{coin.symbol}}
            </span>
           </td>
           <td>${{ coin.current_price }}</td>
@@ -40,9 +36,6 @@
 
 <div class="button-vermas" >
   <button (click)="verMas()">Ver más</button>
-  
 </div>
-
-
 
 <!-- https://github.com/FaztWeb/angular-coingecko-api/blob/master/src/app/app.component.html -->

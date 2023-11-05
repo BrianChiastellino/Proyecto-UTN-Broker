@@ -10,8 +10,7 @@ import { CoinApiService } from 'src/app/core/services/coin-api.service';
 })
 export class CoinsComponent implements OnInit {
 
-  coins: Array<Coin> = [];
-
+  allCoins: Array<Coin> = [];
 
   constructor(private coinApiService: CoinApiService) { }
 
@@ -33,7 +32,7 @@ export class CoinsComponent implements OnInit {
 
       const data = await lastValueFrom(response);
       console.log('Conectando a la api OK');
-      this.coins = data.map((dataCoins: any) => new Coin(dataCoins));
+      this.allCoins = data.map((dataCoins: any) => new Coin(dataCoins));
 
     } catch (error) {
       console.error('Error al querer obtener coins');

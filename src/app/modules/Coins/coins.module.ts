@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ViewCoinsComponent } from './components/view-coins/view-coins.component';
 import { CoinsComponent } from './components/coins/coins.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { CoinsComponent } from './components/coins/coins.component';
     CoinsComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports:[
     CoinsComponent,
