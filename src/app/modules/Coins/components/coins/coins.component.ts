@@ -24,6 +24,7 @@ export class CoinsComponent implements OnInit {
     alert('Se actualizo la lista');
   }
 
+  //todo: Esto lo tieneque hacer un servicio. E inyectarlo en esta clase.
   public async getCoins() {
 
     try {
