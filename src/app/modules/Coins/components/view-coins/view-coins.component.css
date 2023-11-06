@@ -55,7 +55,7 @@ td, th{
   font-family: 'Red Hat Display', sans-serif;
 }
 span{
-  font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif;
   font-family: 'Red Hat Display', sans-serif;
 }
 
@@ -97,4 +97,41 @@ button:disabled {
   display: flex; /* Utilizamos flexbox para alinear los elementos */
   justify-content: flex-end; /* Alinea los elementos al final del contenedor */
   
+}
+.full-width-input {
+ right: 50;
+  text-align: right; /* Texto alineado a la derecha dentro del input */
+}
+/* Estilos para el input de búsqueda */
+.search-input {
+  width: 20%;
+  margin-right: 400px;
+  padding: 10px; /* Espaciado interno */
+  border: 2px solid #ccc; /* Borde con color de fondo */
+  border-radius: 20px; /* Borde redondeado */
+  font-size: 16px; /* Tamaño de fuente */
+  background-color: #f5f5f5; /* Color de fondo */
+  color: #333; /* Color del texto */
+  outline: none; /* Elimina el contorno al enfocar */
+}
+
+/* Estilo para cuando el input está enfocado */
+.search-input:focus {
+  border-color: #007bff; /* Cambia el color del borde al enfocar */
+  background-color: #fff; /* Cambia el color de fondo al enfocar */
+}
+
+/* Estilo para el icono de búsqueda (puedes usar un icono de búsqueda o una fuente de iconos) */
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 20px; /* Posición del icono a la derecha */
+  transform: translateY(-50%);
+  color: #777; /* Color del icono */
+  font-size: 20px;
+}
+
+/* Alinea el texto del input a la izquierda para que el icono esté a la derecha */
+.search-input::placeholder {
+  text-align: left;
 }

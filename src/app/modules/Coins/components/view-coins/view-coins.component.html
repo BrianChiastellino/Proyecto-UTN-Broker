@@ -1,5 +1,9 @@
 
-<input *ngIf="userIsLoged" type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
+<div *ngIf="mostrarMas"  class="full-width-input">
+  
+  <input class="search-input" placeholder="Busqueda de Crypto"  type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
+
+</div>
 
 <div class="table-container">
   <table>
@@ -33,7 +37,7 @@
 </div>
 
 <div class="button-vermas" >
-  <button (click)="verMas()">Ver más</button>
+  <button *ngIf="!mostrarMas" (click)="verMas()">Ver más</button>
 </div>
 
 <!-- https://github.com/FaztWeb/angular-coingecko-api/blob/master/src/app/app.component.html -->
