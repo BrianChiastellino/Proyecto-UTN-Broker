@@ -1,9 +1,15 @@
 <app-header></app-header>
 <div class="register-container" >
 
-  
+
 <form class="register-form" #formRegister="ngForm" (ngSubmit)="registerUser()">
     <h1 class="text">Registro</h1>
+
+  <label for="name">Ingrese su nombre</label>
+  <input type="text" [(ngModel)]="user.name" name="name" required>
+
+  <br>
+
   <label for="document">Ingrese documento</label>
   <input type="text" [(ngModel)]="user.document" name="document" required>
 

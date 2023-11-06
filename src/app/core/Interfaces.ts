@@ -1,3 +1,4 @@
+
 export interface ICoin {
   id: string;
   symbol: string;
@@ -13,4 +14,5 @@ export interface IUser{
   document: string;
   email: string;
   password: string;
+
 }

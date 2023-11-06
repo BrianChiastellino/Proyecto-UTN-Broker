@@ -1,40 +1,5 @@
 {
   "users": [
-    {
-      "id": 1,
-      "email": "123",
-      "password": "123",
-      "document": "123"
-    },
-    {
-      "id": 2,
-      "email": "1234",
-      "password": "123",
-      "document": "1234"
-    },
-    {
-      "id": 3,
-      "email": "12345",
-      "password": "12345",
-      "document": "12345"
-    },
-    {
-      "id": 4,
-      "email": "1",
-      "password": "1",
-      "document": "1"
-    },
-    {
-      "id": 5,
-      "email": "b@gmail.com",
-      "password": "123",
-      "document": "brian"
-    },
-    {
-      "id": 6,
-      "email": "tom@gmail.com",
-      "password": "123",
-      "document": "41746338"
-    }
+
   ]
 }

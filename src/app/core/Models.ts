@@ -30,17 +30,20 @@ export class Coin implements ICoin {
 export class User implements IUser{
 
   id: number | null = null;
+  name: string;
   document: string;
   email: string = '';
   password: string = '';
+  myCoins: Coin[] = [];
 
   constructor(user?:any){
 
     this.id = user == undefined ? null : user.id;
+    this.name = user == undefined ? '' : user.name;
     this.document = user == undefined ? '' : user.document;
     this.email = user == undefined ? '' : user.email;
     this.password = user == undefined ? '' : user.password;
-
+    this.myCoins = user == undefined ? [] : user.myCoins.slice()
   }
 
 }
