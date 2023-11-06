@@ -14,5 +14,6 @@ export interface IUser{
   document: string;
   email: string;
   password: string;
+  isLoged: boolean;
 
 }

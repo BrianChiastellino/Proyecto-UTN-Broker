@@ -1,7 +1,6 @@
 
 <input *ngIf="userIsLoged" type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
 
-
 <div class="table-container">
   <table>
     <thead>
@@ -15,7 +14,6 @@
     <tbody>
       <ng-container *ngFor="let coin of coinsFiltred; let i = index">
         <tr *ngIf="i < 3 || mostrarMas">
-          <tr>
           <td>{{ i + 1 }}</td>
           <td>
 

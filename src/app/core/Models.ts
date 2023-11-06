@@ -1,3 +1,4 @@
+import { flush } from "@angular/core/testing";
 import { ICoin, IUser } from "./Interfaces";
 
 export class Coin implements ICoin {
@@ -34,6 +35,7 @@ export class User implements IUser{
   document: string;
   email: string = '';
   password: string = '';
+  isLoged: boolean = false;
   myCoins: Coin[] = [];
 
   constructor(user?:any){
@@ -43,6 +45,7 @@ export class User implements IUser{
     this.document = user == undefined ? '' : user.document;
     this.email = user == undefined ? '' : user.email;
     this.password = user == undefined ? '' : user.password;
+    this.isLoged = user == undefined ? false : user.isLoged;
     this.myCoins = user == undefined ? [] : user.myCoins.slice()
   }
 
