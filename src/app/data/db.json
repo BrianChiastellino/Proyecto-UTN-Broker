@@ -2,12 +2,33 @@
   "users": [
     {
       "id": 1,
-      "email": "b.chaste@gmail.com",
+      "email": "b@gmail.com",
       "password": "123",
       "isLoged": false,
-      "myCoins": [],
       "name": "Brian",
-      "document": "41853675"
+      "document": "41853675",
+      "myWallet": {
+        "id": 1,
+        "myCoins": {
+          "idCoin": "",
+          "amount": 0
+        }
+      }
+    },
+    {
+      "id": 2,
+      "email": "tom@gmail.com",
+      "password": "123",
+      "isLoged": false,
+      "name": "Tom",
+      "document": "46464",
+      "myWallet": {
+        "id": 1,
+        "myCoins": {
+          "idCoin": "",
+          "amount": 0
+        }
+      }
     }
   ]
 }
