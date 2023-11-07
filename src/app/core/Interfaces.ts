@@ -9,11 +9,27 @@ export interface ICoin {
   total_volume: number;
   last_updated: string;
 }
-export interface IUser{
+
+export interface IUser {
   id: number | null;
   document: string;
   email: string;
   password: string;
   isLoged: boolean;
+  myWallet: IWallet;
+
+}
+
+export interface IWallet {
+
+  id: number | null;
+  myCoins: IMyCoins[];
+
+}
+
+export interface IMyCoins {
+
+  idCoin: string | null;
+  amount: number;
 
 }
