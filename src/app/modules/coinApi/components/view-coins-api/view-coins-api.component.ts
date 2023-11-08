@@ -44,8 +44,10 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
   public verMas(): void {
     if(this.userIsLoged === true){
       this.router.navigate(['/main']);
+
     }else{
       this.router.navigate(['/login']);
+
     }
 
   }

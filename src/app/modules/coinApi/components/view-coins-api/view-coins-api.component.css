@@ -6,7 +6,8 @@
 
 
   max-height: 300px;
-  overflow-y: auto;
+  overflow-y: auto; /* esto genera la barra lateral*/
+
 
 }
 
@@ -16,7 +17,8 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
+/* /* 
+estilos para barra lateral
 /* Estilos para la barra de desplazamiento en WebKit */
 .table-container::-webkit-scrollbar {
   width: 12px; /* Ancho de la barra de desplazamiento */
@@ -35,8 +37,6 @@ table {
   background-color: #f2f2f2; /* Color de fondo de la pista de desplazamiento */
   border-radius: 10px; /* Borde redondeado de la pista de desplazamiento */
 }
-
-
 
 
 

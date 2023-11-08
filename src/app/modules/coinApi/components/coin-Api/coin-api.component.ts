@@ -50,5 +50,3 @@ export class CoinsApiComponent implements OnInit {
 
 
 }
-
-
