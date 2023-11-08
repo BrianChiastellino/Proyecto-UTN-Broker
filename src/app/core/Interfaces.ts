@@ -1,5 +1,5 @@
 
-export interface ICoin {
+export interface ICoinApi {
   id: string;
   symbol: string;
   name: string;
@@ -12,24 +12,35 @@ export interface ICoin {
 
 export interface IUser {
   id: number | null;
+  name: string;
   document: string;
   email: string;
   password: string;
   isLoged: boolean;
-  myWallet: IWallet;
 
 }
 
 export interface IWallet {
 
-  id: number | null;
-  myCoins: IMyCoins[];
+  idWallet: number | null;
+  idUser: number | null;
+  coins: ICoin[];
 
 }
 
-export interface IMyCoins {
+export interface ICoin {
 
   idCoin: string | null;
-  amount: number;
+  coinAmount: number | null;
+
+}
+
+export interface ITransaccion {
+
+  idUser: number | null;
+  idCoin: string | null;
+  coinAmount: number;
+  fechaCompra: string;
+
 
 }

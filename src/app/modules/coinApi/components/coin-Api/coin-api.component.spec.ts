@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewCoinsComponent } from './view-coins.component';
+import { CoinsApiComponent } from './coin-api.component';
 
-describe('ViewCoinsComponent', () => {
-  let component: ViewCoinsComponent;
-  let fixture: ComponentFixture<ViewCoinsComponent>;
+describe('CoinApiComponent', () => {
+  let component: CoinsApiComponent;
+  let fixture: ComponentFixture<CoinsApiComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [ViewCoinsComponent]
+      declarations: [CoinsApiComponent]
     });
-    fixture = TestBed.createComponent(ViewCoinsComponent);
+    fixture = TestBed.createComponent(CoinsApiComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

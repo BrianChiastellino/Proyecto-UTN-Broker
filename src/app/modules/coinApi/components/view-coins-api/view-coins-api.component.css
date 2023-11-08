@@ -4,7 +4,7 @@
   display: flex; /* Utilizamos flexbox para alinear los elementos */
   justify-content: flex-end; /* Alinea los elementos al final del contenedor */
 
-  
+
   max-height: 300px;
   overflow-y: auto;
 
@@ -96,7 +96,7 @@ button:disabled {
 .button-vermas{
   display: flex; /* Utilizamos flexbox para alinear los elementos */
   justify-content: flex-end; /* Alinea los elementos al final del contenedor */
-  
+
 }
 .full-width-input {
  right: 50;

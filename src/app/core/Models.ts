@@ -1,7 +1,6 @@
-import { flush } from "@angular/core/testing";
-import { ICoin, IMyCoins, IUser, IWallet } from "./Interfaces";
+import {ICoinApi, ICoin, IUser, IWallet, ITransaccion } from "./Interfaces";
 
-export class Coin implements ICoin {
+export class CoinApi implements ICoinApi {
 
   id: string;
   symbol: string;
@@ -12,16 +11,16 @@ export class Coin implements ICoin {
   total_volume: number;
   last_updated: string;
 
-  constructor(coin?: any) {
+  constructor(coinApi?: any) {
 
-    this.id = coin == undefined ? '' : coin.id;
-    this.symbol = coin == undefined ? '' : coin.symbol;
-    this.name = coin == undefined ? '' : coin.name;
-    this.image = coin == undefined ? '' : coin.image;
-    this.current_price = coin == undefined ? 0 : coin.current_price;
-    this.price_change_percentage_24h = coin == undefined ? 0 : coin.price_change_percentage_24h;
-    this.total_volume = coin == undefined ? 0 : coin.total_volume;
-    this.last_updated = coin == undefined ? '' : coin.last_updated;
+    this.id = coinApi == undefined ? '' : coinApi.id;
+    this.symbol = coinApi == undefined ? '' : coinApi.symbol;
+    this.name = coinApi == undefined ? '' : coinApi.name;
+    this.image = coinApi == undefined ? '' : coinApi.image;
+    this.current_price = coinApi == undefined ? 0 : coinApi.current_price;
+    this.price_change_percentage_24h = coinApi == undefined ? 0 : coinApi.price_change_percentage_24h;
+    this.total_volume = coinApi == undefined ? 0 : coinApi.total_volume;
+    this.last_updated = coinApi == undefined ? '' : coinApi.last_updated;
 
   }
 }
@@ -34,7 +33,6 @@ export class User implements IUser {
   email: string = '';
   password: string = '';
   isLoged: boolean = false;
-  myWallet: Wallet;
 
 
   constructor(user?: any) {
@@ -45,7 +43,6 @@ export class User implements IUser {
     this.email = user == undefined ? '' : user.email;
     this.password = user == undefined ? '' : user.password;
     this.isLoged = user == undefined ? false : user.isLoged;
-    this.myWallet = user == undefined ? new Wallet() : user.myWallet;
 
   }
 
@@ -53,28 +50,45 @@ export class User implements IUser {
 
 export class Wallet implements IWallet {
 
-  static lastId: number = 0;
-  id: number | null;
-  myCoins: MyCoins[];
+  idWallet: number | null;
+  idUser: number | null;
+  coins: Coin[];
 
   constructor(wallet?: any) {
 
-    //todo: Reparar el id de la wallet debido a que cuando se reinicia el servidor, se reinician los id de la instancia.
-    //todo: Reparar el idUser de la wallet debido a que el autoincremental te lo hace el mismo json server
-    //todo: Preguntar a Agus si sacamos el id si total ya queda dentro del usuario O DIRECTAMENTE HACER MYCOINS.
-    this.id = wallet == undefined ? Wallet.lastId : wallet.id;
-    this.myCoins = wallet == undefined ? new MyCoins() : wallet.myCoins.slice();
-    Wallet.lastId++;
+    this.idWallet = wallet == undefined ? null : wallet.idWallet;
+    this.idUser = wallet == undefined ? null : wallet.idUser;
+    this.coins = wallet == undefined ? [] : wallet.myCoins.slice();
+
   }
 }
 
-export class MyCoins implements IMyCoins {
+export class Coin implements ICoin {
 
   idCoin: string | null;
-  amount: number;
+  coinAmount: number;
 
-  constructor(myCoins?: any) {
-    this.idCoin = myCoins == undefined ? '' : myCoins.idCoin;
-    this.amount = myCoins == undefined ? 0 : myCoins.amount;
+  constructor(coin?: any) {
+    this.idCoin = coin == undefined ? null : coin.idCoin;
+    this.coinAmount = coin == undefined ? null : coin.coinAmount;
   }
+
+}
+
+export class Transaccion implements ITransaccion{
+
+  idUser: number | null;
+  idCoin: string | null;
+  coinAmount: number;
+  fechaCompra: string;
+
+  constructor(transaccion?: any) {
+
+    this.idUser = transaccion == undefined ? null : transaccion.idUser;
+    this.idCoin = transaccion == undefined ? null : transaccion.idCoin;
+    this.coinAmount = transaccion == undefined ? 0 : transaccion.coinAmount;
+    this.fechaCompra = transaccion == undefined ? '' : transaccion.fechaCompra;
+
+  }
+
 }

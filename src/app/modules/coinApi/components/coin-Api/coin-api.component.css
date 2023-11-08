@@ -1,0 +1,26 @@
+.conteiner{
+  display: flex; /* Utilizamos flexbox para alinear los elementos */
+  justify-content: flex-end; /* Alinea los elementos al final del contenedor */
+
+}
+button {
+  background-color: #21252b;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para enlace "Ver más" en estado desactivado */
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

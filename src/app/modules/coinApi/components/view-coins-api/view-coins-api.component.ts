@@ -1,17 +1,17 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { Coin } from 'src/app/core/Models';
+import { CoinApi } from 'src/app/core/Models';
 
 @Component({
-  selector: 'app-view-coins',
-  templateUrl: './view-coins.component.html',
-  styleUrls: ['./view-coins.component.css']
+  selector: 'app-view-coins-api',
+  templateUrl: './view-coins-api.component.html',
+  styleUrls: ['./view-coins-api.component.css']
 })
 
-export class ViewCoinsComponent implements OnChanges {
+export class ViewCoinsApiComponent implements OnChanges {
 
-  @Input() coinsView: Array<Coin> = [];
-  coinsFiltred: Array<Coin> = [];
+  @Input() coinsView: Array<CoinApi> = [];
+  coinsFiltred: Array<CoinApi> = [];
 
 
   coinToSearch: string = '';
@@ -20,11 +20,7 @@ export class ViewCoinsComponent implements OnChanges {
   userIsLoged: boolean = true;
 
 
-  
-
-
-
-  constructor(private router:Router){
+  constructor(private router: Router){
 
 
   }

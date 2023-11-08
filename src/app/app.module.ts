@@ -7,7 +7,6 @@ import {MatDialogModule} from '@angular/material/dialog'
 
 
 import { AppComponent } from './app.component';
-import { CoinsModule } from './modules/Coins/coins.module';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { RegistroComponent } from './modules/auth/registro/registro.component';
 import { LandingPageComponent } from './modules/landing/landing-page.component';
@@ -15,6 +14,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CoinApiModule } from './modules/coinApi/coin-api.module';
 
 
 @NgModule({
@@ -29,7 +29,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    CoinsModule,
+    CoinApiModule,
     BrowserAnimationsModule,
     SharedModule,
     MatDialogModule,

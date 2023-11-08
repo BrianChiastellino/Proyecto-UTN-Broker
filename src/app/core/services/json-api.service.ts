@@ -1,19 +1,21 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../Models';
+import { Transaccion, User, Wallet } from '../Models';
 import { Observable } from 'rxjs';
-
-//todo: eliminar
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserApiService {
+export class JsonApiService {
 
+  //todo: Cambiar nombre urlUser
   private urlBaseUser = " http://localhost:3000";
+  private urlWallet = "http://localhost:3000/wallet"
+  private urlTransaccion = "http://localhost:3000/transaccion"
 
   constructor(private http: HttpClient) { }
 
+  //todo: Cambiar por getAllUsers()
   getLogApi(): Observable<User[]>{
     return this.http.get<User[]>(`${this.urlBaseUser}/users`);
   }
@@ -36,6 +38,29 @@ export class UserApiService {
 
     return this.http.patch<User>(`${this.urlBaseUser}/users/${user.id}`, user)
   }
+
+
+  getAllWallets () : Observable<Wallet[]>{
+    return this.http.get<Wallet[]>(`${this.urlWallet}`);
+  }
+
+  addWallet (wallet: Wallet) : Observable<boolean>{
+    return this.http.post<boolean>(`${this.urlWallet}`, wallet);
+  }
+
+  getAllTransacciones () : Observable<Transaccion[]>{
+    return this.http.get<Transaccion[]>(`${this.urlTransaccion}`);
+  }
+
+  addTransaccion (transaccion: Transaccion) : Observable<boolean>{
+    return this.http.post<boolean>(`${this.urlTransaccion}`,transaccion)
+  }
+
+
+
+
+
+
 
 
 }

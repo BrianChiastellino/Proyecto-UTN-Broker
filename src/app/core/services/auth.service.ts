@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { UserApiService } from './user-api.service';
 import { User } from '../Models';
 import { lastValueFrom } from 'rxjs';
-import { SharedInfoService } from './shared-info.service';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +9,7 @@ import { SharedInfoService } from './shared-info.service';
 
 export class AuthService {
 
-  constructor(private userApiService: UserApiService, private sharedInfo: SharedInfoService) { }
+  constructor(private userApiService: UserApiService ) { }
 
   public async checkLog(email: string, password: string) {
 
@@ -22,7 +21,12 @@ export class AuthService {
 
       user = await lastValueFrom(apiResponse);
 
-      this.sharedInfo.setUser(user[0]);
+      // this.sharedInfo.setUser(user[0]);
+
+      if (user.length == 1){
+        user[0].isLoged = true;
+        sessionStorage.setItem('userLoged', JSON.stringify(user[0]))
+      }
 
     } catch (error) {
       console.log('Erro en checklog', error);
