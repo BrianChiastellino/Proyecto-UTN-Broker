@@ -38,7 +38,6 @@ export class JsonApiService {
     return this.http.patch<User>(`${this.urlUser}/users/${user.id}`, user)
   }
 
-
   getAllWallets () : Observable<Wallet[]>{
     return this.http.get<Wallet[]>(`${this.urlWallet}`);
   }

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { CoinApi } from 'src/app/core/Models';
 
@@ -11,8 +11,9 @@ import { CoinApi } from 'src/app/core/Models';
 export class ViewCoinsApiComponent implements OnChanges {
 
   @Input() coinsView: Array<CoinApi> = [];
-  coinsFiltred: Array<CoinApi> = [];
+  @Output () coinBuy = new EventEmitter<CoinApi>;
 
+  coinsFiltred: Array<CoinApi> = [];
 
   coinToSearch: string = '';
   mostrarMas: boolean = false;
@@ -20,16 +21,17 @@ export class ViewCoinsApiComponent implements OnChanges {
   userIsLoged: boolean = true;
 
 
-  constructor(private router: Router){
+  constructor(private router: Router){ }
 
-
-  }
   //!Se utiliza ngOnChanges para reaccionar a los cambios del @Input que recibe el componente.
   //!Si no se hace este metodo  'coins2' seria null y no funcionaria el filtrado de busqueda.
   ngOnChanges(changes: SimpleChanges): void {
     this.coinsFiltred = [...this.coinsView]
+  }
 
-
+  public coinToBuy (coin: CoinApi){
+    console.log('Desde buy', coin);
+    this.coinBuy.emit(coin);
   }
 
   public verMas(): void {

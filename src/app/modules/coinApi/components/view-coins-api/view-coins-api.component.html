@@ -29,6 +29,8 @@
           </td>
           <td>${{ coin.current_price }}</td>
           <td>{{ coin.last_updated }}</td>
+          <td><button (click)="coinToBuy(coin)" >Comprar</button></td>
+          <td><button>Vender</button></td>
         </tr>
       </ng-container>
     </tbody>

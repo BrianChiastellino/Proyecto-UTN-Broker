@@ -25,6 +25,7 @@ export class CoinApiService {
       console.error('Erro al querer obtener todas las coins de gecko');
       return []
     }
-
   }
+
+  
 }

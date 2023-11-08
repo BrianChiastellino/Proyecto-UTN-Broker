@@ -16,7 +16,7 @@ export class MainPageComponent implements OnInit {
   // constructor(private userApi: UserApiService){}
 
    ngOnInit(): void {
-     this.user = new User(JSON.parse( sessionStorage.getItem('userLoged')!));
+     this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
   }
 
   // probar () {

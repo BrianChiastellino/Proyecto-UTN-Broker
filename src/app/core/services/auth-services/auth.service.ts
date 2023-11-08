@@ -21,8 +21,6 @@ export class AuthService {
 
       user = await lastValueFrom(apiResponse);
 
-      // this.sharedInfo.setUser(user[0]);
-
       if (user.length == 1){
         user[0].isLoged = true;
         sessionStorage.setItem('userLoged', JSON.stringify(user[0]))
@@ -64,6 +62,7 @@ export class AuthService {
 
   }
 
+  //todo: Modificar esta funcion
   public registerUser(user: User) {
 
     this.jsonApiService.addUser(user).subscribe({
@@ -75,8 +74,4 @@ export class AuthService {
       }
     })
   }
-
-
-
-
 }

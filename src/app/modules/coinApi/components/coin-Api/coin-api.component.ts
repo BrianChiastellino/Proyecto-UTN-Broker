@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { CoinApi } from 'src/app/core/Models';
 import { CoinApiService } from '../../services/coin-api.service';
 
@@ -11,22 +11,35 @@ import { CoinApiService } from '../../services/coin-api.service';
 export class CoinsApiComponent implements OnInit {
 
   allCoins: Array<CoinApi> = [];
+  coin!: CoinApi;
+
 
   constructor(private coinApiService: CoinApiService) { }
 
   ngOnInit(): void {
-    this.getAllCoins();
+    this.coinApiService.getAllGoins().then((c) => this.allCoins = c.slice())
+
   }
 
   //!Hay un límite de 30 solicitudes por minuto a la API pública.
   public updateViewCoins(): void {
-    this.getAllCoins();
+
     alert('Se actualizo la lista');
   }
 
-  public getAllCoins () {
+  public getAllCoins () : void {
     this.coinApiService.getAllGoins().then((c) => this.allCoins = c.slice())
+   }
+
+  public enviarCoin(coin: CoinApi){
+    this.coin = coin;
+    console.log('Desde coinapp',this.coin)
   }
+
+
+
+
+
 }
 
 
