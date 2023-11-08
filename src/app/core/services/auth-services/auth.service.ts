@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { UserApiService } from './user-api.service';
-import { User } from '../Models';
+import { User } from '../../Models';
 import { lastValueFrom } from 'rxjs';
+import { JsonApiService } from '../json-api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ import { lastValueFrom } from 'rxjs';
 
 export class AuthService {
 
-  constructor(private userApiService: UserApiService ) { }
+  constructor(private jsonApiService: JsonApiService ) { }
 
   public async checkLog(email: string, password: string) {
 
@@ -17,7 +17,7 @@ export class AuthService {
 
     try {
 
-      let apiResponse = this.userApiService.getuserToAuth(email, password);
+      let apiResponse = this.jsonApiService.getuserToAuth(email, password);
 
       user = await lastValueFrom(apiResponse);
 
@@ -41,7 +41,7 @@ export class AuthService {
 
     try {
 
-      let apiResposnse = this.userApiService.getLogApi();
+      let apiResposnse = this.jsonApiService.getAllUsers();
 
       let data = await lastValueFrom(apiResposnse);
 
@@ -66,7 +66,7 @@ export class AuthService {
 
   public registerUser(user: User) {
 
-    this.userApiService.addUser(user).subscribe({
+    this.jsonApiService.addUser(user).subscribe({
       next: () => {
         // alert('Registrado con exito')
       },

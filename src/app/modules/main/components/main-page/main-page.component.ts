@@ -1,7 +1,5 @@
-import { UserApiService } from 'src/app/core/services/user-api.service';
-import { Coin, User } from './../../../../core/Models';
-import { Component, OnInit, Injectable } from '@angular/core';
-import { lastValueFrom } from 'rxjs';
+import { User } from './../../../../core/Models';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-main-page',

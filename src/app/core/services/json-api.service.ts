@@ -8,35 +8,34 @@ import { Observable } from 'rxjs';
 })
 export class JsonApiService {
 
-  //todo: Cambiar nombre urlUser
-  private urlBaseUser = " http://localhost:3000";
+
+  private urlUser = " http://localhost:3000";
   private urlWallet = "http://localhost:3000/wallet"
   private urlTransaccion = "http://localhost:3000/transaccion"
 
   constructor(private http: HttpClient) { }
 
-  //todo: Cambiar por getAllUsers()
-  getLogApi(): Observable<User[]>{
-    return this.http.get<User[]>(`${this.urlBaseUser}/users`);
+  getAllUsers(): Observable<User[]>{
+    return this.http.get<User[]>(`${this.urlUser}/users`);
   }
 
   getuserToAuth(email: string, password:string):Observable<User[]>{
-    return this.http.get<User[]>(`${this.urlBaseUser}/users?email=${email}&password=${password}`);
+    return this.http.get<User[]>(`${this.urlUser}/users?email=${email}&password=${password}`);
   }
 
   addUser(user: User) : Observable<boolean>{
-    return this.http.post<boolean>(`${this.urlBaseUser}/users`, user);
+    return this.http.post<boolean>(`${this.urlUser}/users`, user);
   }
 
   existUser(email: string, document: string) : Observable<boolean>{
-    return this.http.get<boolean>(`${this.urlBaseUser}/users?email=${email}&document=${document}`);
+    return this.http.get<boolean>(`${this.urlUser}/users?email=${email}&document=${document}`);
   }
 
   updateUser(user:User) : Observable<User>{
 
     if(!user.id) throw Error('Error al updatear el usuario');
 
-    return this.http.patch<User>(`${this.urlBaseUser}/users/${user.id}`, user)
+    return this.http.patch<User>(`${this.urlUser}/users/${user.id}`, user)
   }
 
 
