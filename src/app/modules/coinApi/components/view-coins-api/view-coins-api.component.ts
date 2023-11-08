@@ -65,9 +65,11 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
       this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
   
       if(this.user.isLoged){
+        this.mostrarMas = true;
         this.userIsLoged = true;
         
       }else{
+
         this.userIsLoged = false;
       }
   

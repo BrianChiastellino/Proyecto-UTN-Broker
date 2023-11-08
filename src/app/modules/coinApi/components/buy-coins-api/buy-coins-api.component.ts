@@ -15,6 +15,7 @@ export class BuyCoinsApiComponent implements OnChanges{
     console.log('Desde buy',this.coinSelected);
     this.coinCompra = this.coinSelected;
     console.log('Desde el this', this.coinCompra);
+
   }
 
 
