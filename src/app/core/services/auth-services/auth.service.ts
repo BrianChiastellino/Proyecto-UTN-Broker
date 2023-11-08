@@ -9,6 +9,7 @@ import { JsonApiService } from '../json-api.service';
 
 export class AuthService {
 
+
   constructor(private jsonApiService: JsonApiService ) { }
 
   public async checkLog(email: string, password: string) {
@@ -23,7 +24,8 @@ export class AuthService {
 
       if (user.length == 1){
         user[0].isLoged = true;
-        sessionStorage.setItem('userLoged', JSON.stringify(user[0]))
+        sessionStorage.setItem('userLoged', JSON.stringify(user[0]));
+        localStorage.setItem('loginOn', user[0].isLoged.toString());
       }
 
     } catch (error) {

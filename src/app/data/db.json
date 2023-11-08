@@ -7,6 +7,14 @@
       "isLoged": false,
       "name": "Brian",
       "document": "41853675"
+    },
+    {
+      "id": 2,
+      "email": "tom@gmail.com",
+      "password": "123",
+      "isLoged": false,
+      "name": "tomas alberto",
+      "document": "41746338"
     }
   ],
   "wallet": [],

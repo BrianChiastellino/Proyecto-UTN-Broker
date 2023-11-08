@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { CoinApi } from 'src/app/core/Models';
+import { CoinApi, User } from 'src/app/core/Models';
 
 @Component({
   selector: 'app-view-coins-api',
@@ -8,7 +8,7 @@ import { CoinApi } from 'src/app/core/Models';
   styleUrls: ['./view-coins-api.component.css']
 })
 
-export class ViewCoinsApiComponent implements OnChanges {
+export class ViewCoinsApiComponent implements OnChanges, OnInit {
 
   @Input() coinsView: Array<CoinApi> = [];
   @Output () coinBuy = new EventEmitter<CoinApi>;
@@ -18,7 +18,12 @@ export class ViewCoinsApiComponent implements OnChanges {
   coinToSearch: string = '';
   mostrarMas: boolean = false;
 
-  userIsLoged: boolean = true;
+  userIsLoged: boolean = false;
+  user!: User;
+
+  ngOnInit(): void {
+    
+  }
 
 
   constructor(private router: Router){ }
@@ -27,6 +32,8 @@ export class ViewCoinsApiComponent implements OnChanges {
   //!Si no se hace este metodo  'coins2' seria null y no funcionaria el filtrado de busqueda.
   ngOnChanges(changes: SimpleChanges): void {
     this.coinsFiltred = [...this.coinsView]
+    this.loginOn()
+
   }
 
   public coinToBuy (coin: CoinApi){
@@ -35,8 +42,11 @@ export class ViewCoinsApiComponent implements OnChanges {
   }
 
   public verMas(): void {
-    this.router.navigate(['/main']);
-    this.mostrarMas = true;
+    if(this.userIsLoged === true){
+      this.router.navigate(['/main']);
+    }else{
+      this.router.navigate(['/login']);
+    }
 
   }
 
@@ -46,5 +56,45 @@ export class ViewCoinsApiComponent implements OnChanges {
       c.symbol.toLowerCase().includes(this.coinToSearch.toLowerCase())
     );
   }
+  public loginOn(){
+    const userData = sessionStorage.getItem('userLoged');
+  
+    if(userData) {
+      this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+  
+      if(this.user.isLoged){
+        this.userIsLoged = true;
+        
+      }else{
+        this.userIsLoged = false;
+      }
+  
+  
+    }
+   
+  } 
+
+
+
+ 
 
 }
+
+/* si necesitamos todo el usuario esta es la forma sino solo el logued
+public loginOn(){
+  const userData = sessionStorage.getItem('userLoged');
+
+  if(userData) {
+    this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+
+    if(this.user.isLoged){
+      this.userIsLoged = true;
+      
+    }else{
+      this.userIsLoged = false;
+    }
+
+
+  }
+ 
+} */

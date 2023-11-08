@@ -2,14 +2,16 @@
 <div class="sidebar" *ngIf="sideBarOn" >
     <ul>
         <li class="sidebar-link" (click)="goTohome()" >Home</li>
-        <br>
-        <li class="sidebar-link" (click)=" goToLogin()" >Iniciar sesion</li>
-        <br>
-        <li class="sidebar-link" (click)="goToRegister()">Registrarme</li>
+        <br *ngIf="!loginOnSideBar" >
+        <li class="sidebar-link" *ngIf="!loginOnSideBar" (click)=" goToLogin()" >Iniciar sesion</li>
+        <br *ngIf="!loginOnSideBar"  >
+        <li class="sidebar-link" *ngIf="!loginOnSideBar"  (click)="goToRegister()">Registrarme</li>
         <br>
         <li  class="sidebar-link"  >Proximamente</li>
         <br>
         <li class="sidebar-link" >Contacto</li>
+        <br *ngIf="loginOnSideBar">
+        <li class="sidebar-link" *ngIf="loginOnSideBar" (click)=" cerrarSesion()" >Cerrar sesion</li>
     </ul>
 
 </div>

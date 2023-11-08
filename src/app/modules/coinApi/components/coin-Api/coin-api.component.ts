@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { CoinApi } from 'src/app/core/Models';
+import { CoinApi, User } from 'src/app/core/Models';
 import { CoinApiService } from '../../services/coin-api.service';
 
 @Component({
@@ -12,12 +12,19 @@ export class CoinsApiComponent implements OnInit {
 
   allCoins: Array<CoinApi> = [];
   coin!: CoinApi;
+  
+
+
+
 
 
   constructor(private coinApiService: CoinApiService) { }
 
   ngOnInit(): void {
     this.coinApiService.getAllGoins().then((c) => this.allCoins = c.slice())
+
+
+    
 
   }
 
@@ -35,6 +42,8 @@ export class CoinsApiComponent implements OnInit {
     this.coin = coin;
     console.log('Desde coinapp',this.coin)
   }
+
+
 
 
 

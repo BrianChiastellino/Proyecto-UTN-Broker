@@ -7,9 +7,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  loginOnSideBar : boolean = false;
 
   constructor(private router: Router) { }
   ngOnInit(): void {
+    this.viewSideBarItems();
 
   }
 
@@ -30,6 +32,20 @@ export class NavBarComponent implements OnInit {
 
   goToLogin() {
     this.router.navigate(['/login']);
+  }
+
+  cerrarSesion(){
+    sessionStorage.clear();
+    localStorage.clear();
+    this.router.navigate(['/landing']);
+
+  }
+  public viewSideBarItems(){
+    const loginOn = localStorage.getItem('loginOn');
+   if (loginOn === 'true') {
+       this.loginOnSideBar = true;
+   console.log('El usuario está conectado');
+     }
   }
 
 }
