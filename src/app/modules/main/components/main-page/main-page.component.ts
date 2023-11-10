@@ -1,4 +1,5 @@
-import { User } from './../../../../core/Models';
+import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
+import { CoinApi, User } from './../../../../core/Models';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,16 +9,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainPageComponent implements OnInit {
 
-   user!: User;
+  userLoged!: User;
+  allCoins: Array<CoinApi> = []
+  coin!: CoinApi;
 
+  constructor(private coinApiService: CoinApiService) { }
 
-
-
-  // constructor(private userApi: UserApiService){}
-
-   ngOnInit(): void {
-     this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+  ngOnInit(): void {
+    this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+    this.getAllCoins();
   }
+
+  //!Hay un límite de 30 solicitudes por minuto a la API pública.
+  public updateViewCoins(): void {
+    this.getAllCoins();
+    alert('Se actualizo la lista');
+  }
+
+  public getAllCoins(): void {
+    this.coinApiService.getAllGoins().then((c) => this.allCoins = c.slice())
+  }
+
+  public enviarCoin(coin: CoinApi){
+    this.coin = coin;
+    console.log('Desde MAIN',this.coin)
+  }
+
+
+
+
+
+
+
+
+
+
 
   // probar () {
   //   this.user.myWallet.idUser = this.user.id;

@@ -2,7 +2,7 @@
 .table-container {
 
   display: flex; /* Utilizamos flexbox para alinear los elementos */
-  justify-content: flex-end; /* Alinea los elementos al final del contenedor */
+  justify-content: center; /* Alinea los elementos al final del contenedor */
 
 
   max-height: 300px;
@@ -13,11 +13,11 @@
 
 /* Estilos para la tabla */
 table {
-  width: 50%;
+  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
 }
-/* /* 
+/* /*
 estilos para barra lateral
 /* Estilos para la barra de desplazamiento en WebKit */
 .table-container::-webkit-scrollbar {
@@ -99,13 +99,13 @@ button:disabled {
 
 }
 .full-width-input {
- right: 50;
-  text-align: right; /* Texto alineado a la derecha dentro del input */
+  justify-content: center;
+  text-align: center;
+   /* Texto alineado a la derecha dentro del input */
 }
 /* Estilos para el input de búsqueda */
 .search-input {
-  width: 20%;
-  margin-right: 400px;
+  width: 50%;
   padding: 10px; /* Espaciado interno */
   border: 2px solid #ccc; /* Borde con color de fondo */
   border-radius: 20px; /* Borde redondeado */
@@ -133,5 +133,7 @@ button:disabled {
 
 /* Alinea el texto del input a la izquierda para que el icono esté a la derecha */
 .search-input::placeholder {
-  text-align: left;
+  text-align: center;
 }
+
+

@@ -21,8 +21,10 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
   userIsLoged: boolean = false;
   user!: User;
 
+
+
   ngOnInit(): void {
-    
+
   }
 
 
@@ -33,6 +35,10 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
   ngOnChanges(changes: SimpleChanges): void {
     this.coinsFiltred = [...this.coinsView]
     this.loginOn()
+
+  }
+
+  mostrarMenuCompra() : void {
 
   }
 
@@ -60,27 +66,26 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
   }
   public loginOn(){
     const userData = sessionStorage.getItem('userLoged');
-  
+
     if(userData) {
       this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
-  
+
       if(this.user.isLoged){
         this.mostrarMas = true;
         this.userIsLoged = true;
-        
-      }else{
 
+      }else{
         this.userIsLoged = false;
       }
-  
-  
+
+
     }
-   
-  } 
+
+  }
 
 
 
- 
+
 
 }
 
@@ -93,12 +98,12 @@ public loginOn(){
 
     if(this.user.isLoged){
       this.userIsLoged = true;
-      
+
     }else{
       this.userIsLoged = false;
     }
 
 
   }
- 
+
 } */

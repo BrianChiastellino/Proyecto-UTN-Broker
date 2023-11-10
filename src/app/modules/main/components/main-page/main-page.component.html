@@ -3,21 +3,9 @@
 <br>
 <br>
 <h1>Main-Page</h1>
-<h2> {{user.name}} </h2>
-<h2> {{user.isLoged}} </h2>
+<h2> {{userLoged.name}} </h2>
+<h2> {{userLoged.isLoged}} </h2>
 
-<!-- <br>
-<br>
-<span>Bienvenido {{ user.email }}  y {{ user.name }}</span>
-
-
-<span>tu Wallet id  {{ user.myWallet.idWallet }}</span>
-
-
-
-<p>Crear tu wallet</p>
-<button (click)="probar()">Crear wallet</button>
-
-<button (click)="comprarCoin()">Comprarcoion</button> -->
-
-<app-coin-api></app-coin-api>
+<!-- <button (click)="updateViewCoins()" >Actualizar criptomonedas</button> -->
+<app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"></app-view-coins-api>
+<!-- <app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api> -->
