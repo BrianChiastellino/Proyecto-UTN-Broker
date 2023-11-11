@@ -1,5 +1,11 @@
-<h1 *ngIf="coinSelected">{{ coinSelected.id }}</h1>
-
-
-
-
+<div *ngIf="coinSelected" class="buy-form-container">
+   
+    <h1 *ngIf="coinSelected" class="form-title">{{ coinSelected.id }}</h1>
+    <form [ngClass]="{'show-form': showForm}">
+        <label for="cantidad">Cantidad que desea comprar</label>
+        <input type="number">
+        <br>
+        <label for="cantidad">Pesos</label>
+        <input type="text">
+    </form>
+</div>

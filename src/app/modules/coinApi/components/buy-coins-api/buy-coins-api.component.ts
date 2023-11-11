@@ -11,15 +11,23 @@ export class BuyCoinsApiComponent implements OnChanges{
 
   coinCompra!: CoinApi;
   @Input() coinSelected!: CoinApi;
-
+  showForm = false;
 
   ngOnChanges(changes: SimpleChanges): void {
     console.log('Desde buy',this.coinSelected);
     this.coinCompra = this.coinSelected;
     console.log('Desde el this', this.coinCompra);
+    this.toggleForm()
   }
 
 
+
+  toggleForm() {
+    if(this.coinSelected){
+
+      this.showForm = true;
+    }
+  }
 
 
 
