@@ -1,0 +1,33 @@
+<app-nav-bar></app-nav-bar>
+
+ <div class="wallet-container">
+
+  <h1 class="titulo">MI WALLET</h1>
+
+  <div *ngIf="!existWallet" class="create-wallet">
+    <button (click)="createWallet()">CREAR WALLET</button>
+  </div>
+
+  <div class="fondos-container" *ngIf="existWallet">
+
+    <div class="fondos-info">
+      <span>TUS FONDOS: {{ currentWallet.fondos | currency:'USD':'symbol':'1.2-2' }}</span>
+
+      <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <label for="monto">Monto:</label>
+        <input type="number" id="monto" name="monto" [(ngModel)]="monto" required>
+
+        <button type="button" (click)="depositarFondos()">DEPOSITAR FONDOS</button>
+        <button type="button" (click)="retirarFondos()">RETIRAR FONDOS</button>
+      </form>
+    </div>
+
+  </div>
+
+  <div class="info-wallet" *ngIf="existWallet">
+    <span>Numero de identificación: {{ currentWallet.id }}</span>
+    <span>Cantidad de coins: {{ currentWallet.coins.length }}</span>
+  </div>
+
+</div>
+

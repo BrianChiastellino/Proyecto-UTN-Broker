@@ -54,7 +54,7 @@
 
 }
 .register-button {
-    background-color: #58AFFF; 
+    background-color: #58AFFF;
     color: #FFFFFF;
     padding: 10px 20px;
     border: none;
@@ -76,7 +76,7 @@
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
   }
-  
+
   .register-link:hover {
     color: #ff5500; /* Cambia el color del texto al pasar el cursor sobre el enlace */
   }
@@ -85,3 +85,4 @@
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
 }
+

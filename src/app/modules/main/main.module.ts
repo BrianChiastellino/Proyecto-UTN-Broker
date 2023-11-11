@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { SharedModule } from "../../shared/shared.module";
 import { CoinApiModule } from '../coinApi/coin-api.module';
+import { WalletComponent } from './components/wallet/wallet.component';
+import { MainRoutingModule } from './main-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -10,11 +13,15 @@ import { CoinApiModule } from '../coinApi/coin-api.module';
 @NgModule({
     declarations: [
         MainPageComponent,
+        WalletComponent,
     ],
     imports: [
         CommonModule,
         CoinApiModule,
-        SharedModule
+        SharedModule,
+        MainRoutingModule,
+        FormsModule,
+        ReactiveFormsModule
     ]
 })
 export class MainModule { }
