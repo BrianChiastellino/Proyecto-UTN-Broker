@@ -1,11 +1,25 @@
-<div *ngIf="coinSelected" class="buy-form-container">
-   
-    <h1 *ngIf="coinSelected" class="form-title">{{ coinSelected.id }}</h1>
-    <form [ngClass]="{'show-form': showForm}">
-        <label for="cantidad">Cantidad que desea comprar</label>
-        <input type="number">
-        <br>
-        <label for="cantidad">Pesos</label>
-        <input type="text">
-    </form>
-</div>
+<form *ngIf="coinSelected" [ngClass]="{'show-form': showForm}">
+    <h1 *ngIf="coinSelected" class="form-title">{{ coinSelected.name }}</h1>
+
+    <label for="cantidad">Cantidad que desea comprar</label>
+    <input type="number" id="cantidad" name="cantidad" [(ngModel)]="cantidad" (input)="calcularPrecio()">
+
+    
+    <div *ngIf="coinSelected">
+      {{ coinSelected.name }} : $ {{ coinSelected.current_price }} <!-- Ajusta según la propiedad real que contiene el precio -->
+    </div>
+    
+    <br>
+    
+    <label for="Pesos">Pesos</label>
+    <input type="number" id="pesos" name="pesos" [(ngModel)]="pesos" (input)="calcularCompra()" >
+    <div *ngIf="valorCompra > 0">
+
+        <h2> {{valorCompra}} </h2>
+    </div>
+    <div *ngIf="valorCompraPesos > 0">
+        <h3>Puedes comprar aproximadamente {{ cantidad | number:'1.2-2' }} unidades de {{ coinSelected.name }} con ${{ pesos | number:'1.2-2' }}.</h3>
+      </div>
+  </form>
+  
+  

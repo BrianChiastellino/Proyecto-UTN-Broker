@@ -19,6 +19,9 @@ form {
   width: 300px; /* Ancho del formulario */
   transform: translateY(100%); /* Estado inicial fuera de la pantalla */
   transition: transform 0.5s ease-in-out; /* Transición para la animación */
+      font-family: 'Kanit', sans-serif;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
 }
 
 label {
@@ -37,3 +40,8 @@ input {
 }
 
 /* Otros estilos según tus preferencias */
+h1{
+  font-family: 'Kanit', sans-serif;
+  font-family: 'Red Hat Display', sans-serif;
+  font-weight: 700;
+}
