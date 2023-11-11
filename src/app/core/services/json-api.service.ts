@@ -10,8 +10,6 @@ export class JsonApiService {
 
 
   private urlUser = " http://localhost:3000";
-  private urlWallet = "http://localhost:3000/wallet"
-  private urlTransaccion = "http://localhost:3000/transaccion"
 
   constructor(private http: HttpClient) { }
 
@@ -38,21 +36,7 @@ export class JsonApiService {
     return this.http.patch<User>(`${this.urlUser}/users/${user.id}`, user)
   }
 
-  getAllWallets () : Observable<Wallet[]>{
-    return this.http.get<Wallet[]>(`${this.urlWallet}`);
-  }
 
-  addWallet (wallet: Wallet) : Observable<boolean>{
-    return this.http.post<boolean>(`${this.urlWallet}`, wallet);
-  }
-
-  getAllTransacciones () : Observable<Transaccion[]>{
-    return this.http.get<Transaccion[]>(`${this.urlTransaccion}`);
-  }
-
-  addTransaccion (transaccion: Transaccion) : Observable<boolean>{
-    return this.http.post<boolean>(`${this.urlTransaccion}`,transaccion)
-  }
 
 
 

@@ -10,7 +10,7 @@ import { JsonApiService } from '../json-api.service';
 export class AuthService {
 
 
-  constructor(private jsonApiService: JsonApiService ) { }
+  constructor(private jsonApiService: JsonApiService) { }
 
   public async checkLog(email: string, password: string) {
 
@@ -22,7 +22,7 @@ export class AuthService {
 
       user = await lastValueFrom(apiResponse);
 
-      if (user.length == 1){
+      if (user.length == 1) {
         user[0].isLoged = true;
         sessionStorage.setItem('userLoged', JSON.stringify(user[0]));
         localStorage.setItem('loginOn', user[0].isLoged.toString());
@@ -75,5 +75,9 @@ export class AuthService {
         // alert('Erro en registrar')
       }
     })
+  }
+
+  public checkSesionUser(): boolean {
+    return sessionStorage.getItem('userLoged') ? true : false
   }
 }

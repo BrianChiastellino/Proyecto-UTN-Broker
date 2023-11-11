@@ -22,25 +22,34 @@ export interface IUser {
 
 export interface IWallet {
 
-  idWallet: number | null;
+  id: number | null;
   idUser: number | null;
+  fondos: number
   coins: ICoin[];
 
 }
 
 export interface ICoin {
 
-  idCoin: string | null;
+  id: string | null;
   coinAmount: number | null;
 
 }
 
 export interface ITransaccion {
 
+  id: number | null;
   idUser: number | null;
   idCoin: string | null;
   coinAmount: number;
-  fechaCompra: string;
+  tipoTransaccion: string;
+  fecha: string;
 
+}
 
+export interface IComentario {
+
+  id: number | null;
+  detalle: string;
+  fecha: string;
 }

@@ -1,4 +1,4 @@
-import {ICoinApi, ICoin, IUser, IWallet, ITransaccion } from "./Interfaces";
+import { ICoinApi, ICoin, IUser, IWallet, ITransaccion, IComentario } from "./Interfaces";
 
 export class CoinApi implements ICoinApi {
 
@@ -50,45 +50,65 @@ export class User implements IUser {
 
 export class Wallet implements IWallet {
 
-  idWallet: number | null;
+  id: number | null = 0;
   idUser: number | null;
+  fondos: number;
   coins: Coin[];
 
   constructor(wallet?: any) {
 
-    this.idWallet = wallet == undefined ? null : wallet.idWallet;
+    this.id = wallet == undefined ? 0 : wallet.id;
     this.idUser = wallet == undefined ? null : wallet.idUser;
-    this.coins = wallet == undefined ? [] : wallet.myCoins.slice();
+    this.fondos = wallet == undefined ? 0 : wallet.fondos;
+    this.coins = wallet == undefined ? [] : wallet.coins;
 
   }
 }
 
 export class Coin implements ICoin {
 
-  idCoin: string | null;
+  id: string | null;
   coinAmount: number;
 
   constructor(coin?: any) {
-    this.idCoin = coin == undefined ? null : coin.idCoin;
+    this.id = coin == undefined ? null : coin.id;
     this.coinAmount = coin == undefined ? null : coin.coinAmount;
   }
 
 }
 
-export class Transaccion implements ITransaccion{
+export class Transaccion implements ITransaccion {
 
+  id: number | null = 0;
   idUser: number | null;
   idCoin: string | null;
   coinAmount: number;
-  fechaCompra: string;
+  tipoTransaccion: string; //Si es venta o compra.
+  fecha: string;
 
   constructor(transaccion?: any) {
 
+    this.id = transaccion == undefined ? 0 : transaccion.id;
     this.idUser = transaccion == undefined ? null : transaccion.idUser;
     this.idCoin = transaccion == undefined ? null : transaccion.idCoin;
     this.coinAmount = transaccion == undefined ? 0 : transaccion.coinAmount;
-    this.fechaCompra = transaccion == undefined ? '' : transaccion.fechaCompra;
+    this.tipoTransaccion = transaccion == undefined ? '' : transaccion.tipoTransaccion;
+    this.fecha = transaccion == undefined ? '' : transaccion.fechaCompra;
 
   }
+
+}
+
+export class Comentario implements IComentario{
+  id: number | null = null;
+  detalle: string;
+  fecha: string;
+
+  constructor(comentario?:any){
+    this.id = comentario == undefined ? 0 : comentario.id;
+    this.detalle = comentario == undefined ? '' : comentario.detalle;
+    this.fecha = comentario == undefined ? '' : comentario.fecha;
+  }
+
 
 }

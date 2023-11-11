@@ -17,6 +17,40 @@
       "document": "41746338"
     }
   ],
-  "wallet": [],
-  "transaccion": []
+  "wallet": [
+    {
+      "id": 1,
+      "idUser": 1,
+      "fondos": 0,
+      "coins": []
+    }
+  ],
+  "transaccion": [],
+  "comentarios": [
+    {
+      "id": 1,
+      "detalle": "¡Increíble experiencia! La plataforma de UTN-Broker me ha permitido diversificar mi cartera de criptomonedas de manera fácil y segura. Muy recomendado.",
+      "fecha": "2023-11-10"
+    },
+    {
+      "id": 2,
+      "detalle": "No puedo creer lo sencillo que es operar en UTN-Broker. La interfaz es amigable y las opciones de trading son excelentes. Mis inversiones han dado buenos resultados.",
+      "fecha": "2023-11-09"
+    },
+    {
+      "id": 3,
+      "detalle": "¡5 estrellas! UTN-Broker me ha ayudado a comprender el mercado de criptomonedas y a tomar decisiones financieras informadas. Estoy muy contento con los resultados.",
+      "fecha": "2023-11-08"
+    },
+    {
+      "id": 4,
+      "detalle": "Operar en UTN-Broker es como tener un asesor financiero personal. Las funciones de depósito y retiro son rápidas y seguras. ¡Muy impresionado!",
+      "fecha": "2023-11-07"
+    },
+    {
+      "id": 5,
+      "detalle": "Me encanta la variedad de criptomonedas disponibles en UTN-Broker. He descubierto nuevas oportunidades de inversión y estoy emocionado por el potencial de crecimiento.",
+      "fecha": "2023-11-06"
+    }
+  ]
 }

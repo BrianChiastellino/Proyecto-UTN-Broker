@@ -1,17 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { LandingRoutingModule } from './landing-routing.module';
 import { CoinApiModule } from '../coinApi/coin-api.module';
+import { LandingPageComponent } from './components/landing-page/landing-page.component';
+import { SharedModule } from 'src/app/shared/shared.module';
+
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    LandingPageComponent,
+
+  ],
   imports: [
     CommonModule,
-    LandingRoutingModule,
-    CoinApiModule
-  ]
+    CoinApiModule,
+    SharedModule,
+  ],
+
+
 })
 export class LandingModule { }

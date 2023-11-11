@@ -2,6 +2,7 @@ import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.servic
 import { CoinApi, User } from './../../../../core/Models';
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
@@ -34,6 +35,7 @@ export class MainPageComponent implements OnInit {
     this.coin = coin;
     console.log('Desde MAIN',this.coin)
   }
+
 
 
 

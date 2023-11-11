@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/core/Models';
 
 @Component({
   selector: 'app-nav-bar',
@@ -7,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
-  loginOnSideBar : boolean = false;
+  loginOnSideBar: boolean = false;
+  userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
 
   constructor(private router: Router) { }
   ngOnInit(): void {
@@ -20,10 +22,9 @@ export class NavBarComponent implements OnInit {
   viewSideBar() {
     this.sideBarOn = !this.sideBarOn;
   }
-  
-  goTohome() {
-    this.router.navigate(['/landing']);
 
+  goToHome() {
+    this.loginOnSideBar ? this.router.navigate(['/main']) : this.router.navigate(['/landing']);
   }
 
   goToRegister() {
@@ -34,18 +35,22 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  cerrarSesion(){
+  goToMyWallet(){
+    this.router.navigate(['main/myWallet']);
+  }
+
+  cerrarSesion() {
     sessionStorage.clear();
     localStorage.clear();
     this.router.navigate(['/landing']);
-
   }
-  public viewSideBarItems(){
+
+  public viewSideBarItems() {
     const loginOn = localStorage.getItem('loginOn');
-   if (loginOn === 'true') {
-       this.loginOnSideBar = true;
-   console.log('El usuario está conectado');
-     }
+    if (loginOn == 'true') {
+      this.loginOnSideBar = true;
+      console.log('El usuario está conectado');
+    }
   }
 
 }

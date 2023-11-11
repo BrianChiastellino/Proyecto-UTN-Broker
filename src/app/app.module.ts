@@ -7,9 +7,7 @@ import {MatDialogModule} from '@angular/material/dialog'
 
 
 import { AppComponent } from './app.component';
-import { LoginComponent } from './modules/auth/login/login.component';
-import { RegistroComponent } from './modules/auth/registro/registro.component';
-import { LandingPageComponent } from './modules/landing/landing-page.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared/shared.module';
@@ -17,12 +15,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoinApiModule } from './modules/coinApi/coin-api.module';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegistroComponent,
-    LandingPageComponent,
 
   ],
   imports: [
@@ -34,10 +30,9 @@ import { CoinApiModule } from './modules/coinApi/coin-api.module';
     SharedModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
   ],
-  providers: [],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
