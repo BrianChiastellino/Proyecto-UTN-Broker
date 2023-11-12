@@ -101,14 +101,17 @@ export class Transaccion implements ITransaccion {
 
 export class Comentario implements IComentario{
   id: number | null = null;
-  detalle: string;
-  fecha: string;
+  detalle: string = '';
+  fecha: string = '';
 
-  constructor(comentario?:any){
-    this.id = comentario == undefined ? 0 : comentario.id;
-    this.detalle = comentario == undefined ? '' : comentario.detalle;
-    this.fecha = comentario == undefined ? '' : comentario.fecha;
-  }
+  constructor(comentario?: IComentario) {
+    if (comentario) {
+      this.id = comentario.id !== undefined ? comentario.id : null;
+      this.detalle = comentario.detalle !== undefined ? comentario.detalle : '';
+      this.fecha = comentario.fecha !== undefined ? comentario.fecha : '';
+    }
+    
+    }
 
 
 }

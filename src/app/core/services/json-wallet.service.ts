@@ -26,6 +26,10 @@ export class JsonWalletService {
 
     return this.http.patch<Wallet>(`${this.urlWallet}/${wallet.id}`, wallet)
   }
+  getWalletByIdUser(idUser: number): Observable<Wallet> {
+    return this.http.get<Wallet>(`${this.urlWallet}?idUser=${idUser}`);
+  }
+  
 
 
 }

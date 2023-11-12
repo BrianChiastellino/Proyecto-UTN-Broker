@@ -4,6 +4,8 @@
     <li class="sidebar-link" (click)="goToHome()">Home</li>
     <br *ngIf="loginOnSideBar">
     <li class="sidebar-link" *ngIf="loginOnSideBar" (click)=" goToMyWallet()">Mi wallet</li>
+    <br *ngIf="loginOnSideBar">
+    <li class="sidebar-link" *ngIf="loginOnSideBar" (click)="goToMarket()">Market</li>
     <br *ngIf="!loginOnSideBar">
     <li class="sidebar-link" *ngIf="!loginOnSideBar" (click)=" goToLogin()">Iniciar sesion</li>
     <br *ngIf="!loginOnSideBar">

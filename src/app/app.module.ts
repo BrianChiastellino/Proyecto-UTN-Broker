@@ -13,6 +13,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoinApiModule } from './modules/coinApi/coin-api.module';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { CarouselConfig } from 'ngx-bootstrap/carousel';
+
 
 
 
@@ -31,8 +34,11 @@ import { CoinApiModule } from './modules/coinApi/coin-api.module';
     MatDialogModule,
     FormsModule,
     ReactiveFormsModule,
+    CarouselModule.forRoot(),
+    
   ],
 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [{ provide: CarouselConfig, useValue: { interval: 5000, noPause: false, showIndicators: true } }]
 })
 export class AppModule { }

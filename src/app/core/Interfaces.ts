@@ -48,7 +48,6 @@ export interface ITransaccion {
 }
 
 export interface IComentario {
-
   id: number | null;
   detalle: string;
   fecha: string;

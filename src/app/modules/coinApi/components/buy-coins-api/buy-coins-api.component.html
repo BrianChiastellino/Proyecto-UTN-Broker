@@ -1,4 +1,5 @@
-<form *ngIf="coinSelected" [ngClass]="{'show-form': showForm}">
+<form  *ngIf="coinSelected" [ngClass]="{'show-form': showForm}">
+  <button type="submit" (click)="cargaWallet()">Cargar checkWallet</button>
     <h1 *ngIf="coinSelected" class="form-title">{{ coinSelected.name }}</h1>
 
     <label for="cantidad">Cantidad que desea comprar</label>
@@ -12,7 +13,11 @@
     <br>
     
     <label for="Pesos">Pesos</label>
-    <input type="number" id="pesos" name="pesos" [(ngModel)]="pesos" (input)="calcularCompra()" >
+    <input type="number" id="pesos" name="pesos" [(ngModel)]="pesos" placeholder="{{ walletLog.fondos }}" (input)="calcularCompra()">
+    <div *ngIf="walletLog">
+      <p>Fondos actuales: {{ walletLog.fondos}}</p>
+    </div>
+
     <div *ngIf="valorCompra > 0">
 
         <h2> {{valorCompra}} </h2>
@@ -22,4 +27,4 @@
       </div>
   </form>
   
-  
+  <h2>{{walletLog}} </h2>

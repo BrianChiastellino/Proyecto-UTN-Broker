@@ -35,6 +35,7 @@ export class MainPageComponent implements OnInit {
     this.coin = coin;
     console.log('Desde MAIN',this.coin)
   }
+  
 
 
 

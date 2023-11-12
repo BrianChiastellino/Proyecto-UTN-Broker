@@ -58,4 +58,34 @@ export class WalletService {
     return resp;
 
   }
+  public async getWalletByIdUser(idUser: number): Promise<Wallet | null> {
+    let wallet! : Wallet;
+    try {
+      
+      let walletResponse = this.wallet.getWalletByIdUser(idUser);
+      wallet = await lastValueFrom(walletResponse);
+      console.log(wallet);
+      sessionStorage.setItem('wallet', JSON.stringify(wallet));
+
+      
+      return wallet;
+
+    } catch (error) {
+      console.error('Error al obtener la billetera por idUser', error);
+      return null;
+    }
+  }
+  public cargarWalletDesdeSessionStorage() {
+    let walletString = sessionStorage.getItem('wallet');
+    if (walletString) {
+      let wallet = JSON.parse(walletString);
+      console.log('Wallet cargada desde sessionStorage:', wallet);
+  
+      // Usa la billetera como sea necesario
+    } else {
+      console.log('No hay información de billetera en el sessionStorage.');
+    }
+  }
+
+
 }

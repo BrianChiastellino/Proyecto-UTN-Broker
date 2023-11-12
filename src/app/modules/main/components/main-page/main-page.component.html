@@ -6,11 +6,10 @@
 <h2> {{userLoged.name}} </h2>
 <h2> {{userLoged.isLoged}} </h2>
 
-<!-- <button (click)="updateViewCoins()" >Actualizar criptomonedas</button> -->
-<app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"></app-view-coins-api>
-<<<<<<< HEAD
-<app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api>
-=======
-<!-- <app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api> -->
 
->>>>>>> 3f79a27af25640c845cc26d730e5aaa5e770f13f
+<app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"></app-view-coins-api>
+
+<app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api>
+
+
+

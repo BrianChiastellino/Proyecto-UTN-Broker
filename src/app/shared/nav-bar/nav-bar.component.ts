@@ -38,13 +38,15 @@ export class NavBarComponent implements OnInit {
   goToMyWallet(){
     this.router.navigate(['main/myWallet']);
   }
+  goToMarket(){
+    this.router.navigate(['main']);
+  }
 
   cerrarSesion() {
     sessionStorage.clear();
     localStorage.clear();
     this.router.navigate(['/landing']);
   }
-
   public viewSideBarItems() {
     const loginOn = localStorage.getItem('loginOn');
     if (loginOn == 'true') {

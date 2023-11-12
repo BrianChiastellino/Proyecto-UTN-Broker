@@ -85,3 +85,20 @@ label, input{
   .register-link:hover {
     color: #ff5500; /* Cambia el color del texto al pasar el cursor sobre el enlace */
   }
+/* Estilos para el contenedor de comentarios */
+.comentarios-container {
+    position: fixed;
+    top: 50%;
+    right: 300px;
+    transform: translateY(-47%);
+    width: 500px; /* Ajusta el ancho según tus preferencias */
+    height: 500px;
+    background-color: #FFFFFF;
+
+    border-radius: 8px;
+    padding: 10px;
+
+  }
+  
+  /* Estilos adicionales según necesidades */
+  

@@ -1,4 +1,4 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
 import { Coin, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from '../../services/wallet.service';
 
@@ -8,6 +8,10 @@ import { WalletService } from '../../services/wallet.service';
   styleUrls: ['./wallet.component.css']
 })
 export class WalletComponent implements OnInit {
+
+  @Output () walledLog = new EventEmitter<Wallet>;
+
+
 onSubmit() {
 throw new Error('Method not implemented.');
 }
@@ -35,6 +39,15 @@ throw new Error('Method not implemented.');
 
   public getCurrentWallet () {
     this.currentWallet = this.allWallets.find((w) => w.idUser = this.userLoged.id)!
+    sessionStorage.setItem('wallet', JSON.stringify(this.currentWallet));
+  
+    
+
+  }
+  public walletLogs (wallet: Wallet){
+    console.log('Desde wallet emit', wallet);
+    this.walledLog.emit(wallet);
+
   }
 
   public existeWallet () {
@@ -93,6 +106,8 @@ throw new Error('Method not implemented.');
     try {
       this.allWallets = ((await this.walletService.getAllWalletFromService()).slice());
       console.log(this.allWallets);
+      
+
       this.getCurrentWallet();
       this.existeWallet();
     } catch (error) {
@@ -109,6 +124,9 @@ throw new Error('Method not implemented.');
     }
   }
 
+  getWallet(): Wallet{
+    return this.currentWallet;
+  }
 
 
 }
