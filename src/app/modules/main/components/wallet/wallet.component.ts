@@ -38,10 +38,10 @@ throw new Error('Method not implemented.');
   }
 
   public getCurrentWallet () {
-    this.currentWallet = this.allWallets.find((w) => w.idUser = this.userLoged.id)!
+    this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
     sessionStorage.setItem('wallet', JSON.stringify(this.currentWallet));
-  
-    
+
+
 
   }
   public walletLogs (wallet: Wallet){
@@ -61,11 +61,11 @@ throw new Error('Method not implemented.');
 
       if (this.currentWallet != undefined && this.monto >= 100 ) {
         console.log(this.currentWallet)
-        this.currentWallet.fondos += this.monto;
-        const coin: Coin = new Coin();
-        coin.coinAmount = 10;
-        coin.id = 'bitcoin';
-        this.currentWallet.coins.push()
+        this.currentWallet.fondos! += this.monto;
+        // const coin: Coin = new Coin();
+        // coin.coinAmount = 10;
+        // coin.id = 'bitcoin';
+        // this.currentWallet.coins.push()
         this.updateWallet(this.currentWallet);
       }else{
         throw alert('Deposito minimo USD100')
@@ -85,8 +85,8 @@ throw new Error('Method not implemented.');
 
     try{
 
-      if(this.currentWallet != undefined && fondos >= this.monto){
-        this.currentWallet.fondos -= this.monto;
+      if(this.currentWallet != undefined && fondos! >= this.monto){
+        this.currentWallet.fondos! -= this.monto;
         this.updateWallet(this.currentWallet);
       }else{
         throw alert('Fondos insuficientes');
@@ -106,7 +106,7 @@ throw new Error('Method not implemented.');
     try {
       this.allWallets = ((await this.walletService.getAllWalletFromService()).slice());
       console.log(this.allWallets);
-      
+
 
       this.getCurrentWallet();
       this.existeWallet();
