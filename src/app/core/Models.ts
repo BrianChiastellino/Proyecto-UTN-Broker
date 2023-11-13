@@ -52,7 +52,7 @@ export class Wallet implements IWallet {
 
   id: number | null = 0;
   idUser: number | null;
-  fondos: number | null;
+  fondos: number;
   coins: Coin[];
 
   constructor(wallet?: any) {

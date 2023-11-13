@@ -24,7 +24,7 @@ export interface IWallet {
 
   id: number | null;
   idUser: number | null;
-  fondos: number
+  fondos: number;
   coins: ICoin[];
 
 }
