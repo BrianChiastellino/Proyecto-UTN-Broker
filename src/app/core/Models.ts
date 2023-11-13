@@ -52,7 +52,7 @@ export class Wallet implements IWallet {
 
   id: number | null = 0;
   idUser: number | null;
-  fondos: number;
+  fondos: number | null;
   coins: Coin[];
 
   constructor(wallet?: any) {
@@ -110,7 +110,7 @@ export class Comentario implements IComentario{
       this.detalle = comentario.detalle !== undefined ? comentario.detalle : '';
       this.fecha = comentario.fecha !== undefined ? comentario.fecha : '';
     }
-    
+
     }
 
 
