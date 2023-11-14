@@ -41,9 +41,8 @@ throw new Error('Method not implemented.');
     this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
     sessionStorage.setItem('wallet', JSON.stringify(this.currentWallet));
 
-
-
   }
+
   public walletLogs (wallet: Wallet){
     console.log('Desde wallet emit', wallet);
     this.walledLog.emit(wallet);
@@ -59,16 +58,16 @@ throw new Error('Method not implemented.');
 
     try {
 
-      if (this.currentWallet != undefined && this.monto >= 100 ) {
+      if (this.currentWallet != undefined && this.monto >= 50 ) {
         console.log(this.currentWallet)
         this.currentWallet.fondos! += this.monto;
-        // const coin: Coin = new Coin();
-        // coin.coinAmount = 10;
-        // coin.id = 'bitcoin';
-        // this.currentWallet.coins.push()
+        const coin: Coin = new Coin();
+        // coin.coinAmount = 60;
+        // coin.id = 'usdt';
+        // this.currentWallet.coins.push(coin);
         this.updateWallet(this.currentWallet);
       }else{
-        throw alert('Deposito minimo USD100')
+        throw alert('Deposito minimo USD50')
 
       }
     } catch (error) {

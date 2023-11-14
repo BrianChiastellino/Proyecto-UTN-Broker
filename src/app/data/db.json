@@ -20,9 +20,14 @@
   "wallet": [
     {
       "id": 1,
-      "idUser": 2,
+      "idUser": 1,
       "fondos": 300,
-      "coins": []
+      "coins": [
+        {
+          "id": "bitcoin",
+          "coinAmount": 0.008259229689177656
+        }
+      ]
     }
   ],
   "transaccion": [],
