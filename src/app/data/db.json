@@ -21,11 +21,23 @@
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 300,
+      "fondos": 0,
       "coins": [
         {
+          "id": "tether",
+          "coinAmount": 200.0678229919943
+        },
+        {
           "id": "bitcoin",
-          "coinAmount": 0.008259229689177656
+          "coinAmount": 0.0028302954828484093
+        },
+        {
+          "id": "ethereum",
+          "coinAmount": 0.1012889012686435
+        },
+        {
+          "id": "binancecoin",
+          "coinAmount": 0.4167013917826486
         }
       ]
     }

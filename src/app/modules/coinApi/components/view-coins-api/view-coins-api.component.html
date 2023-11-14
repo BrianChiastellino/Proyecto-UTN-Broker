@@ -32,7 +32,7 @@
           <td>${{ coin.current_price }}</td>
           <td>{{ coin.last_updated }}</td>
           <td *ngIf="userIsLoged"><button  (click)="coinToBuy(coin)" >Comprar</button></td>
-          <td *ngIf="userIsLoged"><button  >Vender</button></td>
+          <td *ngIf="userIsLoged"><button (click)="coinToSell(coin)" >Vender</button></td>
         </tr>
       </ng-container>
     </tbody>
@@ -43,10 +43,3 @@
   <button *ngIf="!userIsLoged" (click)="verMas()">Ver más</button>
 </div>
 
-<!-- https://github.com/FaztWeb/angular-coingecko-api/blob/master/src/app/app.component.html -->
-
-<!--
-
-
- */
- */ -->

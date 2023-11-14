@@ -34,7 +34,7 @@ export class WalletService {
 
     this.wallet.addWallet(wallet).subscribe({
       next: () => {
-        alert('La wallet se agrego')
+        // alert('La wallet se agrego')
       },
       error: () => {
         alert('Erro al añadir wallet')
@@ -61,13 +61,13 @@ export class WalletService {
   public async getWalletByIdUser(idUser: number): Promise<Wallet | null> {
     let wallet! : Wallet;
     try {
-      
+
       let walletResponse = this.wallet.getWalletByIdUser(idUser);
       wallet = await lastValueFrom(walletResponse);
       console.log(wallet);
       sessionStorage.setItem('wallet', JSON.stringify(wallet));
 
-      
+
       return wallet;
 
     } catch (error) {
@@ -80,7 +80,7 @@ export class WalletService {
     if (walletString) {
       let wallet = JSON.parse(walletString);
       console.log('Wallet cargada desde sessionStorage:', wallet);
-  
+
       // Usa la billetera como sea necesario
     } else {
       console.log('No hay información de billetera en el sessionStorage.');

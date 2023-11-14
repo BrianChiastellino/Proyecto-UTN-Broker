@@ -13,6 +13,7 @@ export class MainPageComponent implements OnInit {
   userLoged!: User;
   allCoins: Array<CoinApi> = []
   coin!: CoinApi;
+  coinToSell!: CoinApi;
 
   constructor(private coinApiService: CoinApiService) { }
 
@@ -35,57 +36,14 @@ export class MainPageComponent implements OnInit {
     this.coin = coin;
     console.log('Desde MAIN',this.coin)
   }
-  
+
+  public enviarCoinToSell(coin: CoinApi){
+    this.coinToSell = coin;
+  }
 
 
 
 
-
-
-
-
-
-
-
-
-  // probar () {
-  //   this.user.myWallet.idUser = this.user.id;
-  //   this.user.myWallet.idWallet = this.user.id! * 10;
-
-  //   console.log(this.user);
-
-  //   this.updateUser(this.user).then( u => alert('Se updateo la wallet'));
-  // }
-
-  // comprarCoin (){
-
-  //   const coinprueba: Coin = new Coin();
-
-  //   coinprueba.amount = 109;
-  //   coinprueba.idCoin = 'bitcoin';
-
-  //   this.user.myWallet.myCoins.push(coinprueba);
-  //   this.updateUser(this.user).then( u => alert('Se updateo la coin'));
-  // }
-
-  // async updateUser (user: User) : Promise<User | null>{
-
-  //   let resp: User | null = null;
-
-  //   try{
-
-  //     let apiResponse = this.userApi.updateUser(user);
-
-  //     resp = await lastValueFrom(apiResponse);
-
-
-  //   }catch(error){
-  //     console.error(error);
-  //   }
-
-  //   return resp;
-
-  // }
 
 
 

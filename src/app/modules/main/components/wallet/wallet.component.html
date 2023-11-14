@@ -1,12 +1,12 @@
 <app-header></app-header>
 
- <div class="wallet-container">
+<div class="wallet-container">
 
   <h1 class="titulo">MI WALLET</h1>
 
-  <div *ngIf="!existWallet" class="create-wallet">
+  <!-- <div *ngIf="!existWallet" class="create-wallet">
     <button (click)="createWallet()">CREAR WALLET</button>
-  </div>
+  </div> -->
 
   <div class="fondos-container" *ngIf="existWallet">
 
@@ -22,13 +22,30 @@
 
       </form>
     </div>
-
-  </div>
-
-  <div class="info-wallet" *ngIf="existWallet">
-    <span>Numero de identificación: {{ currentWallet.id }}</span>
-    <span>Cantidad de coins: {{ currentWallet.coins.length }}</span>
   </div>
 
 </div>
+
+<div class="info-wallet-container" *ngIf="existWallet">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Index</th>
+        <th>ID</th>
+        <th>Cantidad</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coin of currentWallet.coins; let i = index">
+        <td>{{ i + 1 }}</td>
+        <td>{{ coin.id }}</td>
+        <td>{{ coin.coinAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
 

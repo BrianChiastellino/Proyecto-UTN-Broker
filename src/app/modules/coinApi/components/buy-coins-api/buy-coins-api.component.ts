@@ -12,7 +12,8 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
   coinCompra!: CoinApi;
   @Input() coinSelected!: CoinApi;
-  @Input() walledLogue!: Wallet;
+  // @Input() walledLogue!: Wallet;
+
   showForm = true;
 
   userLoged!: User;
@@ -23,16 +24,12 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   valorCompra: number = 0;
   valorCompraPesos: number = 0;
 
-  constructor(private wallet: WalletService) {}
+  constructor(private wallet: WalletService) { }
 
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
     this.getWallets();
-
-
-
-
   }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -58,17 +55,43 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   }
 
 
-  public confirmarCompra (){
+  public confirmarCompra() {
 
     const coin: Coin = new Coin();
-    coin.id = this.coinSelected.id;
+    coin.id = this.coinSelected.id.toUpperCase();
     coin.coinAmount = this.cantidad;
-    this.walletLog.coins.push(coin);
+
+    this.walletLog.fondos < this.valorCompraPesos
+
+    const existe = this.existCoinInWallet(this.coinSelected.id);
+
+    if (existe) {
+
+      const index = this.walletLog.coins.findIndex((c) => c.id == this.coinSelected.id);
+      this.walletLog.coins[index].coinAmount += this.cantidad;
+    } else {
+      this.walletLog.coins.push(coin);
+    }
+
     this.walletLog.fondos -= this.valorCompraPesos;
-    console.log(this.walletLog);
+    // console.log(this.walletLog);
     this.updateWallet(this.walletLog);
 
   }
+
+  public existCoinInWallet(idCoin: string): boolean {
+    const existe: Coin | undefined = this.walletLog.coins.find((c) => c.id == idCoin);
+
+    if (existe != undefined) {
+      return true;
+    }
+    return false;
+  }
+
+
+
+  //! Tuvimos que implementar estos metodos de wallet aca, debido  que la wallet llegaba undefined
+  //! Optamos dejarlo asi debido al poco tiempo que tenemos.
 
   public async getWallets() {
 
@@ -79,8 +102,6 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       console.log(allWallets);
 
       this.walletLog = allWallets.find((w) => w.idUser == this.userLoged.id)!
-
-      console.log(this.walletLog.fondos)
 
     } catch (error) {
       console.error('Error al intentar obtener las wallets', error);

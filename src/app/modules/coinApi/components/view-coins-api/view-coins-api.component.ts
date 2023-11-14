@@ -12,6 +12,8 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
 
   @Input() coinsView: Array<CoinApi> = [];
   @Output () coinBuy = new EventEmitter<CoinApi>;
+  @Output () coinSell = new EventEmitter<CoinApi>;
+
 
   coinsFiltred: Array<CoinApi> = [];
 
@@ -43,8 +45,11 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
   }
 
   public coinToBuy (coin: CoinApi){
-    console.log('Desde buy', coin);
     this.coinBuy.emit(coin);
+  }
+
+  public coinToSell (coin: CoinApi){
+    this.coinSell.emit(coin);
   }
 
   public verMas(): void {

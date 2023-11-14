@@ -7,9 +7,10 @@
 <h2> {{userLoged.isLoged}} </h2>
 
 
-<app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"></app-view-coins-api>
+<app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins" (coinSell)="enviarCoinToSell($event)" ></app-view-coins-api>
 
 <app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api>
+<app-sell-coins [coinToSell]="coinToSell"></app-sell-coins>
 
 
 

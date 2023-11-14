@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Coin, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from '../../services/wallet.service';
 
@@ -9,7 +9,7 @@ import { WalletService } from '../../services/wallet.service';
 })
 export class WalletComponent implements OnInit {
 
-  @Output () walledLog = new EventEmitter<Wallet>;
+  // @Output () walledLog = new EventEmitter<Wallet>;
 
 
 onSubmit() {
@@ -34,25 +34,20 @@ throw new Error('Method not implemented.');
     const wall = new Wallet();
     wall.idUser = this.userLoged.id;
     this.addWallet(wall);
-    this.existeWallet();
+    window.location.reload();
+     //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
   }
 
-  public getCurrentWallet () {
-    this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
-    sessionStorage.setItem('wallet', JSON.stringify(this.currentWallet));
+  // public getCurrentWallet () {
+  //   this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
+  //   sessionStorage.setItem('wallet', JSON.stringify(this.currentWallet));
+  // }
 
-  }
+  // public walletLogs (wallet: Wallet){
+  //   console.log('Desde wallet emit', wallet);
+  //   this.walledLog.emit(wallet);
 
-  public walletLogs (wallet: Wallet){
-    console.log('Desde wallet emit', wallet);
-    this.walledLog.emit(wallet);
-
-  }
-
-  public existeWallet () {
-    this.getCurrentWallet();
-    this.currentWallet != undefined ? this.existWallet = true : this.existWallet = false;
-  }
+  // }
 
   public depositarFondos() {
 
@@ -61,10 +56,6 @@ throw new Error('Method not implemented.');
       if (this.currentWallet != undefined && this.monto >= 50 ) {
         console.log(this.currentWallet)
         this.currentWallet.fondos! += this.monto;
-        const coin: Coin = new Coin();
-        // coin.coinAmount = 60;
-        // coin.id = 'usdt';
-        // this.currentWallet.coins.push(coin);
         this.updateWallet(this.currentWallet);
       }else{
         throw alert('Deposito minimo USD50')
@@ -104,11 +95,15 @@ throw new Error('Method not implemented.');
 
     try {
       this.allWallets = ((await this.walletService.getAllWalletFromService()).slice());
-      console.log(this.allWallets);
 
+      this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
 
-      this.getCurrentWallet();
-      this.existeWallet();
+      if(this.currentWallet == undefined){
+        this.createWallet();
+      }
+
+      this.existWallet = true;
+
     } catch (error) {
       console.error('Error al intentar obtener las wallets', error);
     }
@@ -123,9 +118,9 @@ throw new Error('Method not implemented.');
     }
   }
 
-  getWallet(): Wallet{
-    return this.currentWallet;
-  }
+  // getWallet(): Wallet{
+  //   return this.currentWallet;
+  // }
 
 
 }
