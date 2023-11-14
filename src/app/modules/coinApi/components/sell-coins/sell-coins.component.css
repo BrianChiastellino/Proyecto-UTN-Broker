@@ -1,0 +1,48 @@
+.buy-form-container {
+    position: relative;
+  }
+  
+  .form-title {
+    margin-bottom: 16px; /* Espaciado inferior para el título */
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    transform-origin: top;
+    background-color: #f0f0f0; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    padding: 16px; /* Espaciado interno */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra para un efecto de elevación */
+    width: 300px; /* Ancho del formulario */
+    transform: translateY(100%); /* Estado inicial fuera de la pantalla */
+    transition: transform 0.5s ease-in-out; /* Transición para la animación */
+        font-family: 'Kanit', sans-serif;
+      font-family: 'Red Hat Display', sans-serif;
+      font-weight: 700;
+  }
+  
+  label {
+    margin-bottom: 8px; /* Espaciado inferior para las etiquetas */
+  }
+  
+  input {
+    padding: 8px; /* Espaciado interno para los campos de entrada */
+    margin-bottom: 12px; /* Espaciado inferior para los campos de entrada */
+    border: 1px solid #ccc; /* Borde del campo de entrada */
+    border-radius: 4px; /* Bordes redondeados para los campos de entrada */
+  }
+  
+  .show-form {
+    transform: translateY(0); /* Estado final para mostrar el formulario */
+  }
+  
+  /* Otros estilos según tus preferencias */
+  h1{
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Red Hat Display', sans-serif;
+    font-weight: 700;
+  }
+  

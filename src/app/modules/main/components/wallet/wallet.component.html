@@ -39,7 +39,15 @@
     <tbody>
       <tr *ngFor="let coin of currentWallet.coins; let i = index">
         <td>{{ i + 1 }}</td>
-        <td>{{ coin.id }}</td>
+        <td>
+
+          <img class="imgTabla" [src]="coin.image" alt="{{ coin.id }}">
+          <span>{{coin.id}}
+
+          </span>
+         <span>{{coin.symbol}}
+         </span>
+        </td>
         <td>{{ coin.coinAmount }}</td>
       </tr>
     </tbody>

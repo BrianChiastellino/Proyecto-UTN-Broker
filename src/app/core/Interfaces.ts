@@ -31,8 +31,10 @@ export interface IWallet {
 
 export interface ICoin {
 
+  symbol: string;
   id: string | null;
   coinAmount: number | null;
+  image: string;
 
 }
 

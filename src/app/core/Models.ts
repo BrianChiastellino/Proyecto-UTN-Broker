@@ -69,10 +69,14 @@ export class Coin implements ICoin {
 
   id: string | null;
   coinAmount: number;
+  image : string;
+  symbol: string;
 
   constructor(coin?: any) {
     this.id = coin == undefined ? null : coin.id;
     this.coinAmount = coin == undefined ? null : coin.coinAmount;
+    this.image = coin == undefined ? '' : coin.image;
+    this.symbol = coin == undefined ? '' : coin.symbol;
   }
 
 }

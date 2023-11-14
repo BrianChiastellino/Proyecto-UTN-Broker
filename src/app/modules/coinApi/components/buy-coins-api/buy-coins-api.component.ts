@@ -59,6 +59,8 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
     const coin: Coin = new Coin();
     coin.id = this.coinSelected.id.toUpperCase();
+    coin.image = this.coinSelected.image;
+    coin.symbol = this.coinSelected.symbol;
     coin.coinAmount = this.cantidad;
 
     this.walletLog.fondos < this.valorCompraPesos
