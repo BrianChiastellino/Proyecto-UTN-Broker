@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from 'src/app/modules/main/services/wallet.service';
 
@@ -24,7 +25,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   valorCompra: number = 0;
   valorCompraPesos: number = 0;
 
-  constructor(private wallet: WalletService) { }
+  constructor(private wallet: WalletService, private router: Router) { }
 
 
   ngOnInit(): void {
@@ -57,30 +58,36 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
 
   public confirmarCompra() {
+    if (this.walletLog.fondos > 0 && this.valorCompraPesos > 0 && this.walletLog.fondos >= this.valorCompraPesos){
 
-    const coin: Coin = new Coin();
-    coin.id = this.coinSelected.id.toUpperCase();
-    coin.image = this.coinSelected.image;
-    coin.symbol = this.coinSelected.symbol;
-    coin.coinAmount = this.cantidad;
+      const coin: Coin = new Coin();
+      coin.id = this.coinSelected.id.toUpperCase();
+      coin.image = this.coinSelected.image;
+      coin.symbol = this.coinSelected.symbol;
+      coin.coinAmount = this.cantidad;
+  
+      this.walletLog.fondos <= this.valorCompraPesos
+  
+      const existe = this.existCoinInWallet(this.coinSelected.id);
+  
+      if (existe) {
+  
+        const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
+        this.walletLog.coins[index].coinAmount += this.cantidad;
+      } else {
+        this.walletLog.coins.push(coin);
+      }
+  
+      this.walletLog.fondos -= this.valorCompraPesos;
+  
+      this.updateWallet(this.walletLog);
+      this.toggleForm();
 
-    this.walletLog.fondos <= this.valorCompraPesos
-
-    const existe = this.existCoinInWallet(this.coinSelected.id);
-
-    if (existe) {
-
-      const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
-      this.walletLog.coins[index].coinAmount += this.cantidad;
-    } else {
-      this.walletLog.coins.push(coin);
+      this.router.navigate(['main/myWallet']);
+   
+    }else{
+      alert('No posee los fondos suficientes');
     }
-
-    this.walletLog.fondos -= this.valorCompraPesos;
-
-    this.updateWallet(this.walletLog);
-    this.toggleForm();
-    alert('Compra exitosa');
   }
 
   public existCoinInWallet(idCoin: string): boolean {
@@ -92,6 +99,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       return true;
     }
     return false;
+
   }
 
 
@@ -123,6 +131,9 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
     }
   }
 
+  goToCreateWallet(){
+    this.router.navigate(['main/myWallet'])
+  }
 
 
 

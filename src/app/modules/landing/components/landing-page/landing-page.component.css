@@ -78,9 +78,19 @@
     background-color: #219653;
   }
 
- 
+/* app.component.css */
+.centrar-verticalmente {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+  height: 10vh; /* Opcional: ajusta la altura según tus necesidades */
+}
 
-
-
-
-
+.titulo {
+  /* Añade otros estilos según sea necesario */
+  font-size: 5rem;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
+  color: #ff5500;
+}

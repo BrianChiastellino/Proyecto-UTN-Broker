@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from 'src/app/modules/main/services/wallet.service';
 
@@ -21,7 +22,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
   compraOnOf: boolean = false;
 
-  constructor(private wallet: WalletService) {}
+  constructor(private wallet: WalletService, private router: Router) {}
 
   ngOnInit(): void {
     this.currentUser = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
@@ -97,6 +98,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
       this.ventaCripto();
       this.updateWallet(this.currentWallet);
       this.toggleForm();
+      this.router.navigate(['main/myWallet']);
     } else {
       alert('No se pudo realizar la venta');
     }

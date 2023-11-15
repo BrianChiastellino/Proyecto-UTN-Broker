@@ -45,3 +45,25 @@ h1{
   font-family: 'Red Hat Display', sans-serif;
   font-weight: 700;
 }
+/* Estilos para un botón básico */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid #333;
+  border-radius: 5px;
+  color: #333;
+  background-color: #fff;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+/* Estilos para el botón al pasar el ratón sobre él */
+.button:hover {
+  background-color: #333;
+  color: #fff;
+  border-color: #fff;
+}

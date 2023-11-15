@@ -5,8 +5,9 @@
   justify-content: center; /* Alinea los elementos al final del contenedor */
 
 
+
   max-height: 300px;
-  overflow-y: auto; /* esto genera la barra lateral*/
+  overflow-y: disable; /* esto genera la barra lateral*/
 
 
 }
@@ -16,6 +17,8 @@ table {
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  border-radius: 10px; /* Borde redondeado para la tabla */
+  overflow: hidden; 
 }
 /* /*
 estilos para barra lateral

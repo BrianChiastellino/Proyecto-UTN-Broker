@@ -15,9 +15,37 @@
       "isLoged": false,
       "name": "tomas alberto",
       "document": "41746338"
+    },
+    {
+      "id": 3,
+      "email": "caro@gmail.com",
+      "password": "123",
+      "isLoged": false,
+      "name": "Carolina Marin Velazquez",
+      "document": "95911307"
     }
   ],
-  "wallet": [],
+  "wallet": [
+    {
+      "id": 1,
+      "idUser": 2,
+      "fondos": 0,
+      "coins": []
+    },
+    {
+      "id": 2,
+      "idUser": 3,
+      "fondos": 510.719,
+      "coins": [
+        {
+          "id": "BITCOIN",
+          "coinAmount": 0.013,
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+          "symbol": "btc"
+        }
+      ]
+    }
+  ],
   "transaccion": [],
   "comentarios": [
     {

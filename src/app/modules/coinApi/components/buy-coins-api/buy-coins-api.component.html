@@ -1,4 +1,4 @@
-<form *ngIf="coinSelected" [ngClass]="{'show-form': showForm}">
+<form *ngIf="coinSelected && walletLog"  [ngClass]="{'show-form': showForm}">
   <button type="submit" (click)="getWallets()">Cargar checkWallet</button>
   <h1 *ngIf="coinSelected" class="form-title">{{ coinSelected.name }}</h1>
 
@@ -29,8 +29,11 @@
   </div>
 
   <button (click)="confirmarCompra()" >Confirmar compra</button>
-
-
+  
+  
 </form>
+<div *ngIf="!walletLog" [ngClass]="{'show-form': showForm}">
+  <button (click)="goToCreateWallet()" class="button">No tienes una Wallet realizar transacciones</button>
+</div>
 
 

@@ -10,6 +10,8 @@ import { User } from 'src/app/core/Models';
 export class NavBarComponent implements OnInit {
   loginOnSideBar: boolean = false;
   userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+  
+  isNavbarOpen = false;
 
   constructor(private router: Router) { }
   ngOnInit(): void {
@@ -24,7 +26,7 @@ export class NavBarComponent implements OnInit {
   }
 
   goToHome() {
-    this.loginOnSideBar ? this.router.navigate(['/main']) : this.router.navigate(['/landing']);
+   this.router.navigate(['/landing']) ;
   }
 
   goToRegister() {
@@ -46,6 +48,7 @@ export class NavBarComponent implements OnInit {
     sessionStorage.clear();
     localStorage.clear();
     this.router.navigate(['/landing']);
+    window.location.reload();
   }
   public viewSideBarItems() {
     const loginOn = localStorage.getItem('loginOn');
@@ -55,4 +58,7 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+  toggleNavbar() {
+    this.isNavbarOpen = !this.isNavbarOpen;
+  }
 }

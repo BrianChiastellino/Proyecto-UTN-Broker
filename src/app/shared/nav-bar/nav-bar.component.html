@@ -1,4 +1,40 @@
-<button class="boton-Sd" (click)="viewSideBar()">Menu</button>
+<!-- app.component.html -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+  <a class="navbar-brand" (click)="goToHome()" style="font-family: 'Kanit', sans-serif; font-weight: 700;">Home</a>
+  <button class="navbar-toggler" type="button" (click)="toggleNavbar()">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" [ngClass]="{'show': isNavbarOpen}" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" *ngIf="loginOnSideBar" (click)="goToMyWallet()">My wallet <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="loginOnSideBar" (click)="goToMarket()">Market</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!loginOnSideBar" (click)="goToLogin()">Iniciar Sesión</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" *ngIf="!loginOnSideBar" (click)="goToRegister()">Registrarme</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" >Proximamente</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" >Contacto</a>
+      </li>
+      <li class="nav-item" *ngIf="loginOnSideBar">
+        <a class="nav-link" (click)="cerrarSesion()">Cerrar Sesión</a>
+      </li>
+    </ul>
+  </div>
+  
+</nav>
+
+
+
+<!-- <button class="boton-Sd" (click)="viewSideBar()">Menu</button>
 <div class="sidebar" *ngIf="sideBarOn">
   <ul>
     <li class="sidebar-link" (click)="goToHome()">Home</li>
@@ -19,3 +55,4 @@
   </ul>
 
 </div>
+ -->

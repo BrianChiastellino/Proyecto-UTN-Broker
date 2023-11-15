@@ -5,10 +5,12 @@
 <br>
 <br>
 
-
+<div class="centrar-verticalmente">
+  <h1 class="titulo"> UTN-Broker</h1>
+</div>
 
 <div class="container">
-  <div class="text">
+  <div *ngIf="!userLoged.isLoged" class="text">
     <h1>Contamos con las 100 mejores Criptos del momento</h1>
     <p>
       Bienvenido a UTN-Broker, tu plataforma confiable para invertir y negociar con las 100 mejores criptomonedas del
@@ -27,6 +29,31 @@
     </p>
     <div class="cta">
       <a href="/register" class="btn">¡Regístrate ahora!</a>
+
+    </div>
+  
+  
+  </div>
+  <div *ngIf="userLoged.isLoged" class="text">
+    <h1>Bienvenido de nuevo, {{ userLoged.name }}!</h1>
+    <p>
+      Gracias por elegir UTN-Broker, tu plataforma confiable para invertir y negociar con las 100 mejores criptomonedas del momento.
+      En UTN-Broker, estamos comprometidos a brindarte una experiencia personalizada y segura para que puedas continuar explorando
+      el emocionante mundo de las criptomonedas.
+    </p>
+    <p>
+      Con tu cuenta, tienes acceso a funciones exclusivas. Puedes realizar acciones como depositar fondos, retirar tus ganancias,
+      comprar y vender criptomonedas, y participar en operaciones de trading. Nuestra plataforma intuitiva te ofrece todas las
+      herramientas que necesitas para tomar decisiones informadas y alcanzar tus objetivos financieros de manera eficiente.
+    </p>
+    <p>
+      ¡Sigamos avanzando en tu viaje financiero! Explora las funciones avanzadas de UTN-Broker y únete a una comunidad apasionada
+      de inversores. Recuerda que tu éxito es nuestra prioridad y estamos aquí para apoyarte en cada paso del camino.
+    </p>
+    <div class="cta">
+      <a href="/main" class="btn">¡Market!</a>
+
+
     </div>
   </div>
 </div>
