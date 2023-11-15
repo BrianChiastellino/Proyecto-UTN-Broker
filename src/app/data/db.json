@@ -17,39 +17,7 @@
       "document": "41746338"
     }
   ],
-  "wallet": [
-    {
-      "id": 1,
-      "idUser": 1,
-      "fondos": 0,
-      "coins": []
-    },
-    {
-      "id": 2,
-      "idUser": 2,
-      "fondos": 543419.6943933617,
-      "coins": [
-        {
-          "id": "BITCOIN",
-          "coinAmount": 2,
-          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-          "symbol": "btc"
-        },
-        {
-          "id": "ETHEREUM",
-          "coinAmount": 0,
-          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-          "symbol": "eth"
-        },
-        {
-          "id": "TETHER",
-          "coinAmount": 15,
-          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-          "symbol": "usdt"
-        }
-      ]
-    }
-  ],
+  "wallet": [],
   "transaccion": [],
   "comentarios": [
     {

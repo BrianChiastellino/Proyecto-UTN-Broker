@@ -38,16 +38,6 @@ throw new Error('Method not implemented.');
      //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
   }
 
-  // public getCurrentWallet () {
-  //   this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
-  //   sessionStorage.setItem('wallet', JSON.stringify(this.currentWallet));
-  // }
-
-  // public walletLogs (wallet: Wallet){
-  //   console.log('Desde wallet emit', wallet);
-  //   this.walledLog.emit(wallet);
-
-  // }
 
   public depositarFondos() {
 

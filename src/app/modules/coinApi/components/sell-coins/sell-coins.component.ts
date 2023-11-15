@@ -36,7 +36,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
   getWallets(): void {
     this.wallet.getAllWalletFromService().then((allWallets: Wallet[]) => {
-      this.currentWallet = allWallets.find((w) => w.idUser === this.currentUser.id)!;
+      this.currentWallet = allWallets.find((w) => w.idUser == this.currentUser.id)!;
       this.cantidadParaVenta();
     }).catch(error => {
       console.error('Error al intentar obtener las wallets', error);
@@ -52,8 +52,10 @@ export class SellCoinsComponent implements OnInit, OnChanges {
   cantidadParaVenta(): void {
     if (this.coinToSell) {
       const idToSell = this.coinToSell.id.toUpperCase();
-      const coin = this.currentWallet.coins.find(c => c.id === idToSell);
-      
+      const coin = this.currentWallet.coins.find(c => c.id!.toUpperCase() == idToSell.toUpperCase());
+
+      console.log(coin);
+
       if (coin) {
         this.cantidadVenta = coin.coinAmount;
       } else {
@@ -65,6 +67,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
   calcularVenta(): void {
     if (this.cantidadParaVender <= this.cantidadVenta) {
       this.gananciaVenta = this.cantidadParaVender * this.coinToSell.current_price;
+      this.cantidadVenta = Math.trunc(this.cantidadVenta * 1000) / 1000;
       this.compraOnOf = true;
     } else {
       alert(`No cuenta con los fondos de ${this.coinToSell.id} necesarios para esta transacción`);
@@ -73,20 +76,27 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
   ventaCripto(): void {
     const idToSell = this.coinToSell.id.toUpperCase();
-    const coin = this.currentWallet.coins.find(c => c.id === idToSell);
-    
-    if (coin) {
+    const coinIndex = this.currentWallet.coins.findIndex(c => c.id === idToSell);
+
+    if (coinIndex !== -1) {
+      const coin = this.currentWallet.coins[coinIndex];
       coin.coinAmount -= this.cantidadParaVender;
+
+      if (coin.coinAmount <= 0) {
+        this.currentWallet.coins.splice(coinIndex, 1);
+      }
     }
   }
 
+
   confirmarVenta(): void {
     this.calcularVenta();
-    
+
     if (this.compraOnOf) {
       this.currentWallet.fondos += this.gananciaVenta;
       this.ventaCripto();
       this.updateWallet(this.currentWallet);
+      this.toggleForm();
     } else {
       alert('No se pudo realizar la venta');
     }

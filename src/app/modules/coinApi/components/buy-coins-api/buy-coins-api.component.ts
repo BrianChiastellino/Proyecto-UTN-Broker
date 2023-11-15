@@ -51,6 +51,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
   calcularCompra() {
     this.cantidad = this.pesos / this.coinSelected.current_price;
+    this.cantidad = Math.trunc(this.cantidad * 1000) / 1000;
     this.valorCompraPesos = this.cantidad * this.coinSelected.current_price;
   }
 
@@ -69,20 +70,23 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
     if (existe) {
 
-      const index = this.walletLog.coins.findIndex((c) => c.id == this.coinSelected.id);
+      const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
       this.walletLog.coins[index].coinAmount += this.cantidad;
     } else {
       this.walletLog.coins.push(coin);
     }
 
     this.walletLog.fondos -= this.valorCompraPesos;
-    // console.log(this.walletLog);
-    this.updateWallet(this.walletLog);
 
+    this.updateWallet(this.walletLog);
+    this.toggleForm();
+    alert('Compra exitosa');
   }
 
   public existCoinInWallet(idCoin: string): boolean {
-    const existe: Coin | undefined = this.walletLog.coins.find((c) => c.id == idCoin);
+    const existe: Coin | undefined = this.walletLog.coins.find((c) => c.id?.toUpperCase() == idCoin.toUpperCase());
+
+    console.log(existe)
 
     if (existe != undefined) {
       return true;
