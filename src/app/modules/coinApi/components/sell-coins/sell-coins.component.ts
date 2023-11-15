@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from 'src/app/modules/main/services/wallet.service';
 
@@ -7,153 +7,93 @@ import { WalletService } from 'src/app/modules/main/services/wallet.service';
   templateUrl: './sell-coins.component.html',
   styleUrls: ['./sell-coins.component.css']
 })
-export class SellCoinsComponent implements OnInit,OnChanges {
+export class SellCoinsComponent implements OnInit, OnChanges {
 
-  @Input () coinToSell!: CoinApi;
+  @Input() coinToSell!: CoinApi;
   currentWallet!: Wallet;
   currentUser!: User;
 
   showForm = true;
-  cantidadVenta!: number;
-  cantidadParaVender!: number;
-  USD!:number;
-  gananciVenta! : number;
+  cantidadVenta: number = 0;
+  cantidadParaVender: number = 0;
+  USD: number = 0;
+  gananciaVenta: number = 0;
 
+  compraOnOf: boolean = false;
 
-  constructor(private wallet: WalletService){
-    
-
-  }
+  constructor(private wallet: WalletService) {}
 
   ngOnInit(): void {
     this.currentUser = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
     this.getWallets();
-    
   }
-  ngOnChanges(changes: SimpleChanges): void{
-    if (changes['coinToSell']) {
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['coinToSell'] && this.currentWallet) {
       this.cantidadParaVenta();
     }
-
-
-
   }
-  
 
-  public confirmarVenta (){
-        let ventaOk: boolean = this.calcularVenta();
-    if (ventaOk) {
-      this.currentWallet.fondos += this.gananciVenta;
+  getWallets(): void {
+    this.wallet.getAllWalletFromService().then((allWallets: Wallet[]) => {
+      this.currentWallet = allWallets.find((w) => w.idUser === this.currentUser.id)!;
+      this.cantidadParaVenta();
+    }).catch(error => {
+      console.error('Error al intentar obtener las wallets', error);
+    });
+  }
+
+  updateWallet(wallet: Wallet): void {
+    this.wallet.updateWalletFromService(wallet).catch(error => {
+      console.error('Error al intentar actualizar la wallet', error);
+    });
+  }
+
+  cantidadParaVenta(): void {
+    if (this.coinToSell) {
+      const idToSell = this.coinToSell.id.toUpperCase();
+      const coin = this.currentWallet.coins.find(c => c.id === idToSell);
+      
+      if (coin) {
+        this.cantidadVenta = coin.coinAmount;
+      } else {
+        this.cantidadVenta = 0;
+      }
+    }
+  }
+
+  calcularVenta(): void {
+    if (this.cantidadParaVender <= this.cantidadVenta) {
+      this.gananciaVenta = this.cantidadParaVender * this.coinToSell.current_price;
+      this.compraOnOf = true;
+    } else {
+      alert(`No cuenta con los fondos de ${this.coinToSell.id} necesarios para esta transacción`);
+    }
+  }
+
+  ventaCripto(): void {
+    const idToSell = this.coinToSell.id.toUpperCase();
+    const coin = this.currentWallet.coins.find(c => c.id === idToSell);
+    
+    if (coin) {
+      coin.coinAmount -= this.cantidadParaVender;
+    }
+  }
+
+  confirmarVenta(): void {
+    this.calcularVenta();
+    
+    if (this.compraOnOf) {
+      this.currentWallet.fondos += this.gananciaVenta;
       this.ventaCripto();
       this.updateWallet(this.currentWallet);
+    } else {
+      alert('No se pudo realizar la venta');
     }
-
-
-    console.log(this.currentWallet);
-    console.log(this.currentUser);
-    console.log(this.coinToSell);
-
   }
-  toggleForm() {
+
+  toggleForm(): void {
     this.showForm = !this.showForm;
   }
 
-
-  public existCoinInWallet(idCoin: string): boolean {
-    const existe: Coin | undefined = this.currentWallet.coins.find((c) => c.id == idCoin);
-
-    if (existe != undefined) {
-
-      return true;
-    }
-    return false;
-  }
-
-  public async getWallets() {
-
-    let allWallets: Array<Wallet> = [];
-
-    try {
-      allWallets = ((await this.wallet.getAllWalletFromService()).slice());
-      console.log(allWallets);
-
-      this.currentWallet = allWallets.find((w) => w.idUser == this.currentUser.id)!
-
-    } catch (error) {
-      console.error('Error al intentar obtener las wallets', error);
-    }
-    
-  }
-
-  public async updateWallet(wallet: Wallet) {
-    try {
-      await this.wallet.updateWalletFromService(wallet);
-    }
-    catch (error) {
-      console.error('Error al intentar actualizar la wallet', error);
-    }
-  }
-
-  cantidadParaVenta() {
-    let idToSell = this.coinToSell.id.toUpperCase();
-    this.currentWallet.coins.forEach(coin => {
-      if(coin.id == idToSell ){
-        this.cantidadVenta = coin.coinAmount;
-        console.log('monto', this.cantidadVenta);
-        
-
-        console.log(coin);
-      }else{
-        this.cantidadVenta = 0;
-        console.log('else',coin);
-        console.log(this.coinToSell);
-        
-
-      }
-
-    });
-  }
-
-  
-
- /*  calcularPrecio() {
-    this.valorCompra = this.cantidad * this.coinSelected.current_price;
-  } */
-
-  calcularVenta(): boolean {
-    if( this.cantidadParaVender <= this.cantidadVenta){
-      this.gananciVenta = this.cantidadParaVender * this.coinToSell.current_price;
-
-      return true;
-    }else{
-      alert('No cuenta con los fondos de ' + this.coinToSell.id + ' necesarios para esta transaccion');
-      return false;
-    }
-
-  }
-
-  ventaCripto(){
-    let idToSell = this.coinToSell.id.toUpperCase();
-    this.currentWallet.coins.forEach(coin => {
-      if(coin.id == idToSell ){
-        coin.coinAmount -= this.cantidadParaVender;
-        console.log('monto', this.cantidadVenta);
-        
-
-        console.log(coin);
-      }
-
-    });
-
-  }
-  
-  
-
-
-
-
 }
-  
-
-
-

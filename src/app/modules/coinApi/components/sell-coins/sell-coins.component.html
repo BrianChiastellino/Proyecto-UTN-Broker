@@ -1,10 +1,8 @@
 <form *ngIf="coinToSell" [ngClass]="{'show-form': showForm}">
   <button type="submit" (click)="getWallets()">Cargar checkWallet</button>
 
-
   <label for="USD">USD</label>
-  <input type="number" id="USD" name="USD" [(ngModel)]="USD" placeholder="{{ currentWallet.fondos }}"
-    >
+  <input type="number" id="USD" name="USD" [(ngModel)]="USD" placeholder="{{ currentWallet!.fondos }}">
   <div *ngIf="currentWallet">
     <p>Total $USD: {{ currentWallet.fondos}}</p>
   </div>
@@ -12,27 +10,22 @@
   <h3 *ngIf="coinToSell" class="form-title">{{ coinToSell.name }}</h3>
 
   <label for="cantidadParaVender">Cantidad que desea vender</label>
-  <input type="number" id="cantidadParaVender" name="cantidadParaVender" [(ngModel)]="cantidadParaVender" placeholder="{{cantidadVenta}}"  (input)=" calcularVenta()"   min="0"
-  [max]="cantidadVenta">
-  
-
+  <input type="number" id="cantidadParaVender" name="cantidadParaVender" [(ngModel)]="cantidadParaVender"
+         placeholder="{{ cantidadVenta }}" (input)="cantidadParaVenta()" min="0" [max]="cantidadVenta">
 
   <div *ngIf="coinToSell">
     {{ coinToSell.name }} : $ {{ cantidadVenta}}
-    <!-- Ajusta según la propiedad real que contiene el precio -->
   </div>
 
   <br>
 
-  <div *ngIf="gananciVenta > 0">
- 
-  </div>
-  <div *ngIf="gananciVenta > 0">
-    <h3> Recibiras la cantidad de ${{ gananciVenta
-      | number:'1.2-2' }} $USD  .  </h3>
+  <div *ngIf="gananciaVenta > 0">
+    <!-- Puedes agregar aquí información adicional si es necesario -->
   </div>
 
-  <button (click)="confirmarVenta(); cantidadParaVenta()"  >Confirmar compra</button>
+  <div *ngIf="gananciaVenta > 0">
+    <h3> Recibirás la cantidad de ${{ gananciaVenta | number:'1.2-2' }} $USD. </h3>
+  </div>
 
-
+  <button (click)="confirmarVenta()" >Confirmar venta</button>
 </form>

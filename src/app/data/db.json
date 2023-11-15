@@ -27,19 +27,25 @@
     {
       "id": 2,
       "idUser": 2,
-      "fondos": 499828.55439336173,
+      "fondos": 543419.6943933617,
       "coins": [
         {
+          "id": "BITCOIN",
+          "coinAmount": 2,
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+          "symbol": "btc"
+        },
+        {
           "id": "ETHEREUM",
-          "coinAmount": 0.08780831571530134,
+          "coinAmount": 0,
           "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
           "symbol": "eth"
         },
         {
-          "id": "BITCOIN",
-          "coinAmount": 0,
-          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-          "symbol": "btc"
+          "id": "TETHER",
+          "coinAmount": 15,
+          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+          "symbol": "usdt"
         }
       ]
     }

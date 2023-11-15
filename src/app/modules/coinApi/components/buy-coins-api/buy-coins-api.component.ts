@@ -63,7 +63,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
     coin.symbol = this.coinSelected.symbol;
     coin.coinAmount = this.cantidad;
 
-    this.walletLog.fondos < this.valorCompraPesos
+    this.walletLog.fondos <= this.valorCompraPesos
 
     const existe = this.existCoinInWallet(this.coinSelected.id);
 
