@@ -22,7 +22,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
   compraOnOf: boolean = false;
 
-  constructor(private wallet: WalletService, private router: Router) {}
+  constructor(private wallet: WalletService, private router: Router) { }
 
   ngOnInit(): void {
     this.currentUser = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
@@ -68,7 +68,6 @@ export class SellCoinsComponent implements OnInit, OnChanges {
   calcularVenta(): void {
     if (this.cantidadParaVender <= this.cantidadVenta) {
       this.gananciaVenta = this.cantidadParaVender * this.coinToSell.current_price;
-      this.cantidadVenta = Math.trunc(this.cantidadVenta * 1000) / 1000;
       this.compraOnOf = true;
     } else {
       alert(`No cuenta con los fondos de ${this.coinToSell.id} necesarios para esta transacción`);
@@ -76,8 +75,8 @@ export class SellCoinsComponent implements OnInit, OnChanges {
   }
 
   ventaCripto(): void {
-    const idToSell = this.coinToSell.id.toUpperCase();
-    const coinIndex = this.currentWallet.coins.findIndex(c => c.id === idToSell);
+
+    const coinIndex = this.getIndexCoin();
 
     if (coinIndex !== -1) {
       const coin = this.currentWallet.coins[coinIndex];
@@ -89,18 +88,29 @@ export class SellCoinsComponent implements OnInit, OnChanges {
     }
   }
 
+  getIndexCoin() : number {
+    const idToSell = this.coinToSell.id.toUpperCase();
+    return this.currentWallet.coins.findIndex(c => c.id == idToSell);
+  }
+
 
   confirmarVenta(): void {
     this.calcularVenta();
+    const coinindex = this.getIndexCoin();
 
-    if (this.compraOnOf) {
-      this.currentWallet.fondos += this.gananciaVenta;
-      this.ventaCripto();
-      this.updateWallet(this.currentWallet);
-      this.toggleForm();
-      this.router.navigate(['main/myWallet']);
-    } else {
-      alert('No se pudo realizar la venta');
+    if (this.currentWallet.coins[coinindex].coinAmount > 0 && this.cantidadParaVender > 0) {
+
+      if (this.compraOnOf) {
+        this.currentWallet.fondos += this.gananciaVenta;
+        this.ventaCripto();
+        this.updateWallet(this.currentWallet);
+        this.toggleForm();
+        this.router.navigate(['main/myWallet']);
+      } else {
+        alert('No se pudo realizar la venta');
+      }
+    }else{
+      alert('Fondos insuficintes');
     }
   }
 

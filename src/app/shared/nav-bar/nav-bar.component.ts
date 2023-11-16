@@ -10,7 +10,7 @@ import { User } from 'src/app/core/Models';
 export class NavBarComponent implements OnInit {
   loginOnSideBar: boolean = false;
   userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
-  
+
   isNavbarOpen = false;
 
   constructor(private router: Router) { }
@@ -47,12 +47,13 @@ export class NavBarComponent implements OnInit {
   cerrarSesion() {
     sessionStorage.clear();
     localStorage.clear();
+    this.loginOnSideBar = false;
     this.router.navigate(['/landing']);
-    window.location.reload();
   }
   public viewSideBarItems() {
-    const loginOn = localStorage.getItem('loginOn');
-    if (loginOn == 'true') {
+    // const loginOn = localStorage.getItem('loginOn');
+    const loginOn = this.userLoged.isLoged;
+    if (loginOn == true) {
       this.loginOnSideBar = true;
       console.log('El usuario está conectado');
     }
