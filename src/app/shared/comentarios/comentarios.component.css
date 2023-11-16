@@ -9,6 +9,7 @@
 }
 .card-title{
     padding: 10px;
+    font-size: medium;
 }
 .card-text{
     font-size: 18px;
@@ -30,7 +31,7 @@
 .card-body {
   padding: 20px;
   text-align: center;
- 
+
 }
 .span-derecha {
     text-align: right;
@@ -38,4 +39,6 @@
   h1{
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
+    font-size: xx-large;
+
   }

@@ -65,26 +65,27 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       coin.image = this.coinSelected.image;
       coin.symbol = this.coinSelected.symbol;
       coin.coinAmount = this.cantidad;
-  
+
       this.walletLog.fondos <= this.valorCompraPesos
-  
+
       const existe = this.existCoinInWallet(this.coinSelected.id);
-  
+
       if (existe) {
-  
+
         const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
         this.walletLog.coins[index].coinAmount += this.cantidad;
       } else {
         this.walletLog.coins.push(coin);
       }
-  
+
       this.walletLog.fondos -= this.valorCompraPesos;
-  
+
       this.updateWallet(this.walletLog);
       this.toggleForm();
 
       this.router.navigate(['main/myWallet']);
-   
+      // window.location.reload();
+
     }else{
       alert('No posee los fondos suficientes');
     }

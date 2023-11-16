@@ -26,7 +26,7 @@ export class NavBarComponent implements OnInit {
   }
 
   goToHome() {
-   this.router.navigate(['/landing']) ;
+    this.router.navigate(['/landing']);
   }
 
   goToRegister() {
@@ -37,21 +37,28 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['/login']);
   }
 
-  goToMyWallet(){
+  goToMyWallet() {
     this.router.navigate(['main/myWallet']);
   }
-  goToMarket(){
+  goToMarket() {
     this.router.navigate(['main']);
   }
 
   cerrarSesion() {
+
+
+    this.loginOnSideBar = false;
+    this.userLoged.isLoged = false;
+
     sessionStorage.clear();
     localStorage.clear();
-    this.loginOnSideBar = false;
+
+    window.location.reload();
+
     this.router.navigate(['/landing']);
   }
+  
   public viewSideBarItems() {
-    // const loginOn = localStorage.getItem('loginOn');
     const loginOn = this.userLoged.isLoged;
     if (loginOn == true) {
       this.loginOnSideBar = true;

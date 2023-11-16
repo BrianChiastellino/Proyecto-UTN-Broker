@@ -1,88 +1,78 @@
 
+h1  {
+
+  font-weight: 700;
+}
+
+/* Estilos para el contenedor principal del formulario de inicio de sesión */
 .login-container {
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    margin: 100px;
-    align-items: center; /* Centra el contenido verticalmente */
-    justify-content: center;
-    background-color: #FFFFFF; /* Fondo blanco */
-    border: 1px solid #E1E1E1; /* Borde gris claro */
-    border-radius: 8px;
-    max-width: 300px; /* Ancho máximo del formulario */
-    width: 100%; /* Ancho completo del contenedor */
-    text-align: center
-
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  background-color: #FFFFFF;
+  border: 1px solid #E1E1E1;
+  border-radius: 8px;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
+  padding: 20px; /* Añadido un espacio interno para mejorar el aspecto */
 }
 
-/* Estilos para el formulario */
+/* Estilos para el formulario de inicio de sesión */
 .login-form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Estilos para las etiquetas en el formulario */
+/* Estilos para las etiquetas en el formulario de inicio de sesión */
 .label {
-    font-weight: bold;
-    display: block;
-    margin-top: 10px;
+
+  font-weight: bold;
+  display: block;
+  margin-top: 10px;
 }
 
-/* Estilos para los campos de entrada en el formulario */
+/* Estilos para los campos de entrada en el formulario de inicio de sesión */
 .input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #E1E1E1;
-    border-radius: 4px;
+  width: 100%;
+  padding: 12px; /* Aumenta el espacio interno para hacerlo más bonito */
+  margin-top: 8px;
+  border: 1px solid #E1E1E1;
+  border-radius: 6px;
+  font-weight: bold; /* Texto en negrita */
 }
 
 /* Estilos para el botón de inicio de sesión */
 .login-button {
-    background-color: #F7931A;
-    color: #FFFFFF;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: #F7931A;
+  color: #FFFFFF;
+  padding: 12px 24px; /* Aumenta el espacio interno para hacerlo más bonito */
+  border: none;
+  border-radius: 6px;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .login-button:hover {
-    background-color: #E88219;
-
-}
-.register-button {
-    background-color: #58AFFF;
-    color: #FFFFFF;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    margin-top: 15px;
-    cursor: pointer;
-    font-weight: bold;
+  background-color: #E88219;
 }
 
-.register-button:hover {
-    background-color: #4B9FE8;
-}
 /* Estilos para el enlace de registro */
 .register-link {
-    text-decoration: none; /* Quita la subrayado predeterminado de los enlaces */
-    color: #007bff; /* Color de texto predeterminado */
-    transition: color 0.3s; /* Agrega una transición suave para el cambio de color */
-    cursor: pointer;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
-  }
-
-  .register-link:hover {
-    color: #ff5500; /* Cambia el color del texto al pasar el cursor sobre el enlace */
-  }
-
-  label, input{
-    font-family: 'Kanit', sans-serif;
-    font-weight: 700;
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s;
+  cursor: pointer;
+  font-family: 'Kanit', sans-serif;
+  font-weight: 700;
 }
 
+.register-link:hover {
+  color: #ff5500;
+}

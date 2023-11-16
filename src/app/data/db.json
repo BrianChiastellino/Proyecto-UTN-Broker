@@ -44,6 +44,12 @@
           "symbol": "btc"
         }
       ]
+    },
+    {
+      "id": 3,
+      "idUser": 1,
+      "fondos": 100,
+      "coins": []
     }
   ],
   "transaccion": [],

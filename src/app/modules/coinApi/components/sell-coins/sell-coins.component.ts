@@ -106,6 +106,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
         this.updateWallet(this.currentWallet);
         this.toggleForm();
         this.router.navigate(['main/myWallet']);
+        // window.location.reload();
       } else {
         alert('No se pudo realizar la venta');
       }
