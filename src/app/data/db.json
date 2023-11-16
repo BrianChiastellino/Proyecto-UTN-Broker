@@ -28,28 +28,22 @@
   "wallet": [
     {
       "id": 1,
-      "idUser": 2,
-      "fondos": 0,
-      "coins": []
-    },
-    {
-      "id": 2,
-      "idUser": 3,
-      "fondos": 510.719,
+      "idUser": 1,
+      "fondos": 2051.53,
       "coins": [
         {
           "id": "BITCOIN",
-          "coinAmount": 0.013,
+          "coinAmount": 0.08017960230917255,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
+        },
+        {
+          "id": "ETHEREUM",
+          "coinAmount": 1.4372054027969368,
+          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+          "symbol": "eth"
         }
       ]
-    },
-    {
-      "id": 3,
-      "idUser": 1,
-      "fondos": 100,
-      "coins": []
     }
   ],
   "transaccion": [],

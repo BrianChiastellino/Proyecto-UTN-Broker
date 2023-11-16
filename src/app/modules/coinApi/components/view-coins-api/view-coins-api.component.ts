@@ -89,26 +89,4 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
   }
 
 
-
-
-
 }
-
-/* si necesitamos todo el usuario esta es la forma sino solo el logued
-public loginOn(){
-  const userData = sessionStorage.getItem('userLoged');
-
-  if(userData) {
-    this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
-
-    if(this.user.isLoged){
-      this.userIsLoged = true;
-
-    }else{
-      this.userIsLoged = false;
-    }
-
-
-  }
-
-} */

@@ -52,7 +52,6 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
   calcularCompra() {
     this.cantidad = this.pesos / this.coinSelected.current_price;
-    this.cantidad = Math.trunc(this.cantidad * 1000) / 1000;
     this.valorCompraPesos = this.cantidad * this.coinSelected.current_price;
   }
 

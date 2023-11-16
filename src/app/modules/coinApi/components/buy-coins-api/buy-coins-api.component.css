@@ -67,3 +67,25 @@ h1{
   color: #fff;
   border-color: #fff;
 }
+
+.depositar-fondos-container {
+  position: absolute;
+  top: 37%;
+  right: 9%;
+  padding: 10px;
+}
+
+
+.button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+

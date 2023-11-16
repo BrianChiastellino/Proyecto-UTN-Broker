@@ -1,5 +1,4 @@
-<form *ngIf="coinToSell" [ngClass]="{'show-form': showForm}">
-  <button type="submit" (click)="getWallets()">Cargar checkWallet</button>
+<form *ngIf="coinToSell && currentWallet" [ngClass]="{'show-form': showForm}">
 
   <label for="USD">USD</label>
   <input type="number" id="USD" name="USD" [(ngModel)]="USD" placeholder="{{ currentWallet!.fondos }}">
@@ -11,7 +10,7 @@
 
   <label for="cantidadParaVender">Cantidad que desea vender</label>
   <input type="number" id="cantidadParaVender" name="cantidadParaVender" [(ngModel)]="cantidadParaVender"
-         placeholder="{{ cantidadVenta }}" (input)="cantidadParaVenta()" min="0" [max]="cantidadVenta">
+    placeholder="{{ cantidadVenta }}" (input)="cantidadParaVenta()" min="0" [max]="cantidadVenta">
 
   <div *ngIf="coinToSell">
     {{ coinToSell.name }} : $ {{ cantidadVenta}}
@@ -27,5 +26,5 @@
     <h3> Recibirás la cantidad de ${{ gananciaVenta | number:'1.2-2' }} $USD. </h3>
   </div>
 
-  <button (click)="confirmarVenta()" >Confirmar venta</button>
+  <button (click)="confirmarVenta()">Confirmar venta</button>
 </form>
