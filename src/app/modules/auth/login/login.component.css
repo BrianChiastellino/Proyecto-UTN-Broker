@@ -1,10 +1,134 @@
 
+
+
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+
+  background: url('src\assets\images\background01.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+.form-box{
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2{
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+}
+.inputbox{
+  position: relative;
+  margin: 30px 0;
+  width: 310px;
+  border-bottom: 2px solid #fff;
+}
+.inputbox label{
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1em;
+  pointer-events: none;
+  transition: .5s;
+}
+input:focus ~ label,
+input:valid ~ label{
+top: -5px;
+}
+.inputbox input {
+  width: 100%;
+  height: 50px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  padding:0 35px 0 5px;
+  color: #fff;
+}
+.inputbox ion-icon{
+  position: absolute;
+  right: 8px;
+  color: #fff;
+  font-size: 1.2em;
+  top: 20px;
+}
+.forget{
+  margin: -15px 0 15px ;
+  font-size: .9em;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.forget label input{
+  margin-right: 3px;
+
+}
+.forget label a{
+  color: #fff;
+  text-decoration: none;
+}
+.forget label a:hover{
+  text-decoration: underline;
+}
+button{
+  width: 100%;
+  height: 40px;
+  border-radius: 40px;
+  background: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+}
+.register{
+  font-size: .9em;
+  color: #fff;
+  text-align: center;
+  margin: 25px 0 10px;
+  cursor: pointer;
+}
+.register p a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+.register p a:hover{
+  text-decoration: underline;
+}
+
+
+
+
+
+
+
+
+/*
+
+
 h1  {
 
   font-weight: 700;
 }
 
-/* Estilos para el contenedor principal del formulario de inicio de sesión */
 .login-container {
   display: flex;
   flex-direction: column;
@@ -20,16 +144,14 @@ h1  {
   max-width: 300px;
   width: 100%;
   text-align: center;
-  padding: 20px; /* Añadido un espacio interno para mejorar el aspecto */
+  padding: 20px;
 }
 
-/* Estilos para el formulario de inicio de sesión */
 .login-form {
   display: flex;
   flex-direction: column;
 }
 
-/* Estilos para las etiquetas en el formulario de inicio de sesión */
 .label {
 
   font-weight: bold;
@@ -37,21 +159,20 @@ h1  {
   margin-top: 10px;
 }
 
-/* Estilos para los campos de entrada en el formulario de inicio de sesión */
 .input {
   width: 100%;
-  padding: 12px; /* Aumenta el espacio interno para hacerlo más bonito */
+  padding: 12px;
   margin-top: 8px;
   border: 1px solid #E1E1E1;
   border-radius: 6px;
-  font-weight: bold; /* Texto en negrita */
+  font-weight: bold;
 }
 
-/* Estilos para el botón de inicio de sesión */
+
 .login-button {
   background-color: #F7931A;
   color: #FFFFFF;
-  padding: 12px 24px; /* Aumenta el espacio interno para hacerlo más bonito */
+  padding: 12px 24px;
   border: none;
   border-radius: 6px;
   margin-top: 15px;
@@ -63,7 +184,7 @@ h1  {
   background-color: #E88219;
 }
 
-/* Estilos para el enlace de registro */
+
 .register-link {
   text-decoration: none;
   color: #007bff;
@@ -75,4 +196,4 @@ h1  {
 
 .register-link:hover {
   color: #ff5500;
-}
+} */

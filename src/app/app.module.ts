@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoinApiModule } from './modules/coinApi/coin-api.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { IonicModule } from '@ionic/angular';
 
 
 
@@ -35,7 +36,9 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
     FormsModule,
     ReactiveFormsModule,
     CarouselModule.forRoot(),
-    
+    IonicModule
+
+
   ],
 
   bootstrap: [AppComponent],

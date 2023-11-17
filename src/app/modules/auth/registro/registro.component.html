@@ -1,7 +1,51 @@
 <header>
-  <app-header></app-header>
+  <app-nav-bar></app-nav-bar>
 </header>
-<div class="register-container">
+
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form #formRegister="ngForm" (ngSubmit)="registerUser()">
+        <h2>Register</h2>
+
+        <div class="inputbox">
+          <input type="text" [(ngModel)]="user.name" name="name" autocomplete="off" required>
+          <label for="name">Nombre</label>
+        </div>
+
+        <div class="inputbox">
+          <input type="text" [(ngModel)]="user.document" name="document" autocomplete="off" required>
+          <label for="document">Documento</label>
+        </div>
+
+        <div class="inputbox">
+          <input type="text" [(ngModel)]="user.email" name="email" autocomplete="off" required>
+          <label for="email">Email</label>
+        </div>
+
+        <div class="inputbox">
+          <input type="password" [(ngModel)]="user.password" autocomplete="off" required name="password">
+          <label for="password">Ingrese contraseña</label>
+        </div>
+
+        <button type="submit" [disabled]="formRegister.invalid" class="login-button">Registrarme</button>
+
+        <div class="login">
+          <a (click)="goToIniciarSesion()">Create una cuenta</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <app-comentarios></app-comentarios>
+</footer>
+
+
+<!-- <div class="register-container">
 
 
   <form class="register-form" #formRegister="ngForm" (ngSubmit)="registerUser()">
@@ -34,8 +78,6 @@
   <p>Ya tenes una cuenta?<a (click)="goToIniciarSesion()" class="register-link"> Iniciar sesion</a></p>
 
 
-</div>
+</div> -->
 
-<footer>
-  <app-comentarios></app-comentarios>
-</footer>
+

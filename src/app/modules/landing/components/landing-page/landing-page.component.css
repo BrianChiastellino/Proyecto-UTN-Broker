@@ -1,16 +1,91 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+
+  background: url('src\assets\images\background01.jpg');
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+}
+
+.form-box{
+  position: relative;
+  width: 1300px;
+  height: 600px;
+  background: transparent;
+  border: 2px solid rgba(255,255,255,0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  bottom: 30px;
+}
+
+h2{
+  font-size: 2em;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+p {
+  font-family: 'Montserrat', sans-serif;
+  margin-left: 3px;
+  margin-right: 3px;
+  font-size: 16px;
+  line-height: 2.5;
+  font-weight: 500;
+}
+
+.register{
+  font-size: .9em;
+  color: #fff;
+  text-align: center;
+  margin: 40px 0 10px;
+  cursor: pointer;
+  font-size: 30px;
+}
+
+.register2{
+  font-size: .9em;
+  text-align: center;
+  margin: 40px 0 10px;
+  cursor: pointer;
+  font-size: 35px;
+}
+
+.register p a{
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+}
+.register p a:hover{
+  text-decoration: underline;
+
+}
+
+/*
+
+
 .container {
     margin-top: 100px;
     display: flex;
-    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    align-items: center;
   }
 
   .text {
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
-    flex: 1; /* El texto ocupará todo el espacio disponible en el contenedor */
-    padding: 20px; /* Agrega espacio alrededor del texto */
+    flex: 1;
+    padding: 20px;
   }
 
   h1 {
@@ -19,7 +94,7 @@
     color: rgb(255, 153, 0);
     line-height: 1.5;
     font-size: 44px;
-    margin: 0; /* Elimina el margen superior predeterminado */
+    margin: 0;
   }
 
   p {
@@ -78,20 +153,19 @@
     background-color: #219653;
   }
 
-/* app.component.css */
+
 .centrar-verticalmente {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 10px;
-  height: 10vh; /* Opcional: ajusta la altura según tus necesidades */
+  height: 10vh;
 }
 
 .titulo {
-  /* Añade otros estilos según sea necesario */
   font-size: 5rem;
   font-family: 'Kanit', sans-serif;
   font-weight: 700;
   color: #ff5500;
   margin-top: 50px;
-}
+} */

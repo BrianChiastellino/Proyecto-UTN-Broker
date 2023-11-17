@@ -1,7 +1,51 @@
-<app-header></app-header>
-<div class="  height: 50px;"></div>
 
-<div class="login-container">
+<header>
+  <app-nav-bar></app-nav-bar>
+</header>
+
+
+<section>
+  <div class="form-box">
+    <div class="form-value">
+      <form [formGroup]="formLogin" (submit)="checkLog()">
+        <h2>Login</h2>
+
+        <div class="inputbox">
+          <input type="email" id="email" placeholder="Email" formControlName="email" class="input" autocomplete="off" required>
+          <label for="email">Email</label>
+        </div>
+
+        <div class="inputbox">
+          <input type="password" id="password" placeholder="Password" formControlName="password" class="input" autocomplete="off" required>
+          <label for="password" class="label">Password</label>
+        </div>
+
+        <div class="forget">
+          <label>
+            <input type="checkbox" (click)="togglePasswordVisibility()" id="showPassword">
+            Mostrar contraseña
+          </label>
+        </div>
+
+        <button type="submit" class="login-button">Iniciar sesión</button>
+
+        <div class="register">
+          <a (click)="goToRegistro()">Create una cuenta</a>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <app-comentarios></app-comentarios>
+</footer>
+
+
+
+<!-- <div class="login-container">
+
     <h1>Login</h1>
     <form [formGroup]="formLogin" (submit)="checkLog()" class="login-form">
         <label for="email" class="label">Email</label>
@@ -21,12 +65,6 @@
     </form>
     <a (click)="goToRegistro()" class="register-link">Create una cuenta</a>
 
-</div>
-
-<footer>
-  <app-comentarios></app-comentarios>
-</footer>
-
-
+</div> -->
 
 
