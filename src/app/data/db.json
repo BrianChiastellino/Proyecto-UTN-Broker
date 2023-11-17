@@ -44,6 +44,12 @@
           "symbol": "eth"
         }
       ]
+    },
+    {
+      "id": 2,
+      "idUser": 2,
+      "fondos": 0,
+      "coins": []
     }
   ],
   "transaccion": [],

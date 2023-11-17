@@ -22,3 +22,10 @@ nav{
     cursor: pointer; /* Cambia el cursor al pasar el ratón por encima */
   }
 
+img {
+  padding: 10px;
+  width: 50px; /* Establece el ancho de la imagen */
+  margin-right: 10px; /* Agrega un margen derecho para separar el icono del título */
+  cursor: pointer;
+  background: transparent;
+}
