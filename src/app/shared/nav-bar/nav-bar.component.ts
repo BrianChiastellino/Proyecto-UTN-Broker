@@ -52,12 +52,11 @@ export class NavBarComponent implements OnInit {
 
     sessionStorage.clear();
     localStorage.clear();
-
     window.location.reload();
 
     this.router.navigate(['/landing']);
   }
-  
+
   public viewSideBarItems() {
     const loginOn = this.userLoged.isLoged;
     if (loginOn == true) {

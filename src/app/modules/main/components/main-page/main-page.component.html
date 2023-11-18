@@ -1,25 +1,36 @@
 <app-nav-bar></app-nav-bar>
-<br>
-<br>
-<br>
-<div class="tarjeta-presentacion">
+
+<main>
+
+  <div class="tarjeta-presentacion">
     <div class="estado-sesion">
-      <div class="punto" [ngClass]="{'verde': userLoged.isLoged, 'rojo': !userLoged.isLoged}"></div>
+      <!-- <div class="punto" [ngClass]="{'verde': userLoged.isLoged, 'rojo': !userLoged.isLoged}"></div>
 
-      <p> {{ userLoged.isLoged ? 'Conectado' : 'Desconectado' }}</p>
+      <p> {{ userLoged.isLoged ? 'Conectado' : 'Desconectado' }}</p> -->
     </div>
-    <h2>Bienvenido, {{ userLoged.name }}</h2>
+    <!-- <h2>Bienvenido, {{ userLoged.name }}</h2> -->
+    <h1>¡MARKET!</h1>
   </div>
-  <div class="principal-market">
+
+
+
+
+
+  <!-- <div class="principal-market">
     <h2>Principales tokens por capitalización de mercado</h2>
-    <p>Obtén una instantánea completa de todas las criptomonedas disponibles en UTN-Broker. Esta página muestra los últimos precios, el volumen de trading en 24 horas, los cambios de precio y las capitalizaciones de mercado de todas las criptomonedas en UTN-Broker. Los usuarios pueden acceder rápidamente a información clave sobre estos activos digitales y a la página de trading desde aquí.</p>
-    <p>Los datos que se muestran solo tienen fines informativos. Algunos datos son proporcionados por CoinMarketCap y se presentan "tal cual", sin representación ni garantía de ningún tipo. Consulta nuestra Advertencia de riesgo general para obtener más información.</p>
-  </div>
+    <p>Obtén una instantánea completa de todas las criptomonedas disponibles en UTN-Broker. Esta página muestra los
+      últimos precios, el volumen de trading en 24 horas, los cambios de precio y las capitalizaciones de mercado de
+      todas las criptomonedas en UTN-Broker. Los usuarios pueden acceder rápidamente a información clave sobre estos
+      activos digitales y a la página de trading desde aquí.</p>
+    <p>Los datos que se muestran solo tienen fines informativos. Algunos datos son proporcionados por CoinMarketCap y
+      se presentan "tal cual", sin representación ni garantía de ningún tipo. Consulta nuestra Advertencia de riesgo
+      general para obtener más información.</p>
+  </div> -->
 
-<app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins" (coinSell)="enviarCoinToSell($event)" ></app-view-coins-api>
+  <app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"
+    (coinSell)="enviarCoinToSell($event)"></app-view-coins-api>
 
-<app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api>
-<app-sell-coins [coinToSell]="coinToSell"></app-sell-coins>
+  <app-buy-coins-api [coinSelected]="coin"></app-buy-coins-api>
+  <app-sell-coins [coinToSell]="coinToSell"></app-sell-coins>
 
-
-
+</main>

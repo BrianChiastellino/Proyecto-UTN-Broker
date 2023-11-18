@@ -9,9 +9,6 @@ import { WalletService } from '../../services/wallet.service';
 })
 export class WalletComponent implements OnInit {
 
-  // @Output () walledLog = new EventEmitter<Wallet>;
-
-
 onSubmit() {
 throw new Error('Method not implemented.');
 }

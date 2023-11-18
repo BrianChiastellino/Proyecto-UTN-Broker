@@ -6,6 +6,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
+import { Error404Component } from './error404/error404.component';
 
 
 
@@ -14,7 +15,8 @@ import { CarouselConfig } from 'ngx-bootstrap/carousel';
     NavBarComponent,
     HeaderComponent,
     FooterComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    Error404Component
   ],
   imports: [
     CommonModule,

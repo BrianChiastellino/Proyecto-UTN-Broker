@@ -5,6 +5,7 @@ import { LandingPageComponent } from './modules/landing/components/landing-page/
 import { RegistroComponent } from './modules/auth/registro/registro.component';
 import { MainPageComponent } from './modules/main/components/main-page/main-page.component';
 import { authGuard } from './core/services/auth-services/guards/auth.guard';
+import { Error404Component } from './shared/error404/error404.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,11 @@ const routes: Routes = [
     path: 'register',
     component: RegistroComponent,
     loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: 'error',
+    component: Error404Component,
+    loadChildren: () => import('./shared/shared.module').then(m => m.SharedModule)
   },
   {
     path: '',

@@ -1,35 +1,29 @@
-
-
-
 <header>
   <app-nav-bar></app-nav-bar>
 </header>
 
-<section>
+<section *ngIf="existWallet">
 
-  <div>
+  <div class="fondos-info">
+    <h3>{{ currentWallet.fondos | currency:'USD':'symbol':'1.2-2' }}</h3>
 
-    <div class="fondos-container" *ngIf="existWallet">
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
 
-      <div class="fondos-info">
-        <h3>TUS FONDOS: {{ currentWallet.fondos | currency:'USD':'symbol':'1.2-2' }}</h3>
-
-        <form (ngSubmit)="onSubmit()" #f="ngForm">
-
-          <div class="inputbox">
-            <input type="number" id="monto" name="monto" [(ngModel)]="monto" autocomplete="off" required>
-            <label for="monto">Monto:</label>
-          </div>
-
-          <button type="button" (click)="depositarFondos()">DEPOSITAR FONDOS</button>
-          <button type="button" (click)="retirarFondos()">RETIRAR FONDOS</button>
-
-        </form>
+      <div class="inputbox">
+        <input type="number" id="monto" name="monto"  [(ngModel)]="monto" autocomplete="off" required>
+        <!-- <label for="monto">Monto:</label> -->
       </div>
-    </div>
+
+    </form>
   </div>
 
-  <div class="form-box" *ngIf="existWallet">
+  <div class="button-container">
+    <button type="button" (click)="depositarFondos()">DEPOSITAR</button>
+    <button type="button" (click)="retirarFondos()">RETIRAR</button>
+  </div>
+
+
+  <div class="form-box">
 
     <table>
       <thead>
@@ -48,8 +42,8 @@
             <span>{{coin.id}}
 
             </span>
-           <span>{{coin.symbol}}
-           </span>
+            <span>{{coin.symbol}}
+            </span>
           </td>
           <td>{{ coin.coinAmount }}</td>
         </tr>
@@ -60,6 +54,11 @@
 
 
 </section>
+
+
+
+
+
 
 
 
@@ -128,8 +127,3 @@
 
 
 </section> -->
-
-
-
-
-

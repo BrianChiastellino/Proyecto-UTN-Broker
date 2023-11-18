@@ -34,7 +34,10 @@ export class SellCoinsComponent implements OnInit, OnChanges {
       this.cantidadParaVenta();
     }
   }
-
+  //! Tuvimos que implementar estos metodos de wallet aca, debido al poco tiempo
+  //! Como alumnos sabemos que se tendrian que compartir la wallet con el main mediante emiters y input
+  //! Optamos dejarlo asi debido al poco tiempo que tenemos.
+  
   getWallets(): void {
     this.wallet.getAllWalletFromService().then((allWallets: Wallet[]) => {
       this.currentWallet = allWallets.find((w) => w.idUser == this.currentUser.id)!;

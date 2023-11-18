@@ -23,17 +23,25 @@
       "isLoged": false,
       "name": "Carolina Marin Velazquez",
       "document": "95911307"
+    },
+    {
+      "id": 4,
+      "email": "admin@gmail.com",
+      "password": "123",
+      "isLoged": false,
+      "name": "admin",
+      "document": "1324564"
     }
   ],
   "wallet": [
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 2051.53,
+      "fondos": 2201.53,
       "coins": [
         {
           "id": "BITCOIN",
-          "coinAmount": 0.08017960230917255,
+          "coinAmount": 0.09110617573574598,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
         },
@@ -50,6 +58,19 @@
       "idUser": 2,
       "fondos": 0,
       "coins": []
+    },
+    {
+      "id": 3,
+      "idUser": 4,
+      "fondos": 0,
+      "coins": [
+        {
+          "id": "TETHER",
+          "coinAmount": 500.2060849069817,
+          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+          "symbol": "usdt"
+        }
+      ]
     }
   ],
   "transaccion": [],

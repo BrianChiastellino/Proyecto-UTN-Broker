@@ -1,6 +1,7 @@
 import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
 import { CoinApi, User } from './../../../../core/Models';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class MainPageComponent implements OnInit {
 
   public getAllCoins(): void {
     this.coinApiService.getAllGoins().then((c) => this.allCoins = c.slice())
+
   }
 
   public enviarCoin(coin: CoinApi){

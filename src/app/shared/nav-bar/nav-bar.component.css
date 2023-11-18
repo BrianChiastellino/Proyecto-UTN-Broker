@@ -1,4 +1,4 @@
-/* app.component.css */
+
 
 nav{
  margin: 0;
@@ -8,24 +8,31 @@ nav{
  top: 0;;
 }
 
+.nav-link{
+
+
+  margin: 2rem 0.5rem;
+  border-radius: 2px;
+}
+
   .navbar-nav .nav-link, .navbar-brand {
     color: #fff;
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
-    transition: color 0.3s, background-color 0.3s;
-    background: transparent;
+    transition: color 0.3s;
+
   }
 
   .navbar-nav .nav-link:hover, .navbar-brand:hover {
-    color: #ff5500; /* Cambia el color al pasar el ratón por encima */
-    background: transparent; /* Cambia el color de fondo al pasar el ratón por encima */
-    cursor: pointer; /* Cambia el cursor al pasar el ratón por encima */
+    color: #1874a8;
+
+    cursor: pointer;
   }
 
 img {
   padding: 10px;
-  width: 50px; /* Establece el ancho de la imagen */
-  margin-right: 10px; /* Agrega un margen derecho para separar el icono del título */
+  width: 50px;
+  margin-right: 10px; 
   cursor: pointer;
   background: transparent;
 }

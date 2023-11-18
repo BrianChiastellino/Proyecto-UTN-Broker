@@ -1,64 +1,83 @@
-/* app.component.css */
+
+
+main{
+  background: url('src\assets\images\background01.jpg');
+  background-position: top;
+  background-size: cover;
+
+}
+
+h1 {
+
+  font-family: 'Kanit', sans-serif;
+  font-weight: bolder;
+  color: rgb(255, 153, 0);
+  line-height: 1.5;
+  font-size: 44px;
+  background: transparent;
+}
+
 .tarjeta-presentacion {
-    border: 1px solid #ddd;
+
     padding: 20px;
     max-width:100%;
 
     margin: 0 auto;
     box-shadow: 0 1px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    background-color: #fff;
+    background: transparent;
   }
-  
+
   .estado-sesion {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 10px;
   }
-  
+
   .punto {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     margin-right: 10px;
   }
-  
+
   .verde {
-    background-color: #4caf50; /* Verde cuando conectado */
+    background-color: #4caf50;
   }
-  
+
   .rojo {
-    background-color: #f44336; /* Rojo cuando desconectado */
+    background-color: #f44336;
   }
-  
+
   .tarjeta-presentacion h2 {
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
     color: #333;
   }
-  
+
   .tarjeta-presentacion p {
     color: #555;
   }
-  /* app.component.css */
+
 
 .principal-market {
-    margin: 20px; /* Ajusta el margen según sea necesario */
+    margin: 20px;
   }
-  
+
   .principal-market h2 {
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
     color: #333;
+    text-align: center;
   }
-  
+
   .principal-market p {
     color: #555;
-    margin-bottom: 15px; /* Espaciado inferior entre párrafos */
+    margin-bottom: 15px;
     font-family: 'Kanit', sans-serif;
     font-weight: 700;
+    text-align: center;
   }
-  
-  /* Agrega estilos adicionales según sea necesario */
-  
+
+

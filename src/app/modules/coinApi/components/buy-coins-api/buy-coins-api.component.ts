@@ -104,7 +104,8 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
 
 
-  //! Tuvimos que implementar estos metodos de wallet aca, debido  que la wallet llegaba undefined
+  //! Tuvimos que implementar estos metodos de wallet aca, debido al poco tiempo
+  //! Como alumnos sabemos que se tendrian que compartir la wallet con el main mediante emiters y input
   //! Optamos dejarlo asi debido al poco tiempo que tenemos.
 
   public async getWallets() {

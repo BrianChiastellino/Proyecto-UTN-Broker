@@ -1,13 +1,11 @@
-<div *ngIf="userIsLoged"  class="full-width-input">
-
-  <input class="search-input" placeholder="Buscar coin"  type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
-
+<div *ngIf="userIsLoged" class="buscarCoin">
+  <input class="search-input" placeholder="Buscar coin" type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
 </div>
 
 <div class="table-container">
   <table>
-    <thead  >
-      <tr  >
+    <thead>
+      <tr>
         <th>Número</th>
         <th>Nombre</th>
         <th>Precio</th>
@@ -26,20 +24,19 @@
             <span>{{coin.name}}
 
             </span>
-           <span>{{coin.symbol}}
-           </span>
+            <span>{{coin.symbol}}
+            </span>
           </td>
           <td>${{ coin.current_price }}</td>
           <td>{{ coin.last_updated }}</td>
-          <td *ngIf="userIsLoged"><button  (click)="coinToBuy(coin)" >Comprar</button></td>
-          <td *ngIf="userIsLoged"><button (click)="coinToSell(coin)" >Vender</button></td>
+          <td *ngIf="userIsLoged"><button (click)="coinToBuy(coin)">Comprar</button></td>
+          <td *ngIf="userIsLoged"><button (click)="coinToSell(coin)">Vender</button></td>
         </tr>
       </ng-container>
     </tbody>
   </table>
 </div>
 
-<div class="button-vermas" >
+<!-- <div class="button-vermas" >
   <button *ngIf="!userIsLoged" (click)="verMas()">Ver más</button>
-</div>
-
+</div> -->

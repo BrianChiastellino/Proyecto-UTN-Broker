@@ -10,9 +10,6 @@ export class WalletService {
 
   constructor(private wallet: JsonWalletService) { }
 
-
-
-
   public async getAllWalletFromService() {
 
     try {
