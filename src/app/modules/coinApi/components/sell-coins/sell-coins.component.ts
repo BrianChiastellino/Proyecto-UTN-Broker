@@ -1,7 +1,9 @@
 import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from 'src/app/modules/main/services/wallet.service';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-sell-coins',
@@ -22,7 +24,28 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
   compraOnOf: boolean = false;
 
-  constructor(private wallet: WalletService, private router: Router) { }
+  constructor(private wallet: WalletService, private router: Router,private dialogVenta: MatDialog ) { }
+
+  openVentaDialog() {
+    const dialogCompra = this.dialogVenta.open(DialogComponent, {
+
+      //todo: cambiar a ' dialog-venta-style '
+      panelClass: 'dialog-compra-style',
+      data: {
+        usuario: this.currentUser,
+        coin: this.coinToSell,
+        wallet: this.currentWallet,
+        metodoVenta: this,
+        tipoOperacion: 1
+      }
+
+    });
+
+    dialogCompra.afterClosed().subscribe(res => {
+      console.log('ALGO');
+    })
+
+  }
 
   ngOnInit(): void {
     this.currentUser = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
@@ -32,12 +55,13 @@ export class SellCoinsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['coinToSell'] && this.currentWallet) {
       this.cantidadParaVenta();
+      this.openVentaDialog();
     }
   }
   //! Tuvimos que implementar estos metodos de wallet aca, debido al poco tiempo
   //! Como alumnos sabemos que se tendrian que compartir la wallet con el main mediante emiters y input
   //! Optamos dejarlo asi debido al poco tiempo que tenemos.
-  
+
   getWallets(): void {
     this.wallet.getAllWalletFromService().then((allWallets: Wallet[]) => {
       this.currentWallet = allWallets.find((w) => w.idUser == this.currentUser.id)!;
@@ -52,6 +76,12 @@ export class SellCoinsComponent implements OnInit, OnChanges {
       console.error('Error al intentar actualizar la wallet', error);
     });
   }
+
+
+
+
+
+
 
   cantidadParaVenta(): void {
     if (this.coinToSell) {
@@ -77,6 +107,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
     }
   }
 
+  //!Seteamos la wallet
   ventaCripto(): void {
 
     const coinIndex = this.getIndexCoin();
@@ -107,8 +138,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
         this.currentWallet.fondos += this.gananciaVenta;
         this.ventaCripto();
         this.updateWallet(this.currentWallet);
-        this.toggleForm();
-        this.router.navigate(['main/myWallet']);
+
         // window.location.reload();
       } else {
         alert('No se pudo realizar la venta');
@@ -117,6 +147,21 @@ export class SellCoinsComponent implements OnInit, OnChanges {
       alert('Fondos insuficintes');
     }
   }
+
+  confirmarVentaDialog (wallet: Wallet){
+    this.updateWallet(wallet);
+  }
+
+
+
+
+
+
+
+
+
+
+
 
   toggleForm(): void {
     this.showForm = !this.showForm;

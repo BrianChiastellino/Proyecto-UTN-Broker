@@ -16,3 +16,85 @@ footer {
   width: 100%;
   border-radius: 2px;
 }
+
+/* Estilos para el fondo del diálogo */
+.dialog-compra-style .mat-dialog-container {
+  background-color: #1a237e; /* Azul oscuro */
+  color: #fff; /* Texto blanco */
+}
+
+/* Estilos para el contenido del formulario */
+.dialog-compra-style form {
+  padding: 20px;
+}
+
+/* Estilos para el título del diálogo */
+.dialog-compra-style h1 {
+  color: #64b5f6; /* Azul claro */
+}
+
+/* Estilos para los contenidos del diálogo */
+.dialog-compra-style .mat-dialog-content {
+  color: #bbdefb; /* Azul claro */
+  margin-bottom: 15px;
+}
+
+/* Estilos para el div que contiene data.coin.id */
+.dialog-compra-style div.mat-dialog-content {
+  color: #64b5f6; /* Azul claro */
+}
+
+/* Estilos para las etiquetas de los campos de entrada */
+.dialog-compra-style label {
+  color: #90caf9; /* Azul claro */
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Estilos para los campos de entrada */
+.dialog-compra-style input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #90caf9; /* Borde azul claro */
+  border-radius: 4px;
+  color: #fff;
+  background-color: #1a237e; /* Azul oscuro */
+}
+
+/* Estilos para el texto de la compra final */
+.dialog-compra-style p {
+  color: #81c784; /* Verde claro */
+  margin-top: 15px;
+}
+
+/* Estilos para el botón de confirmar compra */
+.dialog-compra-style button.confirmar {
+  color: #fff;
+  background-color: #388e3c; /* Verde oscuro */
+  padding: 10px 15px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Estilos adicionales para el botón de cancelar */
+.dialog-compra-style button.cancelar {
+  color: #fff;
+  background-color: #d32f2f; /* Rojo oscuro */
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-toast {
+  background-color: yellow !important;
+  color: #0056b3 !important;
+  font-weight: bolder;
+}
+
+
+
+

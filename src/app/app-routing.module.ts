@@ -5,7 +5,7 @@ import { LandingPageComponent } from './modules/landing/components/landing-page/
 import { RegistroComponent } from './modules/auth/registro/registro.component';
 import { MainPageComponent } from './modules/main/components/main-page/main-page.component';
 import { authGuard } from './core/services/auth-services/guards/auth.guard';
-import { Error404Component } from './shared/error404/error404.component';
+import { Error404Component } from './shared/components/error404/error404.component';
 
 const routes: Routes = [
   {

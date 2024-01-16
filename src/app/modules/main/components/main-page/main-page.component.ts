@@ -2,6 +2,8 @@ import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.servic
 import { CoinApi, User } from './../../../../core/Models';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 
 @Component({
@@ -36,7 +38,7 @@ export class MainPageComponent implements OnInit {
 
   public enviarCoin(coin: CoinApi){
     this.coin = coin;
-    console.log('Desde MAIN',this.coin)
+    console.log('Desde funcion compra',this.coin)
   }
 
   public enviarCoinToSell(coin: CoinApi){

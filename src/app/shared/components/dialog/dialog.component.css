@@ -1,0 +1,28 @@
+/* Estilo para el contenedor del diálogo */
+.mat-dialog-container {
+  max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
+}
+
+/* Estilo para el título del diálogo */
+h1 {
+  color: #2196F3; /* Cambia el color del texto según tus preferencias */
+  margin-bottom: 15px; /* Espacio en la parte inferior del título */
+}
+
+/* Estilo para el contenido del diálogo */
+.mat-dialog-content {
+  margin-bottom: 10px; /* Espacio en la parte inferior de cada elemento de contenido */
+}
+
+/* Estilo para el botón de cerrar diálogo */
+.mat-button {
+  background-color: #2196F3; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  cursor: pointer;
+  padding: 10px 15px; /* Ajusta el relleno del botón según tus necesidades */
+  border-radius: 5px; /* Ajusta el radio del borde del botón según tus necesidades */
+}
+
+.mat-button:hover {
+  background-color: #1565C0; /* Color de fondo del botón al pasar el ratón */
+}

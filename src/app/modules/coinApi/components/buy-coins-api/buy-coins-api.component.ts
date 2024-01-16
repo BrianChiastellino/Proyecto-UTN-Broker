@@ -1,8 +1,10 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from 'src/app/modules/main/services/wallet.service';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-buy-coins-api',
@@ -23,10 +25,30 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   cantidad: number = 0;
   pesos!: number;
   valorCompra: number = 0;
-  valorCompraPesos: number = 0;
+  valorFinal: number = 0;
 
-  constructor(private wallet: WalletService, private router: Router) { }
+  constructor(private wallet: WalletService, private router: Router, public dialogCompra: MatDialog,private snackbar: MatSnackBar) { }
 
+
+  openCompraDialog() {
+    const dialogCompra = this.dialogCompra.open(DialogComponent, {
+
+      panelClass: 'dialog-compra-style',
+      data: {
+        usuario: this.userLoged,
+        coin: this.coinCompra,
+        wallet: this.walletLog,
+        metodo: this,
+        tipoOperacion: 0
+      }
+
+    });
+
+    dialogCompra.afterClosed().subscribe(res => {
+      console.log('ALGO');
+    })
+
+  }
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
@@ -34,16 +56,17 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('Desde buy', this.coinSelected);
+    //! aca podemos abrir el dialog
     this.coinCompra = this.coinSelected;
-    console.log('Desde el this', this.coinCompra);
-    console.log('los pesos pa', this.pesos);
-    console.log('ngOninit', this.userLoged);
     this.pesos = this.walletLog.fondos;
+    this.openCompraDialog();
   }
 
+
   toggleForm() {
+
     this.showForm = !this.showForm;
+
   }
 
   calcularPrecio() {
@@ -52,12 +75,70 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
   calcularCompra() {
     this.cantidad = this.pesos / this.coinSelected.current_price;
-    this.valorCompraPesos = this.cantidad * this.coinSelected.current_price;
+    this.valorFinal = this.cantidad * this.coinSelected.current_price;
   }
+
+  public confirmarCompraDialog(coinCompra: CoinApi, cantCoinFinal: number, fondosFinal: number, dialogWallet: Wallet) {
+
+    console.log('Entro a funcion')
+
+    if (this.walletLog.fondos > 0 && fondosFinal > 0 && this.walletLog.fondos >= fondosFinal) {
+
+      console.log('Entro a IF')
+
+
+      const coin: Coin = new Coin();
+      coin.id = coinCompra.id.toUpperCase();
+      coin.image = coinCompra.image;
+      coin.symbol = coinCompra.symbol;
+      coin.coinAmount = cantCoinFinal;
+
+      const existe = this.existCoinInWallet(this.coinSelected.id);
+
+      if (existe) {
+
+        console.log('Entro al if existe')
+
+        const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
+        console.log('Index dice:', index);
+        console.log('coin:',dialogWallet.coins[index])
+        dialogWallet.coins[index].coinAmount += cantCoinFinal;
+        // this.walletLog.coins[index].coinAmount += this.cantidad;
+      } else {
+        dialogWallet.coins.push(coin);
+        // this.walletLog.coins.push(coin);
+      }
+
+      dialogWallet.fondos -= fondosFinal;
+      // this.walletLog.fondos -= fondosFinal;
+
+      this.updateWallet(dialogWallet);
+
+      }else{
+        this.mostrarNotificacion();
+      }
+
+      console.log('Termino el if')
+    }
+
+    mostrarNotificacion(): void {
+
+      this.snackbar.open('No tienes suficiente dinero depositado', 'Cerrar', {
+        duration: 50000, // Duración en milisegundos (5 segundos en este caso)
+        verticalPosition: 'bottom',
+        horizontalPosition: 'right', // Posición vertical en la pantalla (puede ser 'bottom' también)
+        panelClass: 'error-toast' // Clases CSS adicionales para estilizar la notificación
+      });
+    }
+
+
+
+
+
 
 
   public confirmarCompra() {
-    if (this.walletLog.fondos > 0 && this.valorCompraPesos > 0 && this.walletLog.fondos >= this.valorCompraPesos){
+    if (this.walletLog.fondos > 0 && this.valorFinal > 0 && this.walletLog.fondos >= this.valorFinal) {
 
       const coin: Coin = new Coin();
       coin.id = this.coinSelected.id.toUpperCase();
@@ -65,7 +146,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       coin.symbol = this.coinSelected.symbol;
       coin.coinAmount = this.cantidad;
 
-      this.walletLog.fondos <= this.valorCompraPesos
+      this.walletLog.fondos <= this.valorFinal
 
       const existe = this.existCoinInWallet(this.coinSelected.id);
 
@@ -77,7 +158,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
         this.walletLog.coins.push(coin);
       }
 
-      this.walletLog.fondos -= this.valorCompraPesos;
+      this.walletLog.fondos -= this.valorFinal;
 
       this.updateWallet(this.walletLog);
       this.toggleForm();
@@ -85,7 +166,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       this.router.navigate(['main/myWallet']);
       // window.location.reload();
 
-    }else{
+    } else {
       alert('No posee los fondos suficientes');
     }
   }
@@ -132,7 +213,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
     }
   }
 
-  goToCreateWallet(){
+  goToCreateWallet() {
     this.router.navigate(['main/myWallet'])
   }
 

@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { ViewCoinsApiComponent } from './components/view-coins-api/view-coins-api.component';
 import { BuyCoinsApiComponent } from './components/buy-coins-api/buy-coins-api.component';
 import { SellCoinsComponent } from './components/sell-coins/sell-coins.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -17,7 +18,8 @@ import { SellCoinsComponent } from './components/sell-coins/sell-coins.component
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   exports: [
     // CoinsApiComponent,
