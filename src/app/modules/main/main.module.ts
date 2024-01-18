@@ -6,6 +6,7 @@ import { CoinApiModule } from '../coinApi/coin-api.module';
 import { WalletComponent } from './components/wallet/wallet.component';
 import { MainRoutingModule } from './main-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -14,7 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     declarations: [
         MainPageComponent,
         WalletComponent,
-      
+
     ],
     imports: [
         CommonModule,
@@ -22,7 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
         SharedModule,
         MainRoutingModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ]
 })
 export class MainModule { }

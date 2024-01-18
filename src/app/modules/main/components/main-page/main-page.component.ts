@@ -1,16 +1,20 @@
 import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
 import { CoinApi, User } from './../../../../core/Models';
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
-
+import { DataService } from '../../services/data.service';
+import { Subscription } from 'rxjs';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-main-page',
   templateUrl: './main-page.component.html',
-  styleUrls: ['./main-page.component.css']
+  styleUrls: ['./main-page.component.css', './toast-noti.component.css'],
 })
+
+
 export class MainPageComponent implements OnInit {
 
   userLoged!: User;
@@ -18,17 +22,55 @@ export class MainPageComponent implements OnInit {
   coin!: CoinApi;
   coinToSell!: CoinApi;
 
-  constructor(private coinApiService: CoinApiService) { }
+  private informacionSubscription?: Subscription;
+  public mostrarNotificacion: number = -1;
+  public abrirNotificacion : boolean = false;
+
+  constructor(private coinApiService: CoinApiService, private dataService: DataService, private router: Router) {
+
+
+
+    this.informacionSubscription = this.dataService.informacion$.subscribe((v) => {
+      this.mostrarNotificacion = v;
+      this.abrirNotificacion = true;
+
+      setTimeout(() => {
+        this.abrirNotificacion = false;
+        this.cerrarNotificacion();
+      }, 3500);
+    });
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        this.abrirNotificacion = false;
+        this.mostrarNotificacion = -1;
+      }});
+
+  }
+
+  cerrarNotificacion() {
+    this.abrirNotificacion = false;
+    setTimeout(() => {
+      this.mostrarNotificacion = -1;
+    }, 150);
+  }
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+
+
     this.getAllCoins();
   }
+
+
+
+
+
+
 
   //!Hay un límite de 30 solicitudes por minuto a la API pública.
   public updateViewCoins(): void {
     this.getAllCoins();
-    alert('Se actualizo la lista');
   }
 
   public getAllCoins(): void {
@@ -36,12 +78,11 @@ export class MainPageComponent implements OnInit {
 
   }
 
-  public enviarCoin(coin: CoinApi){
+  public enviarCoin(coin: CoinApi) {
     this.coin = coin;
-    console.log('Desde funcion compra',this.coin)
   }
 
-  public enviarCoinToSell(coin: CoinApi){
+  public enviarCoinToSell(coin: CoinApi) {
     this.coinToSell = coin;
   }
 

@@ -13,13 +13,43 @@
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 201.5,
+      "fondos": 25370,
       "coins": [
         {
           "id": "TETHER",
-          "coinAmount": 0.7209368804163319,
+          "coinAmount": 9820.137967147184,
           "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
           "symbol": "usdt"
+        },
+        {
+          "id": "BITCOIN",
+          "coinAmount": 0.20205917940333193,
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+          "symbol": "btc"
+        },
+        {
+          "id": "ETHEREUM",
+          "coinAmount": 2.720311749138177,
+          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+          "symbol": "eth"
+        },
+        {
+          "id": "SOLANA",
+          "coinAmount": 0.6145083814209915,
+          "image": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1696504756",
+          "symbol": "sol"
+        },
+        {
+          "id": "BINANCECOIN",
+          "coinAmount": 3.598940383652538,
+          "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
+          "symbol": "bnb"
+        },
+        {
+          "id": "DOGECOIN",
+          "coinAmount": 248.82740087338416,
+          "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
+          "symbol": "doge"
         }
       ]
     }

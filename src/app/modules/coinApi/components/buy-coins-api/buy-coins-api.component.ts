@@ -1,8 +1,9 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
+import { DataService } from 'src/app/modules/main/services/data.service';
 import { WalletService } from 'src/app/modules/main/services/wallet.service';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
@@ -15,7 +16,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
   coinCompra!: CoinApi;
   @Input() coinSelected!: CoinApi;
-  // @Input() walledLogue!: Wallet;
+  @Output() enviarTipoNotificacion = new EventEmitter<number>();
 
   showForm = true;
 
@@ -27,8 +28,9 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   valorCompra: number = 0;
   valorFinal: number = 0;
 
-  constructor(private wallet: WalletService, private router: Router, public dialogCompra: MatDialog,private snackbar: MatSnackBar) { }
+  operacion: number = -1;
 
+  constructor(private wallet: WalletService, private router: Router, public dialogCompra: MatDialog,private snackbar: MatSnackBar, private dataService: DataService) { }
 
   openCompraDialog() {
     const dialogCompra = this.dialogCompra.open(DialogComponent, {
@@ -44,8 +46,8 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
     });
 
-    dialogCompra.afterClosed().subscribe(res => {
-      console.log('ALGO');
+    dialogCompra.afterClosed().subscribe((res) => {
+      this.operacion = res;
     })
 
   }
@@ -60,6 +62,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
     this.coinCompra = this.coinSelected;
     this.pesos = this.walletLog.fondos;
     this.openCompraDialog();
+    this.dialogCompra.afterAllClosed
   }
 
 
@@ -79,8 +82,6 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
   }
 
   public confirmarCompraDialog(coinCompra: CoinApi, cantCoinFinal: number, fondosFinal: number, dialogWallet: Wallet) {
-
-    console.log('Entro a funcion')
 
     if (this.walletLog.fondos > 0 && fondosFinal > 0 && this.walletLog.fondos >= fondosFinal) {
 
@@ -113,23 +114,21 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       // this.walletLog.fondos -= fondosFinal;
 
       this.updateWallet(dialogWallet);
+      this.dataService.enviarInformacion(0);
+
 
       }else{
-        this.mostrarNotificacion();
+        this.dataService.enviarInformacion(1)
       }
 
       console.log('Termino el if')
     }
 
-    mostrarNotificacion(): void {
-
-      this.snackbar.open('No tienes suficiente dinero depositado', 'Cerrar', {
-        duration: 50000, // Duración en milisegundos (5 segundos en este caso)
-        verticalPosition: 'bottom',
-        horizontalPosition: 'right', // Posición vertical en la pantalla (puede ser 'bottom' también)
-        panelClass: 'error-toast' // Clases CSS adicionales para estilizar la notificación
-      });
+    enviarInfoNotificacion(notificacion: number) {
+      this.enviarTipoNotificacion.emit(notificacion)
     }
+
+
 
 
 

@@ -1,4 +1,4 @@
-import { Component, Inject, inject } from '@angular/core';
+import { Component, EventEmitter, Inject, Output, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 
@@ -9,8 +9,11 @@ import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 })
 export class DialogComponent {
 
+  @Output() tipoNotificacion = new EventEmitter<number>();
+
   constructor(public dialog: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA)
+
 
     //! ATRIBUTOS DEL DIALOG
 
@@ -32,14 +35,16 @@ export class DialogComponent {
 
 
       tipoOperacion: number,
-
+      tipoNotificacion: number,
       precioCripto: number
+
+      operacion: number,
 
     }) {}
 
     //! FUNCIONES DEL DIALOG
-    cerrar () {
-      this.dialog.close();
+    cerrar (notificacion: number) {
+      this.dialog.close(notificacion);
     }
 
     //! FUNCIONES COMPRA
@@ -49,6 +54,7 @@ export class DialogComponent {
 
     confirmarCompra (){
       this.data.metodo.confirmarCompraDialog(this.data.coin,this.data.cantidadCoinFinal, this.data.compraFondos,this.data.wallet);
+      this.cerrar(0);
     }
 
 
@@ -57,10 +63,9 @@ export class DialogComponent {
     //! Calculamos la venta, deposita dolares y se obtiene el valor en criptomonedas.
     calcularPrecioVenta () {
 
-
       if(this.data.inputDolares > 0){
       console.log('inputDolares', this.data.inputDolares)
-        this.data.precioCripto =  this.data.inputDolares * this.data.coin.current_price;
+        this.data.precioCripto =  this.data.inputDolares / this.data.coin.current_price;
       }
 
     }
@@ -106,10 +111,9 @@ export class DialogComponent {
         this.setearWallet();
         console.log('wallet', this.data.wallet);
         this.data.metodoVenta.confirmarVentaDialog(this.data.wallet);
+        this.cerrar(0);
       }else{
         alert('No se concreto la venta.')
       }
     }
-
-
 }

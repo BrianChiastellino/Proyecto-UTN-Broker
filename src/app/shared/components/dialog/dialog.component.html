@@ -20,7 +20,7 @@
     Con la compra de ${{data.compraFondos}} <br> Obtendras un total de ${{ data.cantidadCoinFinal }}
   </p>
   <button class="confirmar" mat-button (click)="confirmarCompra()">CONFIRMAR COMPRA</button>
-  <button class="cancelar" mat-button (click)="cerrar()">CANCELAR COMPRA</button>
+  <button class="cancelar" mat-button (click)="dialog.close()">CANCELAR COMPRA</button>
 </form>
 
 <form *ngIf="data.tipoOperacion == 1">
@@ -36,7 +36,7 @@
     Depositando ${{ data.inputDolares }} se venderan {{data.precioCripto}} de tu billera online.
   </p>
   <button class="confirmar" mat-button (click)="confirmarVenta()">CONFIRMAR VENTA</button>
-  <button class="cancelar" mat-button (click)="cerrar()">CANCELAR COMPRA</button>
+  <button class="cancelar" mat-button (click)="dialog.close()">CANCELAR COMPRA</button>
 </form>
 
 
