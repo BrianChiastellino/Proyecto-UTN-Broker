@@ -10,8 +10,7 @@
     <form (ngSubmit)="onSubmit()" #f="ngForm">
 
       <div class="inputbox">
-        <input type="number" id="monto" name="monto"  [(ngModel)]="monto" autocomplete="off" required>
-        <!-- <label for="monto">Monto:</label> -->
+        <input type="text" pattern="[0-9]*" id="monto" name="monto"  [(ngModel)]="monto" autocomplete="off" required>
       </div>
 
     </form>

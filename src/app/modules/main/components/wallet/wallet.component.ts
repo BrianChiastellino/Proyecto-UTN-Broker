@@ -9,16 +9,17 @@ import { WalletService } from '../../services/wallet.service';
 })
 export class WalletComponent implements OnInit {
 
-onSubmit() {
-throw new Error('Method not implemented.');
-}
+  onSubmit() {
+    throw new Error('Method not implemented.');
+  }
 
 
   userLoged!: User;
   allWallets: Array<Wallet> = []
   currentWallet!: Wallet
   existWallet: boolean = false;
-  monto: number = 0;
+  monto: string = '';
+  montoReal: number = 0;
 
   constructor(private walletService: WalletService) { }
 
@@ -32,45 +33,64 @@ throw new Error('Method not implemented.');
     wall.idUser = this.userLoged.id;
     this.addWallet(wall);
     window.location.reload();
-     //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
+    //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
   }
+  
 
 
   public depositarFondos() {
 
-    try {
+    // if(!isNaN(parseFloat(this.monto))){
+    //   this.montoReal = parseFloat(this.monto) || 0;
+    // }
 
-      if (this.currentWallet != undefined && this.monto >= 50 ) {
-        console.log(this.currentWallet)
-        this.currentWallet.fondos! += this.monto;
-        this.updateWallet(this.currentWallet);
-      }else{
-        throw alert('Deposito minimo USD50')
 
+
+    if (!isNaN(parseFloat(this.monto))) {
+
+      this.montoReal = parseFloat(this.monto);
+
+      try {
+
+
+        if (this.currentWallet != undefined && this.montoReal >= 50) {
+          this.currentWallet.fondos! += this.montoReal;
+          this.updateWallet(this.currentWallet);
+        } else {
+          throw alert('Deposito minimo USD50')
+
+        }
+      } catch (error) {
+        console.error(error)
       }
-    } catch (error) {
-      console.error(error)
+
+
+
+
     }
+
 
   }
 
-  public retirarFondos (){
+  public retirarFondos() {
 
-    const {fondos} = this.currentWallet;
+    const { fondos } = this.currentWallet;
 
-    console.log(fondos);
+    if (!isNaN(parseFloat(this.monto))) {
+      this.montoReal = parseFloat(this.monto);
 
-    try{
+      try {
 
-      if(this.currentWallet != undefined && fondos! >= this.monto){
-        this.currentWallet.fondos! -= this.monto;
-        this.updateWallet(this.currentWallet);
-      }else{
-        throw alert('Fondos insuficientes');
+        if (this.currentWallet != undefined && fondos! >= this.montoReal) {
+          this.currentWallet.fondos! -= this.montoReal;
+          this.updateWallet(this.currentWallet);
+        } else {
+          throw alert('Fondos insuficientes');
+        }
       }
-    }
-    catch(error){
-      console.error('Error al retirar fondos', error)
+      catch (error) {
+        console.error('Error al retirar fondos', error)
+      }
     }
   }
 
@@ -85,7 +105,7 @@ throw new Error('Method not implemented.');
 
       this.currentWallet = this.allWallets.find((w) => w.idUser == this.userLoged.id)!
 
-      if(this.currentWallet == undefined){
+      if (this.currentWallet == undefined) {
         this.createWallet();
       }
 
