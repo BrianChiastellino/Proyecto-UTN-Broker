@@ -1,6 +1,6 @@
 import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
-import { CoinApi, User } from './../../../../core/Models';
-import { Component, OnInit, SimpleChanges, OnChanges } from '@angular/core';
+import { CoinApi, User, Wallet } from './../../../../core/Models';
+import { Component, OnInit, SimpleChanges, OnChanges, Input, Output, EventEmitter } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
@@ -14,6 +14,10 @@ import { NgClass } from '@angular/common';
   styleUrls: ['./main-page.component.css', './toast-noti.component.css'],
 })
 
+//!todo: ENVIAR TODA LA INFO AL MAIN PARA QUE EL MAIN USE LOS SERVICIOS Y GUARDE CON EL BACK
+//!todo: Una vez que sabemos que coins tiene el usuario pintar de color rojo las que no tiene para que seap que no puede vender.
+//!todo: QUE EL USUARIO PUEDA VENDER CANTIDAD DE COINS PARA QUE SEA MAS FACIL LA VENTA
+
 
 export class MainPageComponent implements OnInit {
 
@@ -24,7 +28,7 @@ export class MainPageComponent implements OnInit {
 
   private informacionSubscription?: Subscription;
   public mostrarNotificacion: number = -1;
-  public abrirNotificacion : boolean = false;
+  public abrirNotificacion: boolean = false;
 
   constructor(private coinApiService: CoinApiService, private dataService: DataService, private router: Router) {
 
@@ -44,7 +48,8 @@ export class MainPageComponent implements OnInit {
       if (event instanceof NavigationEnd) {
         this.abrirNotificacion = false;
         this.mostrarNotificacion = -1;
-      }});
+      }
+    });
 
   }
 
@@ -57,7 +62,6 @@ export class MainPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
-
 
     this.getAllCoins();
   }

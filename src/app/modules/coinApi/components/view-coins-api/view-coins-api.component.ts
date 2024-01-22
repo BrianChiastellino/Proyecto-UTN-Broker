@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
-import { CoinApi, User } from 'src/app/core/Models';
+import { CoinApi, User, Wallet } from 'src/app/core/Models';
+import { WalletComponent } from 'src/app/modules/main/components/wallet/wallet.component';
 
 @Component({
   selector: 'app-view-coins-api',

@@ -25,13 +25,16 @@
 
 <form *ngIf="data.tipoOperacion == 1">
   <h1> VENTA </h1>
-  <h2 mat-dialog-content > {{data.coin.id}} </h2>
+  <h2 mat-dialog-content> {{data.coin.id}} </h2>
   <br>
   <div mat-dialog-content>{{ data.coin.name }} : ${{ data.coin.current_price }}</div>
   <br>
   <div mat-dialog-content> Tus fondos: {{data.wallet.fondos}} </div>
+  <br>
+  <div mat-dialog-content name="myCoin" id="myCoin" [(ngModel)]="myCoin">Tus coins: {{myCoin}}</div>
   <label for="inputDolares">Ingrese cantidad de dolares a vender</label>
-  <input type="number" name="inputDolares" id="inputDolares" (input)="calcularPrecioVenta()" [(ngModel)]="data.inputDolares">
+  <input type="number" name="inputDolares" id="inputDolares" (input)="calcularPrecioVenta()"
+    [(ngModel)]="data.inputDolares">
   <p mat-dialog-content *ngIf="data.precioCripto">
     Depositando ${{ data.inputDolares }} se venderan {{data.precioCripto}} de tu billera online.
   </p>
@@ -41,7 +44,7 @@
 
 
 
-  <!-- <mat-slider min="0" step="0" max="{{data.wallet.fondos}}" color="accent" discrete="true">
+<!-- <mat-slider min="0" step="0" max="{{data.wallet.fondos}}" color="accent" discrete="true">
     <input matSliderThumb [(ngModel)]="data.cantidad">
   </mat-slider>
   <br> -->

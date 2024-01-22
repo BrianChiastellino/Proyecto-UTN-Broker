@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Comentario, User } from 'src/app/core/Models';
-import { JsonComentarioService } from 'src/app/core/services/json-comentario.service';
-import { lastValueFrom } from 'rxjs';
-import { ComentarioService } from '../../services/comentario.service';
+import { User } from 'src/app/core/Models';
+
 
 @Component({
   selector: 'app-landing-page',

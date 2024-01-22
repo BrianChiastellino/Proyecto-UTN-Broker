@@ -24,10 +24,11 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
   compraOnOf: boolean = false;
 
-  constructor(private wallet: WalletService, private router: Router,private dialogVenta: MatDialog ) { }
+  constructor(private wallet: WalletService, private router: Router, private dialogVenta: MatDialog) { }
 
   openVentaDialog() {
-    const dialogCompra = this.dialogVenta.open(DialogComponent, {
+
+    this.dialogVenta.open(DialogComponent, {
 
       //todo: cambiar a ' dialog-venta-style '
       panelClass: 'dialog-compra-style',
@@ -41,10 +42,6 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
     });
 
-    dialogCompra.afterClosed().subscribe(res => {
-      console.log('ALGO');
-    })
-
   }
 
   ngOnInit(): void {
@@ -53,11 +50,12 @@ export class SellCoinsComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (changes['coinToSell'] && this.currentWallet) {
+    if (changes['coinToSell'] && this.currentWallet && this.getIndexCoin() != -1) {
       this.cantidadParaVenta();
       this.openVentaDialog();
     }
   }
+
   //! Tuvimos que implementar estos metodos de wallet aca, debido al poco tiempo
   //! Como alumnos sabemos que se tendrian que compartir la wallet con el main mediante emiters y input
   //! Optamos dejarlo asi debido al poco tiempo que tenemos.
@@ -122,7 +120,7 @@ export class SellCoinsComponent implements OnInit, OnChanges {
     }
   }
 
-  getIndexCoin() : number {
+  getIndexCoin(): number {
     const idToSell = this.coinToSell.id.toUpperCase();
     return this.currentWallet.coins.findIndex(c => c.id == idToSell);
   }
@@ -143,12 +141,12 @@ export class SellCoinsComponent implements OnInit, OnChanges {
       } else {
         alert('No se pudo realizar la venta');
       }
-    }else{
+    } else {
       alert('Fondos insuficintes');
     }
   }
 
-  confirmarVentaDialog (wallet: Wallet){
+  confirmarVentaDialog(wallet: Wallet) {
     this.updateWallet(wallet);
   }
 
@@ -163,8 +161,6 @@ export class SellCoinsComponent implements OnInit, OnChanges {
 
 
 
-  toggleForm(): void {
-    this.showForm = !this.showForm;
-  }
+
 
 }

@@ -17,7 +17,6 @@ export class WalletService {
       let response = this.wallet.getAllWallets();
 
       const data = await lastValueFrom(response);
-      console.log('Conectado con wallets');
       return data.map((w:any) => new Wallet(w));
 
     } catch (error) {

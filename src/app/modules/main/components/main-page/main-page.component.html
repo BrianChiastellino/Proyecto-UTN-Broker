@@ -17,61 +17,15 @@
   <app-buy-coins-api [coinSelected]="coin" (enviarTipoNotificacion)="mostrarNotificacion"></app-buy-coins-api>
   <app-sell-coins [coinToSell]="coinToSell"></app-sell-coins>
 
+
+
 </main>
 
-<!-- <div class="wrapper" *ngIf="mostrarNotificacion != -1" [ngClass]="{'slide-in': mostrarNotificacion !== -1, 'slide-out': mostrarNotificacion == -1}">
+<!-- <app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins" [walletLog]="walletInfo"
+(coinSell)="enviarCoinToSell($event)"></app-view-coins-api>
 
-  <div class="toast success" *ngIf="mostrarNotificacion == 0">
-    <div class="container-1">
-      <i class="fas fa-check-circle"></i>
-    </div>
-    <div class="container-2">
-      <p>Success</p>
-      <p>Your changes are saved successfully</p>
-    </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
-  </div>
-
-  <div class="toast error" *ngIf="mostrarNotificacion == 1">
-    <div class="container-1">
-      <i class="fas fa-times-circle"></i>
-    </div>
-    <div class="container-2">
-      <p>Error</p>
-      <p>Error has occured while saving changes.</p>
-    </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
-  </div>
-
-  <div class="toast info" *ngIf="mostrarNotificacion == 2">
-    <div class="container-1">
-      <i class="fas fa-info-circle"></i>
-    </div>
-    <div class="container-2">
-      <p>Info</p>
-      <p>New settings available on your account.</p>
-    </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
-  </div>
-
-  <div class="toast warning" *ngIf="mostrarNotificacion == 3">
-    <div class="container-1">
-      <i class="fas fa-exclamation-circle"></i>
-    </div>
-    <div class="container-2">
-      <p>Warning</p>
-      <p>Username you have entered is invalid.</p>
-    </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
-  </div>
-
-</div> -->
-
-<!-- <button (click)="abrirNotificacion = true" (click)="mostrarNotificacion = 0" style="cursor: pointer;">ABRIR</button>
-<br>
-<button (click)="abrirNotificacion = false" style="cursor: pointer;">CERRAR</button>
-<br> -->
-
+<app-buy-coins-api [coinSelected]="coin" (enviarTipoNotificacion)="mostrarNotificacion" (enviarWallet)="walletInfo"></app-buy-coins-api>
+<app-sell-coins [coinToSell]="coinToSell"></app-sell-coins> -->
 
 <div class="wrapper" *ngIf="mostrarNotificacion != -1"
   [ngClass]="{'slide-in': abrirNotificacion , 'slide-out': !abrirNotificacion}">

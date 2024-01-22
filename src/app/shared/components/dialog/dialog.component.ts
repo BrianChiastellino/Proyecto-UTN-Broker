@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Inject, Output, inject } from '@angular/core';
+import { Component, EventEmitter, Inject, OnInit, Output, inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 
@@ -7,9 +7,10 @@ import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.css']
 })
-export class DialogComponent {
+export class DialogComponent implements OnInit {
 
   @Output() tipoNotificacion = new EventEmitter<number>();
+  public myCoin!: number;
 
   constructor(public dialog: MatDialogRef<DialogComponent>,
     @Inject(MAT_DIALOG_DATA)
@@ -23,6 +24,7 @@ export class DialogComponent {
       usuario: User,
       coin: CoinApi,
       wallet: Wallet,
+
 
       metodo: any,
       compraFondos: number,
@@ -42,9 +44,16 @@ export class DialogComponent {
 
     }) {}
 
+    ngOnInit(): void {
+      if(this.data.tipoOperacion == 1){
+        this.myCoin = this.data.wallet.coins[this.getIndexCoin()].coinAmount;
+      }
+    }
+
     //! FUNCIONES DEL DIALOG
     cerrar (notificacion: number) {
       this.dialog.close(notificacion);
+
     }
 
     //! FUNCIONES COMPRA
@@ -63,8 +72,9 @@ export class DialogComponent {
     //! Calculamos la venta, deposita dolares y se obtiene el valor en criptomonedas.
     calcularPrecioVenta () {
 
+
+
       if(this.data.inputDolares > 0){
-      console.log('inputDolares', this.data.inputDolares)
         this.data.precioCripto =  this.data.inputDolares / this.data.coin.current_price;
       }
 
@@ -74,11 +84,7 @@ export class DialogComponent {
 
       const index = this.getIndexCoin();
 
-      console.log('validarFondos index: %d', index);
-
-      //!Ver que pasa si ingresa -1 el index
       if (this.data.wallet.coins[index].coinAmount > 0 && index != -1 && this.data.precioCripto <= this.data.wallet.coins[index].coinAmount){
-        console.log('entro al true validar fondos')
         return true;
       }
 
@@ -93,6 +99,7 @@ export class DialogComponent {
 
     setearWallet () {
       const coinIndex = this.getIndexCoin();
+
 
       if (coinIndex !== -1) {
         const coin = this.data.wallet.coins[coinIndex];

@@ -64,6 +64,10 @@ span {
   font-family: 'Montserrat', sans-serif;
 }
 
+.name-coin{
+  color: #0056b3;
+}
+
 thead {
   background-color: #05384d;
   color: #fff;
