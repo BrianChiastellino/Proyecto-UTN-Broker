@@ -18,17 +18,17 @@
       <ng-container *ngFor="let coin of coinsFiltred; let i = index">
         <tr *ngIf="i < 3 || mostrarMas">
           <td>{{ i + 1 }}</td>
-          <td>
+          <td class="info-coin">
 
             <img class="imgTabla" [src]="coin.image" alt="{{coin.name}}">
-            <span class="name-coin">{{coin.name}}
+            <span>{{coin.name}}
 
             </span>
             <span>{{coin.symbol}}
             </span>
           </td>
           <td>${{ coin.current_price }}</td>
-          <td>{{ coin.last_updated }}</td>
+          <td>{{ coin.last_updated | date:'dd-MM-yyyy HH:mm:ss \'HS\''}}</td>
           <td *ngIf="userIsLoged"><button (click)="coinToBuy(coin)">Comprar</button></td>
           <td *ngIf="userIsLoged"><button (click)="coinToSell(coin)">Vender</button></td>
         </tr>

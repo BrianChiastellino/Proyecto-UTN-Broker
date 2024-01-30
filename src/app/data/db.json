@@ -13,11 +13,11 @@
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 4800,
+      "fondos": 4860,
       "coins": [
         {
           "id": "TETHER",
-          "coinAmount": 3100.5176204349145,
+          "coinAmount": 3200.5176204349145,
           "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
           "symbol": "usdt"
         },
@@ -26,11 +26,23 @@
           "coinAmount": 1.892326615573848,
           "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
           "symbol": "bnb"
+        },
+        {
+          "id": "BITCOIN",
+          "coinAmount": 0.0759950652753203,
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+          "symbol": "btc"
+        },
+        {
+          "id": "ETHEREUM",
+          "coinAmount": 0.004505641062610388,
+          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+          "symbol": "eth"
         }
       ]
     }
   ],
-  "transaccion": [],
+  "images": [],
   "comentarios": [
     {
       "id": 1,

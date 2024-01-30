@@ -16,6 +16,7 @@ import { CoinApiModule } from './modules/coinApi/coin-api.module';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { CarouselConfig } from 'ngx-bootstrap/carousel';
 import { IonicModule } from '@ionic/angular';
+import { ContactoComponent } from './modules/contacto/components/contacto.component';
 
 
 
@@ -23,7 +24,6 @@ import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [
     AppComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -37,8 +37,6 @@ import { IonicModule } from '@ionic/angular';
     ReactiveFormsModule,
     CarouselModule.forRoot(),
     IonicModule
-
-
   ],
 
   bootstrap: [AppComponent],

@@ -1,4 +1,8 @@
 /* Estilo para el contenedor del diálogo */
+*{
+  border-radius: 2rem;
+}
+
 .mat-dialog-container {
   max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
 }

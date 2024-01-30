@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class CoinApiService {
 
+
+
   constructor(private coinGeckoApiService: CoinGeckoApiService, private router: Router) { }
 
   public async getAllGoins() {
@@ -18,7 +20,6 @@ export class CoinApiService {
       let response = this.coinGeckoApiService.getAllCoins();
 
       const data = await lastValueFrom(response);
-      console.log('Conectado con la api');
       return data.map((dataCoins: any) => new CoinApi(dataCoins));
 
     }

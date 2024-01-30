@@ -40,7 +40,7 @@ formRegister: any;
 
     const check = this.authService.checkLog(email, password);
 
-    await check ? this.router.navigate(['/landing']) : alert("Usuario Inexistente"), this.registroOn = true;
+    await check ? this.router.navigate(['/main']) : alert("Usuario Inexistente"), this.registroOn = true;
 
   }
 

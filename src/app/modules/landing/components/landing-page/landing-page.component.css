@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 
-section{
+section {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,21 +8,103 @@ section{
   min-height: 100vh;
   width: 100%;
 
-  background: url('src\assets\images\background01.jpg');
+  background: url('src\assets\images\black_001.jpg');
   background-position: center;
   background-size: cover;
   color: #fff;
 }
 
-h1 {
+.container-titulo h1 {
+  position: fixed;
+  display: flex;
+  left: 5%;
+  top: 15%;
+  font-size: 4rem;
+  font-family: 'Kanit', sans-serif;
+  font-weight: bolder;
+  color: rgb(255, 153, 0);
+  line-height: 1.5;
+  font-size: 4rem;
+}
 
+.contenedor-p {
+  position: absolute;
+  display: block;
+  right: 1.4rem;
+  max-width: auto;
+  height: auto;
+  left: 10%;
+  top: 28%;
+}
+
+.contenedor-p h2 {
+  font-size: 1.8rem;
+  margin-top: 1rem;
+}
+
+.contenedor-p p {
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 500;
+margin: 0 1rem;
+}
+
+
+
+
+
+
+.coins-container-1 {
+  position: fixed;
+  display: flex;
+  top: 20rem;
+  width: 65%;
+  justify-content: flex-end;
+  align-items: flex-end;
+  /* border: red solid 1px; */
+
+}
+
+.contenedor-2 {
+  text-align: center;
+  /* Alinear el contenido al centro */
+
+  /* flex-basis: calc(33.33% - 20px);  */
+}
+
+.contenedor-2 img {
+  width: 100%;
+  /* Asegurar que la imagen ocupe todo el ancho del contenedor */
+  max-width: 10rem;
+  /* Tamaño máximo de la imagen */
+  height: auto;
+  /* Mantener la relación de aspecto */
+  margin: 2rem;
+
+}
+
+.contenedor-2 h3 {
+  margin-top: 10px;
+  font-size: 1..2rem;
+  font-weight: 500;
+  /* Espacio superior entre la imagen y el título */
+}
+
+
+
+
+
+/* h1 {
   font-family: 'Kanit', sans-serif;
   font-weight: bolder;
   color: rgb(255, 153, 0);
   line-height: 1.5;
   font-size: 44px;
-  background: transparent;
-}
+} */
+
+
+
+/*
 
 .form-box{
   margin: 2rem;
@@ -81,4 +163,4 @@ p {
 .register p a:hover{
   text-decoration: underline;
 
-}
+} */

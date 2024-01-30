@@ -8,15 +8,30 @@ import { User } from 'src/app/core/Models';
   styleUrls: ['./landing-page.component.css']
 })
 
-export class LandingPageComponent implements OnInit   {
+export class LandingPageComponent implements OnInit {
 
-  userLoged! : User;
-  constructor(){
+  userLoged!: User;
+
+  public images: String[] = [
+    'assets/images/btclogo_001.png',
+    'assets/images/ethlogo_001.png',
+    'assets/images/ethlogo_001.png'
+  ];
+
+  
+
+
+
+
+
+  constructor() {
   }
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
   }
 
-  }
+
+
+}
 

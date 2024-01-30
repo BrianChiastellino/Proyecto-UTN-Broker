@@ -1,7 +1,7 @@
 
 
 main{
-  background: url('src\assets\images\background01.jpg');
+  background: url('src\assets\images\black_001.jpg');
   background-position: top;
   background-size: cover;
 
@@ -80,6 +80,6 @@ h1 {
     text-align: center;
   }
 
-  
+
 
 

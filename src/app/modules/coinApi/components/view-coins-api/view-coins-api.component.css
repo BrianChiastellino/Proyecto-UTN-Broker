@@ -46,7 +46,7 @@ tbody tr:nth-child(even) {
 }
 
 th {
-  background-color: #05384d;
+  background-color: #ff9a3c;
 }
 
 td {
@@ -57,21 +57,16 @@ td, th {
   padding: 12px;
   border: 1px solid #e0e0e0;
   text-align: center;
-  font-family: 'Montserrat', sans-serif;
 }
 
-span {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.name-coin{
-  color: #0056b3;
+.info-coin {
+  color: #000000;
 }
 
 thead {
   background-color: #05384d;
   color: #fff;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 
 button {
@@ -97,6 +92,7 @@ button:disabled {
 
 .imgTabla {
   width: 2rem;
+  margin-right: 1rem;
 }
 
 .button-vermas {

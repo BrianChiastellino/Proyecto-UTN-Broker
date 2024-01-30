@@ -44,6 +44,10 @@ export class NavBarComponent implements OnInit {
     this.router.navigate(['main']);
   }
 
+  goToContacto() {
+    this.router.navigate(['/contacto']);
+  }
+
   cerrarSesion() {
 
 
