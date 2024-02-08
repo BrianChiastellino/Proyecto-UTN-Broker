@@ -7,39 +7,107 @@
       "isLoged": false,
       "name": "Brian",
       "document": "41853675"
+    },
+    {
+      "id": 2,
+      "email": "admin@gmail.com",
+      "password": "123",
+      "isLoged": false,
+      "name": "admin",
+      "document": "admin"
     }
   ],
   "wallet": [
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 4860,
+      "fondos": 2500,
       "coins": [
         {
-          "id": "TETHER",
-          "coinAmount": 3200.5176204349145,
-          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-          "symbol": "usdt"
-        },
-        {
-          "id": "BINANCECOIN",
-          "coinAmount": 1.892326615573848,
-          "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
-          "symbol": "bnb"
-        },
-        {
           "id": "BITCOIN",
-          "coinAmount": 0.0759950652753203,
+          "coinAmount": 0.00022996964400699108,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
         },
         {
           "id": "ETHEREUM",
-          "coinAmount": 0.004505641062610388,
+          "coinAmount": 0.0042842515198382265,
           "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
           "symbol": "eth"
+        },
+        {
+          "id": "TETHER",
+          "coinAmount": 10.008607402366035,
+          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+          "symbol": "usdt"
+        },
+        {
+          "id": "STAKED-ETHER",
+          "coinAmount": 0.004289176263698557,
+          "image": "https://assets.coingecko.com/coins/images/13442/large/steth_logo.png?1696513206",
+          "symbol": "steth"
+        },
+        {
+          "id": "CARDANO",
+          "coinAmount": 19.48660588144739,
+          "image": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1696502090",
+          "symbol": "ada"
+        },
+        {
+          "id": "AVALANCHE-2",
+          "coinAmount": 0.28465698832906344,
+          "image": "https://assets.coingecko.com/coins/images/12559/large/Avalanche_Circle_RedWhite_Trans.png?1696512369",
+          "symbol": "avax"
+        },
+        {
+          "id": "DOGECOIN",
+          "coinAmount": 125.64392511622064,
+          "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
+          "symbol": "doge"
+        },
+        {
+          "id": "BITCOIN-CASH",
+          "coinAmount": 0.0839137366786943,
+          "image": "https://assets.coingecko.com/coins/images/780/large/bitcoin-cash-circle.png?1696501932",
+          "symbol": "bch"
+        },
+        {
+          "id": "LEO-TOKEN",
+          "coinAmount": 5.012531328320802,
+          "image": "https://assets.coingecko.com/coins/images/8418/large/leo-token.png?1696508607",
+          "symbol": "leo"
+        },
+        {
+          "id": "ETHEREUM-CLASSIC",
+          "coinAmount": 0.4001600640256103,
+          "image": "https://assets.coingecko.com/coins/images/453/large/ethereum-classic-logo.png?1696501717",
+          "symbol": "etc"
+        },
+        {
+          "id": "UNISWAP",
+          "coinAmount": 1.6366612111292962,
+          "image": "https://assets.coingecko.com/coins/images/12504/large/uni.jpg?1696512319",
+          "symbol": "uni"
+        },
+        {
+          "id": "STELLAR",
+          "coinAmount": 90.15344115684896,
+          "image": "https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png?1696501482",
+          "symbol": "xlm"
+        },
+        {
+          "id": "APTOS",
+          "coinAmount": 1.1049723756906076,
+          "image": "https://assets.coingecko.com/coins/images/26455/large/aptos_round.png?1696525528",
+          "symbol": "apt"
         }
       ]
+    },
+    {
+      "id": 2,
+      "idUser": 2,
+      "fondos": 0,
+      "coins": []
     }
   ],
   "images": [],

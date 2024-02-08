@@ -3,7 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Red+Hat+Display&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&family=Montserrat:wght@100&family=Red+Hat+Display&display=swap');
 
-
+:root{
+  --color-primario: #ffc93c;
+  --color-primario-hover: #e4b233;
+  --color-gris-primario: #F5F7F8;
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
