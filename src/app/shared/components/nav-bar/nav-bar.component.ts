@@ -65,7 +65,6 @@ export class NavBarComponent implements OnInit {
     const loginOn = this.userLoged.isLoged;
     if (loginOn == true) {
       this.loginOnSideBar = true;
-      console.log('El usuario está conectado');
     }
   }
 

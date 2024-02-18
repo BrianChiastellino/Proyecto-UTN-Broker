@@ -10,11 +10,14 @@
     <form (ngSubmit)="onSubmit()" #f="ngForm">
 
       <div class="inputbox">
-        <input type="text" pattern="[0-9]*" id="monto" name="monto"  [(ngModel)]="monto" autocomplete="off" required>
+        <input type="text" pattern="[0-9]*" id="monto" name="monto"  [(ngModel)]="monto" autocomplete="off" required (input)="filtrarNumeros($event)" maxlength="7">
       </div>
 
     </form>
   </div>
+
+  <p class="info-error" *ngIf="errorDepositar">Deposito minimo $50 dolares</p>
+  <p class="info-error" *ngIf="errorRetirar">Retiro minimo $100 dolares</p>
 
   <div class="button-container">
     <button type="button" (click)="depositarFondos()">DEPOSITAR</button>

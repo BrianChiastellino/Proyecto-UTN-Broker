@@ -20,6 +20,8 @@ export class WalletComponent implements OnInit {
   existWallet: boolean = false;
   monto: string = '';
   montoReal: number = 0;
+  public errorDepositar: boolean = false;
+  public errorRetirar: boolean = false;
 
   constructor(private walletService: WalletService) { }
 
@@ -35,7 +37,12 @@ export class WalletComponent implements OnInit {
     window.location.reload();
     //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
   }
-  
+
+  filtrarNumeros(event: any): void {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/\D/g, '');
+  }
+
 
 
   public depositarFondos() {
@@ -57,7 +64,11 @@ export class WalletComponent implements OnInit {
           this.currentWallet.fondos! += this.montoReal;
           this.updateWallet(this.currentWallet);
         } else {
-          throw alert('Deposito minimo USD50')
+          this.errorDepositar = true;
+
+          setTimeout(() => {
+            this.errorDepositar = false;
+          }, 3000);
 
         }
       } catch (error) {
@@ -81,11 +92,17 @@ export class WalletComponent implements OnInit {
 
       try {
 
-        if (this.currentWallet != undefined && fondos! >= this.montoReal) {
+        if (this.currentWallet != undefined && fondos! >= this.montoReal && this.montoReal >= 100) {
           this.currentWallet.fondos! -= this.montoReal;
           this.updateWallet(this.currentWallet);
         } else {
-          throw alert('Fondos insuficientes');
+          this.errorRetirar = true;
+
+
+          setTimeout(() => {
+            this.errorRetirar = false;
+          }, 2500);
+
         }
       }
       catch (error) {

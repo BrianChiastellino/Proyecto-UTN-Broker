@@ -16,7 +16,7 @@ import { NgClass } from '@angular/common';
 
 //!todo: ENVIAR TODA LA INFO AL MAIN PARA QUE EL MAIN USE LOS SERVICIOS Y GUARDE CON EL BACK
 //!todo: Una vez que sabemos que coins tiene el usuario pintar de color rojo las que no tiene para que seap que no puede vender.
-//!todo: QUE EL USUARIO PUEDA VENDER CANTIDAD DE COINS PARA QUE SEA MAS FACIL LA VENTA
+
 
 
 export class MainPageComponent implements OnInit {
@@ -89,6 +89,8 @@ export class MainPageComponent implements OnInit {
   public enviarCoinToSell(coin: CoinApi) {
     this.coinToSell = coin;
   }
+
+
 
 
 

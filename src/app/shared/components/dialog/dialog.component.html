@@ -1,50 +1,123 @@
-<!-- <div mat-dialog-actions>
-  <h1> BIENVENIDO {{ data.titulo }}</h1>
-  <div mat-dialog-content> Hola! {{ data.usuario }} </div>
-  <div mat-dialog-content > Moneda a comprar: {{data.coin}}</div>
-  <div mat-dialog-content> Tus fondos: {{data.wallet}}</div>
-  <div mat-button (click)="cerrar()">CERRAR DIALOG</div>
-</div> -->
+<!-- COMPRA -->
 
 <form *ngIf="data.tipoOperacion == 0">
-  <h1> COMPRA </h1>
-  <h2 mat-dialog-content> {{data.coin.id}}</h2>
+  <h2 class="titulo-2"> {{data.coin.id}} </h2>
+  <p class="precio-cripto">${{ data.coin.current_price | number}}</p>
+
+  <div class="container">
+
+    <button (click)="tipoMoneda = 0; inputMoneda = ''; activarBoton(0)" [class.borde-activo]="botonActivo === 0"
+      class="btn-usd">
+      <i class="fa-solid fa-dollar-sign"></i>
+      <h6>USD</h6>
+    </button>
+
+    <button (click)="tipoMoneda = 1; inputMoneda = ''; activarBoton(1)" [class.borde-activo]="botonActivo === 1"
+      class="btn-cripto">
+      <i class="fa-brands fa-bitcoin"></i>
+      <h6>CRYPTO</h6>
+    </button>
+
+
+    <p class="info-container">ELIGE EL TIPO DE CAMBIO</p>
+    <p class="info-fondos"> <i class="fa-solid fa-wallet"></i> MIS FONDOS {{data.wallet.fondos | number}}</p>
+
+  </div>
+
+  <input type="text" id="inputMoneda" name="inputMoneda" *ngIf="tipoMoneda == 0" maxlength="7" autocomplete="off"
+    placeholder="Cantidad a comprar en dolares" (input)="calcularPrecio()" [(ngModel)]="inputMoneda">
+
+  <input type="text" id="inputMoneda" name="inputMoneda" *ngIf="tipoMoneda == 1" maxlength="22" autocomplete="off"
+    placeholder="Cantidad a comprar en cripto" (input)="calcularPrecio()" [(ngModel)]="inputMoneda">
+
   <br>
-  <div mat-dialog-content>{{ data.coin.name }} : ${{ data.coin.current_price }}</div>
-  <br>
-  <div mat-dialog-content> Tus fondos: {{data.wallet.fondos}} </div>
-  <label for="compraEnDolares">Cantidad a comprar en dólares</label>
-  <input type="number" id="compraFondos" name="compraFondos" (input)="calcularPrecio()" [(ngModel)]="data.compraFondos">
-  <br>
-  <p mat-dialog-content *ngIf="data.cantidadCoinFinal">
-    Con la compra de ${{data.compraFondos}} <br> Obtendras un total de ${{ data.cantidadCoinFinal }}
-  </p>
-  <button class="confirmar" mat-button (click)="confirmarCompra()">CONFIRMAR COMPRA</button>
-  <button class="cancelar" mat-button (click)="dialog.close()">CANCELAR COMPRA</button>
+
+
+  <div *ngIf="tipoMoneda == 0">
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i> Se descontara ${{inputMoneda | number}} dolares de tus fondos
+    </p>
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i>
+      Obtendras {{data.cantidadCoinFinal}} {{data.coin.id}}
+    </p>
+  </div>
+
+  <div *ngIf="tipoMoneda == 1">
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i>
+      Comprando {{ inputMoneda }} {{data.coin.id}}
+    </p>
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i>
+      Se descontara ${{data.cantidadCoinFinal | number}} de tus fondos
+    </p>
+  </div>
+
+  <button class="confirmar" mat-button (click)="confirmarCompra()">CONFIRMAR</button>
+  <button class="cancelar" mat-button (click)="dialog.close()">CANCELAR</button>
 </form>
+
+
+<!-- VENTA -->
 
 <form *ngIf="data.tipoOperacion == 1">
-  <h1> VENTA </h1>
-  <h2 mat-dialog-content> {{data.coin.id}} </h2>
+  <h2 class="titulo-2"> {{data.coin.id}} </h2>
+  <p class="precio-cripto">${{ data.coin.current_price }}</p>
+
+  <div class="container">
+
+    <button (click)="tipoMoneda = 0; inputMoneda = ''; activarBoton(0)" [class.borde-activo]="botonActivo === 0"
+      class="btn-usd">
+      <i class="fa-solid fa-dollar-sign"></i>
+      <h6>USD</h6>
+    </button>
+
+    <button (click)="tipoMoneda = 1; inputMoneda = ''; activarBoton(1)" [class.borde-activo]="botonActivo === 1"
+      class="btn-cripto">
+      <i class="fa-brands fa-bitcoin"></i>
+      <h6>CRYPTO</h6>
+    </button>
+
+    <p class="info-container">ELIGE EL TIPO DE CAMBIO</p>
+    <p class="info-fondos"> <i class="fa-solid fa-wallet"></i> MIS FONDOS ${{data.wallet.fondos | number}}</p>
+    <p class="info-fondos"> <i class="fa-solid fa-coins"></i> MIS {{data.coin.id.toUpperCase()}} {{myCoin}} </p>
+
+
+  </div>
+
+  <input type="text" id="inputMoneda" name="inputMoneda" *ngIf="tipoMoneda == 0" autocomplete="off" maxlength="7"
+    placeholder="Cantidad a vender en dolares" (input)="calcularPrecioVenta()" [(ngModel)]="inputMoneda">
+  <input type="text" id="inputMoneda" name="inputMoneda" *ngIf="tipoMoneda == 1" autocomplete="off" maxlength="22"
+    placeholder="Cantidad a vender en cripto" (input)="calcularPrecioVenta()" [(ngModel)]="inputMoneda">
+
+
   <br>
-  <div mat-dialog-content>{{ data.coin.name }} : ${{ data.coin.current_price }}</div>
-  <br>
-  <div mat-dialog-content> Tus fondos: {{data.wallet.fondos}} </div>
-  <br>
-  <div mat-dialog-content name="myCoin" id="myCoin" [(ngModel)]="myCoin">Tus coins: {{myCoin}}</div>
-  <label for="inputDolares">Ingrese cantidad de dolares a vender</label>
-  <input type="number" name="inputDolares" id="inputDolares" (input)="calcularPrecioVenta()"
-    [(ngModel)]="data.inputDolares">
-  <p mat-dialog-content *ngIf="data.precioCripto">
-    Depositando ${{ data.inputDolares }} se venderan {{data.precioCripto}} de tu billera online.
-  </p>
-  <button class="confirmar" mat-button (click)="confirmarVenta()">CONFIRMAR VENTA</button>
-  <button class="cancelar" mat-button (click)="dialog.close()">CANCELAR COMPRA</button>
+
+  <div *ngIf="tipoMoneda == 0">
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i>
+      Vendiendo ${{ data.inputDolares | number }} dolares
+    </p>
+    <p *ngIf="inputMoneda" class="info-final" >
+      <i class="fa-solid fa-circle-check"></i>
+      Se restaran {{data.precioCripto}} de tus {{data.coin.id}}.
+    </p>
+  </div>
+
+  <div *ngIf="tipoMoneda == 1">
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i>
+      Vendiendo {{ inputMoneda }} {{data.coin.id}}
+    </p>
+    <p *ngIf="inputMoneda" class="info-final">
+      <i class="fa-solid fa-circle-check"></i>
+      Sumaras ${{data.inputDolares * data.coin.current_price | number}} a tus fondos.
+    </p>
+  </div>
+
+  <button class="confirmar" mat-button (click)="confirmarVenta()">CONFIRMAR</button>
+  <button class="cancelar" mat-button (click)="dialog.close()">CANCELAR</button>
 </form>
 
 
-
-<!-- <mat-slider min="0" step="0" max="{{data.wallet.fondos}}" color="accent" discrete="true">
-    <input matSliderThumb [(ngModel)]="data.cantidad">
-  </mat-slider>
-  <br> -->

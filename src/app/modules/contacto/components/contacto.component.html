@@ -4,8 +4,12 @@
 
 
 <div class="container">
+  <p class="info-mensaje" *ngIf="emailEnviado"  >Gracias por contactarnos. Tu mensaje fue enviado con exito</p>
+
   <div class="contact-box">
+
     <div class="left">
+
       <a [href]="'https://github.com/BrianChaste'" target="_blank">
         <i class="fa-brands fa-github"></i>
       </a>
@@ -15,11 +19,13 @@
     </div>
     <div class="right">
       <h2>Contactanos</h2>
-      <input type="text" class="field" placeholder="Nombre">
-      <input type="text" class="field" placeholder="Email">
-      <input type="text" class="field" placeholder="Asunto">
-      <textarea placeholder="Escriba su mensaje.." class="field" style="resize: none;"></textarea>
-      <button class="btn">Enviar</button>
+      <input type="text" class="field" placeholder="Nombre" [(ngModel)]="nombre">
+      <input type="text" class="field" placeholder="Email" [(ngModel)]="email">
+      <input type="text" class="field" placeholder="Asunto" [(ngModel)]="asunto">
+      <textarea placeholder="Escriba su mensaje.." class="field" style="resize: none;" [(ngModel)]="mensaje"></textarea>
+      <button class="btn" [disabled]="!camposCompletos()" (click)="borrarInput()">Enviar</button>
     </div>
+
   </div>
+
 </div>

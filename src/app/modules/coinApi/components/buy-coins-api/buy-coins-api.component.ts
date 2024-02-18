@@ -30,7 +30,7 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
   operacion: number = -1;
 
-  constructor(private wallet: WalletService, private router: Router, public dialogCompra: MatDialog,private snackbar: MatSnackBar, private dataService: DataService) { }
+  constructor(private wallet: WalletService, private router: Router, public dialogCompra: MatDialog, private snackbar: MatSnackBar, private dataService: DataService) { }
 
   openCompraDialog() {
     const dialogCompra = this.dialogCompra.open(DialogComponent, {
@@ -65,7 +65,6 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
     this.dialogCompra.afterAllClosed
   }
 
-
   toggleForm() {
 
     this.showForm = !this.showForm;
@@ -85,8 +84,6 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
     if (this.walletLog.fondos > 0 && fondosFinal > 0 && this.walletLog.fondos >= fondosFinal) {
 
-      console.log('Entro a IF')
-
 
       const coin: Coin = new Coin();
       coin.id = coinCompra.id.toUpperCase();
@@ -98,11 +95,8 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
 
       if (existe) {
 
-        console.log('Entro al if existe')
-
         const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
-        console.log('Index dice:', index);
-        console.log('coin:',dialogWallet.coins[index])
+
         dialogWallet.coins[index].coinAmount += cantCoinFinal;
         // this.walletLog.coins[index].coinAmount += this.cantidad;
       } else {
@@ -117,58 +111,56 @@ export class BuyCoinsApiComponent implements OnChanges, OnInit {
       this.dataService.enviarInformacion(0);
 
 
-      }else{
-        this.dataService.enviarInformacion(1)
-      }
-
-      console.log('Termino el if')
-    }
-
-    enviarInfoNotificacion(notificacion: number) {
-      this.enviarTipoNotificacion.emit(notificacion)
-    }
-
-
-
-
-
-
-
-
-
-  public confirmarCompra() {
-    if (this.walletLog.fondos > 0 && this.valorFinal > 0 && this.walletLog.fondos >= this.valorFinal) {
-
-      const coin: Coin = new Coin();
-      coin.id = this.coinSelected.id.toUpperCase();
-      coin.image = this.coinSelected.image;
-      coin.symbol = this.coinSelected.symbol;
-      coin.coinAmount = this.cantidad;
-
-      this.walletLog.fondos <= this.valorFinal
-
-      const existe = this.existCoinInWallet(this.coinSelected.id);
-
-      if (existe) {
-
-        const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
-        this.walletLog.coins[index].coinAmount += this.cantidad;
-      } else {
-        this.walletLog.coins.push(coin);
-      }
-
-      this.walletLog.fondos -= this.valorFinal;
-
-      this.updateWallet(this.walletLog);
-      this.toggleForm();
-
-      this.router.navigate(['main/myWallet']);
-      // window.location.reload();
-
     } else {
-      alert('No posee los fondos suficientes');
+      this.dataService.enviarInformacion(1)
     }
+
   }
+
+  enviarInfoNotificacion(notificacion: number) {
+    this.enviarTipoNotificacion.emit(notificacion)
+  }
+
+
+
+
+
+
+
+
+
+  // public confirmarCompra() {
+  //   if (this.walletLog.fondos > 0 && this.valorFinal > 0 && this.walletLog.fondos >= this.valorFinal) {
+
+  //     const coin: Coin = new Coin();
+  //     coin.id = this.coinSelected.id.toUpperCase();
+  //     coin.image = this.coinSelected.image;
+  //     coin.symbol = this.coinSelected.symbol;
+  //     coin.coinAmount = this.cantidad;
+
+  //     this.walletLog.fondos <= this.valorFinal
+
+  //     const existe = this.existCoinInWallet(this.coinSelected.id);
+
+  //     if (existe) {
+
+  //       const index = this.walletLog.coins.findIndex((c) => c.id?.toUpperCase() == this.coinSelected.id.toUpperCase());
+  //       this.walletLog.coins[index].coinAmount += this.cantidad;
+  //     } else {
+  //       this.walletLog.coins.push(coin);
+  //     }
+
+  //     this.walletLog.fondos -= this.valorFinal;
+
+  //     this.updateWallet(this.walletLog);
+  //     this.toggleForm();
+
+  //     this.router.navigate(['main/myWallet']);
+  //     // window.location.reload();
+
+  //   } else {
+  //   }
+  // }
 
   public existCoinInWallet(idCoin: string): boolean {
     const existe: Coin | undefined = this.walletLog.coins.find((c) => c.id?.toUpperCase() == idCoin.toUpperCase());

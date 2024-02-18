@@ -159,3 +159,8 @@ th {
   text-align: left;
   margin-right: 1rem;
 }
+
+.info-error{
+  color: red;
+  font-weight: 500;
+}

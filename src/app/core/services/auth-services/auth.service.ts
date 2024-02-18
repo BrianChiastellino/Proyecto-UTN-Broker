@@ -69,10 +69,10 @@ export class AuthService {
 
     this.jsonApiService.addUser(user).subscribe({
       next: () => {
-        // alert('Registrado con exito')
+    
       },
       error: () => {
-        // alert('Erro en registrar')
+
       }
     })
   }

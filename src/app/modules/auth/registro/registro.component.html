@@ -24,11 +24,22 @@
         </div>
 
         <div class="inputbox">
-          <input type="password" [(ngModel)]="user.password" autocomplete="off" required name="password">
+          <input type="password" id="password" [(ngModel)]="user.password" autocomplete="off" required name="password">
           <label for="password">Contraseña</label>
         </div>
 
+        <div class="forget">
+          <label>
+            <input type="checkbox" (click)="togglePasswordVisibility()" id="showPassword">
+            Mostrar contraseña
+          </label>
+        </div>
+
+        <p class="info-user" *ngIf="userInfo">Error al registrarse. Por favor, verifique bien los datos</p>
+        <p class="info-user-correcta" *ngIf="userLog">Usuario creado con exito</p>
+
         <button type="submit" [disabled]="formRegister.invalid" class="login-button">Ingresar</button>
+
 
         <div class="login">
           <p>¿Ya tienes una cuenta?</p>

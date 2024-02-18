@@ -57,8 +57,8 @@ margin: 0 1rem;
 .coins-container-1 {
   position: fixed;
   display: flex;
-  top: 20rem;
-  width: 65%;
+  top: 45%;
+  width: 55%;
   justify-content: flex-end;
   align-items: flex-end;
   /* border: red solid 1px; */
@@ -74,7 +74,7 @@ margin: 0 1rem;
 
 .contenedor-2 img {
   width: 100%;
-  /* Asegurar que la imagen ocupe todo el ancho del contenedor */
+
   max-width: 10rem;
   /* Tamaño máximo de la imagen */
   height: auto;

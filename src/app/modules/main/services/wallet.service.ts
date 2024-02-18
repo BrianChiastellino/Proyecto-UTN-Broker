@@ -30,10 +30,10 @@ export class WalletService {
 
     this.wallet.addWallet(wallet).subscribe({
       next: () => {
-        // alert('La wallet se agrego')
+         console.log('La wallet se agrego')
       },
       error: () => {
-        alert('Erro al añadir wallet')
+        console.error('Erro al añadir wallet')
       }
     })
   }

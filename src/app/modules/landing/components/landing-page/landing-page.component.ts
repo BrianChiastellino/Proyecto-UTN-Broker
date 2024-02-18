@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/core/Models';
+import { MatDialog } from '@angular/material/dialog';
+import { CoinApi, User, Wallet } from 'src/app/core/Models';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 
 @Component({
@@ -18,14 +20,12 @@ export class LandingPageComponent implements OnInit {
     'assets/images/ethlogo_001.png'
   ];
 
-  
-
-
-
-
-
   constructor() {
+
   }
+
+
+
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));

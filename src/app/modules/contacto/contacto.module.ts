@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     SharedModule,
+    FormsModule
   ]
 })
 export class ContactoModule { }
