@@ -38,9 +38,14 @@ export class WalletComponent implements OnInit {
     //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
   }
 
-  filtrarNumeros(event: any): void {
+  quitarLetras(event: any): void {
     const input = event.target as HTMLInputElement;
     input.value = input.value.replace(/\D/g, '');
+  }
+
+  quitarNumeros(event: any): void {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/[^a-zA-Z]/g, '');
   }
 
 

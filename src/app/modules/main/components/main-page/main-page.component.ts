@@ -34,8 +34,8 @@ export class MainPageComponent implements OnInit {
 
 
 
-    this.informacionSubscription = this.dataService.informacion$.subscribe((v) => {
-      this.mostrarNotificacion = v;
+    this.informacionSubscription = this.dataService.informacion$.subscribe((res) => {
+      this.mostrarNotificacion = res;
       this.abrirNotificacion = true;
 
       setTimeout(() => {
@@ -67,19 +67,8 @@ export class MainPageComponent implements OnInit {
   }
 
 
-
-
-
-
-
-  //!Hay un límite de 30 solicitudes por minuto a la API pública.
-  public updateViewCoins(): void {
-    this.getAllCoins();
-  }
-
   public getAllCoins(): void {
     this.coinApiService.getAllGoins().then((c) => this.allCoins = c.slice())
-
   }
 
   public enviarCoin(coin: CoinApi) {

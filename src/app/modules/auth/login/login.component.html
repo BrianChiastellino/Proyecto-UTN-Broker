@@ -2,8 +2,6 @@
   <app-nav-bar></app-nav-bar>
 </header>
 
-<!-- TODO: CORREGIR EL LABEL DEL EMAIL CUANDO BAJA O SUBE -->
-
 <section>
   <div class="form-box">
     <div class="form-value">
@@ -11,13 +9,15 @@
         <h2>Iniciar sesion</h2>
 
         <div class="inputbox">
-          <input type="text" id="email" formControlName="email" class="input" autocomplete="off" required>
+          <input type="text" id="email" formControlName="email" class="input" autocomplete="off" maxlength="40"
+            required>
           <label for="email">Email</label>
         </div>
 
 
         <div class="inputbox">
-          <input type="password" id="password" formControlName="password" class="input" autocomplete="off" required>
+          <input type="password" id="password" formControlName="password" class="input" autocomplete="off"
+            maxlength="40" required>
           <label for="password">Contraseña</label>
         </div>
 
@@ -29,13 +29,13 @@
           </label>
         </div>
 
-        <p class="info-user" *ngIf="userLog">Error al iniciar sesion</p>
+        <p class="info-user" *ngIf="userLog">Correo electrónico o contraseña incorrectos</p>
 
         <button type="submit" class="login-button" [disabled]="!camposCompletos()">Ingresar</button>
 
         <div class="register">
-          <p>¿No tienes una cuenta?</p>
-          <a (click)="goToRegistro()">¡Registrate aqui!</a>
+          <p>¿No tienes una cuenta? <br> <a (click)="goToRegistro()">¡Registrate aqui!</a> </p>
+
         </div>
 
       </form>

@@ -7,23 +7,31 @@
       "isLoged": false,
       "name": "admin",
       "document": "123456789"
+    },
+    {
+      "id": 2,
+      "email": "noah@gmail.com",
+      "password": "!ByChaste123",
+      "isLoged": false,
+      "name": "Noah",
+      "document": "asd"
     }
   ],
   "wallet": [
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 946689.615,
+      "fondos": 944967.615,
       "coins": [
         {
           "id": "BITCOIN",
-          "coinAmount": 1.0096887114540407,
+          "coinAmount": 1.0331036073133215,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
         },
         {
           "id": "ETHEREUM",
-          "coinAmount": 0.25564996637390097,
+          "coinAmount": 0.4290533546761084,
           "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
           "symbol": "eth"
         },

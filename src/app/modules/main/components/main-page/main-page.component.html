@@ -2,13 +2,15 @@
 
 <main>
 
-  <div class="tarjeta-presentacion">
-    <div class="estado-sesion">
-
-    </div>
-
+  <!-- <div class="tarjeta-presentacion"> -->
+  <div class="estado-sesion">
     <h1>¡MARKET!</h1>
+
   </div>
+
+
+  <!-- </div> -->
+
 
 
   <app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"
@@ -16,7 +18,6 @@
 
   <app-buy-coins-api [coinSelected]="coin" (enviarTipoNotificacion)="mostrarNotificacion"></app-buy-coins-api>
   <app-sell-coins [coinToSell]="coinToSell"></app-sell-coins>
-
 
 
 </main>

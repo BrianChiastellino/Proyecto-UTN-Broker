@@ -9,22 +9,22 @@
         <h2>Registrarme</h2>
 
         <div class="inputbox">
-          <input type="text" [(ngModel)]="user.name" name="name" autocomplete="off" required>
+          <input type="text" [(ngModel)]="user.name" name="name" autocomplete="off" required (input)="quitarNumeros($event)" maxlength="38">
           <label for="name">Nombre</label>
         </div>
 
         <div class="inputbox">
-          <input type="text" [(ngModel)]="user.document" name="document" autocomplete="off" required>
+          <input type="text" [(ngModel)]="user.document" name="document" autocomplete="off" maxlength="8" (input)="quitarLetras($event)" required>
           <label for="document">Documento</label>
         </div>
 
         <div class="inputbox">
-          <input type="text" [(ngModel)]="user.email" name="email" autocomplete="off" required>
+          <input type="text" [(ngModel)]="user.email" name="email" autocomplete="off" required maxlength="40">
           <label for="email">Email</label>
         </div>
 
         <div class="inputbox">
-          <input type="password" id="password" [(ngModel)]="user.password" autocomplete="off" required name="password">
+          <input type="password" id="password" [(ngModel)]="user.password" autocomplete="off" required name="password" maxlength="40">
           <label for="password">Contraseña</label>
         </div>
 
@@ -35,15 +35,14 @@
           </label>
         </div>
 
-        <p class="info-user" *ngIf="userInfo">Error al registrarse. Por favor, verifique bien los datos</p>
+        <p class="info-user" *ngIf="userInfo">Error al registrarse. <br> Por favor, verifique bien los campos</p>
         <p class="info-user-correcta" *ngIf="userLog">Usuario creado con exito</p>
 
         <button type="submit" [disabled]="formRegister.invalid" class="login-button">Ingresar</button>
 
 
         <div class="login">
-          <p>¿Ya tienes una cuenta?</p>
-          <a (click)="goToIniciarSesion()">¡Ingresa aquí!</a>
+          <p>¿Ya tienes una cuenta? <br> <a (click)="goToIniciarSesion()">¡Ingresa aquí!</a> </p>
         </div>
 
       </form>

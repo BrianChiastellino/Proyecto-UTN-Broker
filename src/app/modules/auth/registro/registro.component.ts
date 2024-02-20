@@ -67,6 +67,16 @@ export class RegistroComponent {
     passwordField.type = this.passwordVisible ? 'text' : 'password';
   }
 
+  quitarLetras(event: any): void {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/\D/g, '');
+  }
+
+  quitarNumeros(event: any): void {
+    const input = event.target as HTMLInputElement;
+    input.value = input.value.replace(/[^a-zA-Z\s]/g, '');
+  }
+
 
 
   validarPassword(): boolean {

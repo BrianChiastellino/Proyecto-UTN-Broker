@@ -1,13 +1,3 @@
-/* @keyframes slideIn {
-  from {
-    transform: translate(1vw, 100vh);
-  }
-
-  to {
-    transform: translate(-1, 1vh);
-  }
-} */
-
 @keyframes slideIn {
   from {
     transform: translateY(100vh);
