@@ -21,17 +21,17 @@
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 944967.615,
+      "fondos": 998158.615,
       "coins": [
         {
           "id": "BITCOIN",
-          "coinAmount": 1.0331036073133215,
+          "coinAmount": 0.03139188060046895,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
         },
         {
           "id": "ETHEREUM",
-          "coinAmount": 0.4290533546761084,
+          "coinAmount": 0.33667602407303837,
           "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
           "symbol": "eth"
         },
@@ -40,6 +40,36 @@
           "coinAmount": 0.1757123378175122,
           "image": "https://assets.coingecko.com/coins/images/13442/large/steth_logo.png?1696513206",
           "symbol": "steth"
+        },
+        {
+          "id": "USD-COIN",
+          "coinAmount": 300,
+          "image": "https://assets.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+          "symbol": "usdc"
+        },
+        {
+          "id": "RIPPLE",
+          "coinAmount": 868.7659527148068,
+          "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
+          "symbol": "xrp"
+        },
+        {
+          "id": "DOGECOIN",
+          "coinAmount": 3129.759843094707,
+          "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
+          "symbol": "doge"
+        },
+        {
+          "id": "CARDANO",
+          "coinAmount": 4819.524859109223,
+          "image": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1696502090",
+          "symbol": "ada"
+        },
+        {
+          "id": "DAI",
+          "coinAmount": 200.15852555223734,
+          "image": "https://assets.coingecko.com/coins/images/9956/large/Badge_Dai.png?1696509996",
+          "symbol": "dai"
         }
       ]
     }

@@ -1,5 +1,6 @@
-<div *ngIf="userIsLoged" class="buscarCoin">
-  <input class="search-input" placeholder="Buscar coin" type="text" (keyup)="buscarCoin()" [(ngModel)]="coinToSearch">
+<div class="buscarCoin">
+  <input class="search-input" placeholder="Buscar coin" type="text" (keyup)="buscarCoin()"
+    [(ngModel)]="coinBusquedaInput">
 </div>
 
 <div class="table-container">
@@ -10,13 +11,13 @@
         <th>Nombre</th>
         <th>Precio</th>
         <th>Última Actualización</th>
-        <th *ngIf="userIsLoged">Compra</th>
-        <th *ngIf="userIsLoged">Venta</th>
+        <th>Compra</th>
+        <th>Venta</th>
       </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let coin of coinsFiltred; let i = index">
-        <tr *ngIf="i < 3 || mostrarMas">
+      <ng-container *ngFor="let coin of coinsApiFiltradas; let i = index">
+        <tr>
           <td>{{ i + 1 }}</td>
           <td class="info-coin">
 
@@ -29,8 +30,8 @@
           </td>
           <td>${{ coin.current_price }}</td>
           <td>{{ coin.last_updated | date:'dd-MM-yyyy HH:mm:ss \'HS\''}}</td>
-          <td *ngIf="userIsLoged"><button (click)="coinToBuy(coin)">Comprar</button></td>
-          <td *ngIf="userIsLoged"><button (click)="coinToSell(coin)">Vender</button></td>
+          <td><button (click)="coinToBuy(coin)">Comprar</button></td>
+          <td><button (click)="coinToSell(coin)">Vender</button></td>
         </tr>
       </ng-container>
     </tbody>

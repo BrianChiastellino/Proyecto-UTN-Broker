@@ -2,31 +2,22 @@
 
 <main>
 
-  <!-- <div class="tarjeta-presentacion"> -->
   <div class="estado-sesion">
     <h1>¡MARKET!</h1>
-
   </div>
 
 
-  <!-- </div> -->
 
-
-
-  <app-view-coins-api (coinBuy)="enviarCoin($event)" [coinsView]="allCoins"
-    (coinSell)="enviarCoinToSell($event)"></app-view-coins-api>
-
-  <app-buy-coins-api [coinSelected]="coin" (enviarTipoNotificacion)="mostrarNotificacion"></app-buy-coins-api>
-  <app-sell-coins [coinToSell]="coinToSell"></app-sell-coins>
-
+  <app-view-coins-api (coinCompra)="abrirDialogCompra($event)" [allCoinsApi]="allCoinsApi" [allCoinsUsuario]="allCoinsUsuario"
+    (coinVenta)="abrirDialogVenta($event)"></app-view-coins-api>
 
 </main>
 
 
-<div class="wrapper" *ngIf="mostrarNotificacion != -1"
-  [ngClass]="{'slide-in': abrirNotificacion , 'slide-out': !abrirNotificacion}">
+<div class="wrapper" *ngIf="tipoNotificacionToast != -1"
+  [ngClass]="{'slide-in': abrirNotificacionToast , 'slide-out': !abrirNotificacionToast}">
 
-  <div class="toast success" *ngIf="mostrarNotificacion == 0">
+  <div class="toast success" *ngIf="tipoNotificacionToast == 0">
     <div class="container-1">
       <i class="fas fa-check-circle"></i>
     </div>
@@ -34,10 +25,10 @@
       <p>¡Exito!</p>
       <p>¡Operacion realizada con exito!</p>
     </div>
-    <button (click)="cerrarNotificacion()" (click)="abrirNotificacion = false">&times;</button>
+    <button (click)="cerrarNotificacion()" (click)="abrirNotificacionToast = false">&times;</button>
   </div>
 
-  <div class="toast error" *ngIf="mostrarNotificacion == 1">
+  <div class="toast error" *ngIf="tipoNotificacionToast == 1">
     <div class="container-1">
       <i class="fas fa-times-circle"></i>
     </div>

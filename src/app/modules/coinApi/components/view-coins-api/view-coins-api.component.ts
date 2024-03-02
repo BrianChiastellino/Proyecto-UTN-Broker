@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
-import { CoinApi, User, Wallet } from 'src/app/core/Models';
-import { WalletComponent } from 'src/app/modules/main/components/wallet/wallet.component';
+import { Coin, CoinApi, User } from 'src/app/core/Models';
 
 @Component({
   selector: 'app-view-coins-api',
@@ -11,83 +9,67 @@ import { WalletComponent } from 'src/app/modules/main/components/wallet/wallet.c
 
 export class ViewCoinsApiComponent implements OnChanges, OnInit {
 
-  @Input() coinsView: Array<CoinApi> = [];
-  @Output () coinBuy = new EventEmitter<CoinApi>;
-  @Output () coinSell = new EventEmitter<CoinApi>;
+  @Input() allCoinsApi: Array<CoinApi> = [];
+  @Input () allCoinsUsuario: Array <Coin> = [];
+  @Output() coinCompra = new EventEmitter<CoinApi>;
+  @Output() coinVenta = new EventEmitter<CoinApi>;
+
+  public coinsApiFiltradas: Array<CoinApi> = [];
+  public coinBusquedaInput: string = '';
+  public usuarioLogueado!: User;
+  public existeCoinInWallet : boolean = false;
 
 
-  coinsFiltred: Array<CoinApi> = [];
-
-  coinToSearch: string = '';
-  mostrarMas: boolean = false;
-
-  userIsLoged: boolean = false;
-  user!: User;
-
-
+  constructor() { }
 
   ngOnInit(): void {
-
+    this.getUsuario();
+this.mostrarInfoUsuario();
   }
-
-
-  constructor(private router: Router){ }
 
   //!Se utiliza ngOnChanges para reaccionar a los cambios del @Input que recibe el componente.
   //!Si no se hace este metodo  'coins2' seria null y no funcionaria el filtrado de busqueda.
   ngOnChanges(changes: SimpleChanges): void {
-    this.coinsFiltred = [...this.coinsView]
-    this.loginOn()
+    this.coinsApiFiltradas = [...this.allCoinsApi]
+  }
+
+  getUsuario(): void {
+    this.usuarioLogueado = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
+  }
+
+  public mostrarInfoUsuario () {
+
+    // this.allCoinsUsuario.forEach(coinUsuario => {
+    //   if(this.allCoinsApi.find(coinApi => coinApi.id == coinUsuario.id)){
+    //     console.log(coinUsuario);
+    //   }
+    // })
+
+    this.allCoinsApi.forEach(coinApi => {
+      if(this.allCoinsUsuario.find(coinUser => coinUser.id == coinApi.id)){
+        console.log("oli", this.allCoinsApi);
+      }
+    })
 
   }
 
-  mostrarMenuCompra() : void {
 
+  public coinToBuy(coin: CoinApi) {
+    this.coinCompra.emit(coin);
   }
 
-  public coinToBuy (coin: CoinApi){
-    this.coinBuy.emit(coin);
+  public coinToSell(coin: CoinApi) {
+    this.coinVenta.emit(coin);
   }
 
-  public coinToSell (coin: CoinApi){
-    this.coinSell.emit(coin);
-  }
-
-  public verMas(): void {
-    if(this.userIsLoged === true){
-      this.router.navigate(['/main']);
-
-    }else{
-      this.router.navigate(['/login']);
-
-    }
-
-  }
 
   public buscarCoin(): void {
-    this.coinsFiltred = this.coinsView.filter((c) =>
-      c.name.toLowerCase().includes(this.coinToSearch.toLowerCase()) ||
-      c.symbol.toLowerCase().includes(this.coinToSearch.toLowerCase())
+    this.coinsApiFiltradas = this.allCoinsApi.filter((c) =>
+      c.name.toLowerCase().includes(this.coinBusquedaInput.toLowerCase()) ||
+      c.symbol.toLowerCase().includes(this.coinBusquedaInput.toLowerCase())
     );
   }
-  public loginOn(){
-    const userData = sessionStorage.getItem('userLoged');
 
-    if(userData) {
-      this.user = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
-
-      if(this.user.isLoged){
-        this.mostrarMas = true;
-        this.userIsLoged = true;
-
-      }else{
-        this.userIsLoged = false;
-      }
-
-
-    }
-
-  }
 
 
 }
