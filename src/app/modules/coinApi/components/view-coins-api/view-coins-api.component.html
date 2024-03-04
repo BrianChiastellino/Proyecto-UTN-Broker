@@ -1,6 +1,7 @@
 <div class="buscarCoin">
   <input class="search-input" placeholder="Buscar coin" type="text" (keyup)="buscarCoin()"
     [(ngModel)]="coinBusquedaInput">
+    <button (click)="mostarINfo()">HOLAAAAAAAAAAA</button>
 </div>
 
 <div class="table-container">
@@ -17,6 +18,7 @@
     </thead>
     <tbody>
       <ng-container *ngFor="let coin of coinsApiFiltradas; let i = index">
+        <ng-container> {{filtrarCoinsUsuario(coin)}}</ng-container>
         <tr>
           <td>{{ i + 1 }}</td>
           <td class="info-coin">
@@ -31,9 +33,13 @@
           <td>${{ coin.current_price }}</td>
           <td>{{ coin.last_updated | date:'dd-MM-yyyy HH:mm:ss \'HS\''}}</td>
           <td><button (click)="coinToBuy(coin)">Comprar</button></td>
-          <td><button (click)="coinToSell(coin)">Vender</button></td>
+          <td *ngIf="existeCoinInWallet"><button (click)="coinToSell(coin)"
+              style="background-color: green;">Vender</button></td>
+          <td *ngIf="!existeCoinInWallet"><button style="background-color: red;">Vender</button></td>
         </tr>
       </ng-container>
     </tbody>
   </table>
 </div>
+
+

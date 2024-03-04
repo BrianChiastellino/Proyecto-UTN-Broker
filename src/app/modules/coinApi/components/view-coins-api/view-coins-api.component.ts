@@ -10,46 +10,45 @@ import { Coin, CoinApi, User } from 'src/app/core/Models';
 export class ViewCoinsApiComponent implements OnChanges, OnInit {
 
   @Input() allCoinsApi: Array<CoinApi> = [];
-  @Input () allCoinsUsuario: Array <Coin> = [];
+  @Input() operacionCoinCompraVenta!: boolean;
+  @Input() allCoinsUsuario: Array<Coin> = [];
   @Output() coinCompra = new EventEmitter<CoinApi>;
   @Output() coinVenta = new EventEmitter<CoinApi>;
 
   public coinsApiFiltradas: Array<CoinApi> = [];
   public coinBusquedaInput: string = '';
   public usuarioLogueado!: User;
-  public existeCoinInWallet : boolean = false;
+  public existeCoinInWallet: boolean = false;
 
 
   constructor() { }
 
   ngOnInit(): void {
     this.getUsuario();
-this.mostrarInfoUsuario();
+
   }
 
   //!Se utiliza ngOnChanges para reaccionar a los cambios del @Input que recibe el componente.
   //!Si no se hace este metodo  'coins2' seria null y no funcionaria el filtrado de busqueda.
   ngOnChanges(changes: SimpleChanges): void {
     this.coinsApiFiltradas = [...this.allCoinsApi]
+
   }
 
   getUsuario(): void {
     this.usuarioLogueado = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
   }
 
-  public mostrarInfoUsuario () {
+  public filtrarCoinsUsuario(coin: CoinApi) {
 
-    // this.allCoinsUsuario.forEach(coinUsuario => {
-    //   if(this.allCoinsApi.find(coinApi => coinApi.id == coinUsuario.id)){
-    //     console.log(coinUsuario);
-    //   }
-    // })
+    const existe = this.allCoinsUsuario.find(coinUser => coinUser.id?.toUpperCase() == coin.id.toUpperCase());
 
-    this.allCoinsApi.forEach(coinApi => {
-      if(this.allCoinsUsuario.find(coinUser => coinUser.id == coinApi.id)){
-        console.log("oli", this.allCoinsApi);
-      }
-    })
+
+    if (this.operacionCoinCompraVenta) {
+      this.existeCoinInWallet = true;
+    } else {
+      this.existeCoinInWallet = false;
+    }
 
   }
 
@@ -68,6 +67,10 @@ this.mostrarInfoUsuario();
       c.name.toLowerCase().includes(this.coinBusquedaInput.toLowerCase()) ||
       c.symbol.toLowerCase().includes(this.coinBusquedaInput.toLowerCase())
     );
+  }
+
+  mostarINfo () {
+    console.log(this.operacionCoinCompraVenta)
   }
 
 

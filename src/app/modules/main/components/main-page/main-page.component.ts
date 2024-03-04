@@ -1,6 +1,6 @@
 import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
 import { Coin, CoinApi, User, Wallet } from './../../../../core/Models';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
@@ -20,14 +20,18 @@ import { WalletService } from '../../services/wallet.service';
 
 export class MainPageComponent implements OnInit {
 
+
+  public operacionCompraVenta! : boolean;
+
   public allCoinsApi: Array<CoinApi> = []
+  public allCoinsUsuario: Array<Coin> = [];
+
   public usuarioLogueado!: User;
   public abrirNotificacionToast: boolean = false;
   public coinCompra!: CoinApi;
   public coinVenta!: CoinApi;
   public usuarioWallet!: Wallet;
   public tipoNotificacionToast: number = -1;
-  public allCoinsUsuario: Array<Coin> = [];
 
   public OPERACION_COMPRA: number = 0;
   public OPERACION_VENTA: number = 1;
@@ -53,6 +57,7 @@ export class MainPageComponent implements OnInit {
     this.usuarioLogueado = this.getUsuario();
     this.getAllCoinsApi();
     this.getUsuarioWallet();
+    this.allCoinsUsuario = this.usuarioWallet.coins.slice();
   }
 
 
@@ -133,6 +138,7 @@ export class MainPageComponent implements OnInit {
 
       this.updateWallet(dialogWallet);
       this.tipoNotificacionToast = this.OPERACION_EXITOSA;
+      this.operacionCompraVenta = true;
 
     } else {
       this.tipoNotificacionToast = this.OPERACION_ERROR;
@@ -146,6 +152,8 @@ export class MainPageComponent implements OnInit {
 
 
   }
+
+
 
   cerrarNotificacion() {
     this.abrirNotificacionToast = false;
