@@ -1,6 +1,6 @@
 import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
 import { Coin, CoinApi, User, Wallet } from './../../../../core/Models';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
@@ -18,10 +18,10 @@ import { WalletService } from '../../services/wallet.service';
 
 
 
-export class MainPageComponent implements OnInit {
+export class MainPageComponent implements OnInit, OnChanges {
 
 
-  public operacionCompraVenta! : boolean;
+  public operacionCompraVenta!: boolean;
 
   public allCoinsApi: Array<CoinApi> = []
   public allCoinsUsuario: Array<Coin> = [];
@@ -57,7 +57,12 @@ export class MainPageComponent implements OnInit {
     this.usuarioLogueado = this.getUsuario();
     this.getAllCoinsApi();
     this.getUsuarioWallet();
-    this.allCoinsUsuario = this.usuarioWallet.coins.slice();
+
+  }
+
+
+  ngOnChanges(changes: SimpleChanges): void {
+    alert("holi")
   }
 
 
@@ -71,22 +76,28 @@ export class MainPageComponent implements OnInit {
 
   public abrirDialogCompra(coinCompra: CoinApi): void {
 
-    this.coinCompra = coinCompra;
+    if (this.usuarioWallet != undefined) {
+      this.coinCompra = coinCompra;
 
-    const dialog = this.matDialog.open(DialogComponent, {
-      panelClass: 'dialog-compra-style',
-      data: {
-        usuario: this.usuarioLogueado,
-        coin: coinCompra,
-        wallet: this.usuarioWallet,
-        metodo: this,
-        tipoOperacion: this.OPERACION_COMPRA,
-      }
-    });
+      const dialog = this.matDialog.open(DialogComponent, {
+        panelClass: 'dialog-compra-style',
+        data: {
+          usuario: this.usuarioLogueado,
+          coin: coinCompra,
+          wallet: this.usuarioWallet,
+          metodo: this,
+          tipoOperacion: this.OPERACION_COMPRA,
+        }
+      });
 
-    dialog.afterClosed().subscribe((res) => {
+      dialog.afterClosed().subscribe((res) => {
 
-    })
+      })
+    } else{
+      this.router.navigate(['main/myWallet']);
+    }
+
+
   }
 
   public abrirDialogVenta(coinVenta: CoinApi): void {
@@ -127,18 +138,16 @@ export class MainPageComponent implements OnInit {
         const index = this.usuarioWallet.coins.findIndex((c) => c.id?.toUpperCase() == this.coinCompra.id.toUpperCase());
 
         dialogWallet.coins[index].coinAmount += cantCoinFinal;
-        // this.walletLog.coins[index].coinAmount += this.cantidad;
       } else {
         dialogWallet.coins.push(coin);
-        // this.walletLog.coins.push(coin);
       }
 
       dialogWallet.fondos -= fondosFinal;
-      // this.walletLog.fondos -= fondosFinal;
 
       this.updateWallet(dialogWallet);
       this.tipoNotificacionToast = this.OPERACION_EXITOSA;
       this.operacionCompraVenta = true;
+      this.getUsuarioWallet();
 
     } else {
       this.tipoNotificacionToast = this.OPERACION_ERROR;
@@ -170,7 +179,7 @@ export class MainPageComponent implements OnInit {
     } else if (operacion == 1) {
       this.tipoNotificacionToast = operacion;
     }
-
+    this.getUsuarioWallet();
     this.abrirNotificacionToast = true;
 
     setTimeout(() => {
@@ -178,7 +187,7 @@ export class MainPageComponent implements OnInit {
     }, 3500);
   }
 
-  public getCoinsUsuario(): void {
+  public actualizarCoinUsuario(): void {
     this.allCoinsUsuario = this.usuarioWallet.coins.slice();
   }
 
@@ -196,7 +205,8 @@ export class MainPageComponent implements OnInit {
       allWallets = ((await this.walletService.getAllWalletFromService()).slice());
 
       this.usuarioWallet = allWallets.find((w) => w.idUser == this.usuarioLogueado.id)!
-      this.getCoinsUsuario()
+      this.actualizarCoinUsuario();
+      console.log("holaa " + this.usuarioWallet);
     } catch (error) {
       console.error('Error al intentar obtener las wallets', error);
     }

@@ -137,5 +137,24 @@ button:disabled {
   font-size: 20px;
 }
 
+.btn-compra{
+
+}
+
+.btn-venta{
+background-color: blue;
+}
+
+.btn-venta:focus{
+
+}
+
+.btn-venta:hover{
+
+}
+
+.btn-no-venta{
+background-color: red;
+}
 
 

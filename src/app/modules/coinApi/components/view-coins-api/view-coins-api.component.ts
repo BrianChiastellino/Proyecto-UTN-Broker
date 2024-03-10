@@ -39,15 +39,15 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
     this.usuarioLogueado = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
   }
 
-  public filtrarCoinsUsuario(coin: CoinApi) {
+  public filtrarCoinsUsuario(coin: CoinApi): boolean {
 
     const existe = this.allCoinsUsuario.find(coinUser => coinUser.id?.toUpperCase() == coin.id.toUpperCase());
 
 
-    if (this.operacionCoinCompraVenta) {
-      this.existeCoinInWallet = true;
+    if (existe) {
+      return true;
     } else {
-      this.existeCoinInWallet = false;
+      return false;
     }
 
   }
@@ -69,7 +69,7 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
     );
   }
 
-  mostarINfo () {
+  mostarINfo() {
     console.log(this.operacionCoinCompraVenta)
   }
 
