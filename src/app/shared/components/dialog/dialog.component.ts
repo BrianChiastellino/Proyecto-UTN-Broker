@@ -176,10 +176,10 @@ export class DialogComponent implements OnInit {
 
     if (this.validarFondos()) {
       this.setearWallet();
-      this.data.metodoVenta.confirmarVentaDialog(this.data.wallet, 0);
+      this.data.metodoVenta.confirmarVentaDialog(this.data.wallet, 0, this.data.precioCripto);
       this.cerrar(0);
     } else {
-      this.data.metodoVenta.confirmarVentaDialog(this.data.wallet, 1);
+      this.data.metodoVenta.confirmarVentaDialog(this.data.wallet, 1, this.data.precioCripto);
       this.cerrar(0);
     }
   }

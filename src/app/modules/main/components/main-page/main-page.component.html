@@ -8,14 +8,14 @@
 
 
 
-  <app-view-coins-api (coinCompra)="abrirDialogCompra($event)" [allCoinsApi]="allCoinsApi" [allCoinsUsuario]="allCoinsUsuario" [operacionCoinCompraVenta]="operacionCompraVenta"
-    (coinVenta)="abrirDialogVenta($event)"></app-view-coins-api>
+  <app-view-coins-api (coinCompra)="abrirDialogCompra($event)" [allCoinsApi]="allCoinsApi"
+    [allCoinsUsuario]="allCoinsUsuario" (coinVenta)="abrirDialogVenta($event)"></app-view-coins-api>
 
 </main>
 
 
 <div class="wrapper" *ngIf="tipoNotificacionToast != -1"
-  [ngClass]="{'slide-in': abrirNotificacionToast , 'slide-out': !abrirNotificacionToast}">
+  [ngClass]="{'slide-in': notificacionToast , 'slide-out': !notificacionToast}">
 
   <div class="toast success" *ngIf="tipoNotificacionToast == 0">
     <div class="container-1">
@@ -25,7 +25,7 @@
       <p>¡Exito!</p>
       <p>¡Operacion realizada con exito!</p>
     </div>
-    <button (click)="cerrarNotificacion()" (click)="abrirNotificacionToast = false">&times;</button>
+    <button (click)="cerrarNotificacionToast()" (click)="notificacionToast = false">&times;</button>
   </div>
 
   <div class="toast error" *ngIf="tipoNotificacionToast == 1">
@@ -36,21 +36,21 @@
       <p>¡Error!</p>
       <p>¡Ocurrio un error al querere realizar la operacion!.</p>
     </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
+    <button (click)="cerrarNotificacionToast()">&times;</button>
   </div>
 
-  <!-- <div class="toast info" *ngIf="mostrarNotificacion == 2">
+  <div class="toast info" *ngIf="tipoNotificacionToast == 2">
     <div class="container-1">
       <i class="fas fa-info-circle"></i>
     </div>
     <div class="container-2">
-      <p>Info</p>
-      <p>New settings available on your account.</p>
+      <p>¡Info!</p>
+      <p>Antes de relizar una compra debe depositar fondos en su biletera.</p>
     </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
+    <button (click)="cerrarNotificacionToast()">&times;</button>
   </div>
 
-  <div class="toast warning" *ngIf="mostrarNotificacion == 3">
+  <div class="toast warning" *ngIf="tipoNotificacionToast == 3">
     <div class="container-1">
       <i class="fas fa-exclamation-circle"></i>
     </div>
@@ -58,7 +58,7 @@
       <p>Warning</p>
       <p>Username you have entered is invalid.</p>
     </div>
-    <button (click)="cerrarNotificacion()">&times;</button>
-  </div> -->
+    <button (click)="cerrarNotificacionToast()">&times;</button>
+  </div>
 
 </div>

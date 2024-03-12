@@ -1,11 +1,13 @@
+import { JsonTransaccionService } from './../../../../core/services/json-transaccion.service';
 import { CoinApiService } from 'src/app/modules/coinApi/services/coin-api.service';
-import { Coin, CoinApi, User, Wallet } from './../../../../core/Models';
+import { Coin, CoinApi, Transaccion, User, Wallet } from './../../../../core/Models';
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 import { WalletService } from '../../services/wallet.service';
+import { TransaccionService } from '../../services/transaccion.service';
 
 @Component({
   selector: 'app-main-page',
@@ -18,18 +20,14 @@ import { WalletService } from '../../services/wallet.service';
 
 
 
-export class MainPageComponent implements OnInit, OnChanges {
+export class MainPageComponent implements OnInit {
 
-
-  public operacionCompraVenta!: boolean;
 
   public allCoinsApi: Array<CoinApi> = []
   public allCoinsUsuario: Array<Coin> = [];
-
   public usuarioLogueado!: User;
-  public abrirNotificacionToast: boolean = false;
-  public coinCompra!: CoinApi;
-  public coinVenta!: CoinApi;
+  public notificacionToast: boolean = false;
+  public coinSeleccionada!: CoinApi;
   public usuarioWallet!: Wallet;
   public tipoNotificacionToast: number = -1;
 
@@ -37,16 +35,18 @@ export class MainPageComponent implements OnInit, OnChanges {
   public OPERACION_VENTA: number = 1;
   public OPERACION_EXITOSA: number = 0;
   public OPERACION_ERROR: number = 1;
+  public OPERACION_INFO: number = 2;
 
   constructor(private coinApiService: CoinApiService,
     private router: Router,
     public walletService: WalletService,
-    public matDialog: MatDialog) {
+    public matDialog: MatDialog,
+    public transaccion: TransaccionService) {
 
 
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this.abrirNotificacionToast = false;
+        this.notificacionToast = false;
         this.tipoNotificacionToast = -1;
       }
     });
@@ -60,12 +60,6 @@ export class MainPageComponent implements OnInit, OnChanges {
 
   }
 
-
-  ngOnChanges(changes: SimpleChanges): void {
-    alert("holi")
-  }
-
-
   public getAllCoinsApi(): void {
     this.coinApiService.getAllGoins().then((c) => this.allCoinsApi = c.slice());
   }
@@ -76,10 +70,10 @@ export class MainPageComponent implements OnInit, OnChanges {
 
   public abrirDialogCompra(coinCompra: CoinApi): void {
 
-    if (this.usuarioWallet != undefined) {
-      this.coinCompra = coinCompra;
+    if (this.usuarioWallet && this.usuarioWallet.fondos > 0) {
+      this.coinSeleccionada = coinCompra;
 
-      const dialog = this.matDialog.open(DialogComponent, {
+      this.matDialog.open(DialogComponent, {
         panelClass: 'dialog-compra-style',
         data: {
           usuario: this.usuarioLogueado,
@@ -90,20 +84,16 @@ export class MainPageComponent implements OnInit, OnChanges {
         }
       });
 
-      dialog.afterClosed().subscribe((res) => {
-
-      })
-    } else{
-      this.router.navigate(['main/myWallet']);
+    } else {
+      this.setearTipoNotificacionToast(this.OPERACION_INFO);
+      this.abrirNotificacionToast();
     }
-
-
   }
 
   public abrirDialogVenta(coinVenta: CoinApi): void {
-    this.coinVenta = coinVenta;
+    this.coinSeleccionada = coinVenta;
 
-    const dialog = this.matDialog.open(DialogComponent, {
+    this.matDialog.open(DialogComponent, {
       panelClass: 'dialog-compra-style',
 
       data: {
@@ -115,9 +105,7 @@ export class MainPageComponent implements OnInit, OnChanges {
       }
     });
 
-    dialog.afterClosed().subscribe((res) => {
 
-    })
   }
 
   public confirmarCompraDialog(coinCompra: CoinApi, cantCoinFinal: number, fondosFinal: number, dialogWallet: Wallet) {
@@ -131,11 +119,11 @@ export class MainPageComponent implements OnInit, OnChanges {
       coin.symbol = coinCompra.symbol;
       coin.coinAmount = cantCoinFinal;
 
-      const existe = this.existCoinInWallet(this.coinCompra.id);
+      const existe = this.existCoinInWallet(coinCompra.id);
 
       if (existe) {
 
-        const index = this.usuarioWallet.coins.findIndex((c) => c.id?.toUpperCase() == this.coinCompra.id.toUpperCase());
+        const index = this.usuarioWallet.coins.findIndex((c) => c.id?.toUpperCase() == coinCompra.id.toUpperCase());
 
         dialogWallet.coins[index].coinAmount += cantCoinFinal;
       } else {
@@ -145,57 +133,75 @@ export class MainPageComponent implements OnInit, OnChanges {
       dialogWallet.fondos -= fondosFinal;
 
       this.updateWallet(dialogWallet);
-      this.tipoNotificacionToast = this.OPERACION_EXITOSA;
-      this.operacionCompraVenta = true;
-      this.getUsuarioWallet();
+      this.setearTipoNotificacionToast(this.OPERACION_EXITOSA);
+      this.crearTransaccion(this.OPERACION_COMPRA,cantCoinFinal);
 
     } else {
-      this.tipoNotificacionToast = this.OPERACION_ERROR;
+      this.setearTipoNotificacionToast(this.OPERACION_ERROR);
     }
 
-    this.abrirNotificacionToast = true;
-
-    setTimeout(() => {
-      this.cerrarNotificacion();
-    }, 3500);
-
+    this.getUsuarioWallet();
+    this.abrirNotificacionToast();
 
   }
 
+  setearTipoNotificacionToast(tipoToast: number) {
+    this.tipoNotificacionToast = tipoToast;
+  }
 
+  abrirNotificacionToast() {
+    this.notificacionToast = true;
 
-  cerrarNotificacion() {
-    this.abrirNotificacionToast = false;
+    setTimeout(() => {
+      this.cerrarNotificacionToast();
+    }, 3500);
+
+  }
+
+  cerrarNotificacionToast() {
+    this.notificacionToast = false;
     setTimeout(() => {
       this.tipoNotificacionToast = -1;
     }, 120);
   }
 
-  confirmarVentaDialog(wallet: Wallet, operacion: number) {
+  confirmarVentaDialog(wallet: Wallet, operacion: number, coinAmount: number) {
 
     if (operacion == 0) {
       this.updateWallet(wallet);
-      this.tipoNotificacionToast = operacion;
-    } else if (operacion == 1) {
-      this.tipoNotificacionToast = operacion;
+      this.crearTransaccion(this.OPERACION_VENTA, coinAmount);
     }
-    this.getUsuarioWallet();
-    this.abrirNotificacionToast = true;
 
-    setTimeout(() => {
-      this.cerrarNotificacion();
-    }, 3500);
+    this.setearTipoNotificacionToast(operacion);
+    this.getUsuarioWallet();
+    this.abrirNotificacionToast();
+
   }
 
   public actualizarCoinUsuario(): void {
     this.allCoinsUsuario = this.usuarioWallet.coins.slice();
   }
+  //! TRANSACCION METODOS
+
+  public crearTransaccion(tipoOperacion: number, coinAmount: number) {
+
+    let transaccion = new Transaccion();
+    transaccion.idUser = this.usuarioLogueado.id;
+    transaccion.idCoin = this.coinSeleccionada.id;
+    transaccion.coinAmount = coinAmount;
+    transaccion.tipoTransaccion = tipoOperacion;
+    transaccion.fecha = new Date().toLocaleString();
+
+    this.guardarTrasaccion(transaccion);
+
+  }
+
+  public guardarTrasaccion (transaccion: Transaccion) {
+    this.transaccion.addTransaccionFromService(transaccion);
+  }
 
 
   //! WALLET METODOS
-  //todo probar que pasa si el usuario no tiene wallet, si carga la pagina o algo.
-
-
 
   public async getUsuarioWallet() {
 
@@ -206,7 +212,6 @@ export class MainPageComponent implements OnInit, OnChanges {
 
       this.usuarioWallet = allWallets.find((w) => w.idUser == this.usuarioLogueado.id)!
       this.actualizarCoinUsuario();
-      console.log("holaa " + this.usuarioWallet);
     } catch (error) {
       console.error('Error al intentar obtener las wallets', error);
     }

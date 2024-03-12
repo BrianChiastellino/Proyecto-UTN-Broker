@@ -87,7 +87,7 @@ export class Transaccion implements ITransaccion {
   idUser: number | null;
   idCoin: string | null;
   coinAmount: number;
-  tipoTransaccion: string; //Si es venta o compra.
+  tipoTransaccion: number; //Si es venta o compra.
   fecha: string;
 
   constructor(transaccion?: any) {
@@ -96,7 +96,7 @@ export class Transaccion implements ITransaccion {
     this.idUser = transaccion == undefined ? null : transaccion.idUser;
     this.idCoin = transaccion == undefined ? null : transaccion.idCoin;
     this.coinAmount = transaccion == undefined ? 0 : transaccion.coinAmount;
-    this.tipoTransaccion = transaccion == undefined ? '' : transaccion.tipoTransaccion;
+    this.tipoTransaccion = transaccion == undefined ? 0 : transaccion.tipoTransaccion;
     this.fecha = transaccion == undefined ? '' : transaccion.fechaCompra;
 
   }

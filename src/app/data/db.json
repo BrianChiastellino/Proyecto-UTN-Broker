@@ -96,17 +96,69 @@
     {
       "id": 2,
       "idUser": 3,
-      "fondos": 1000,
+      "fondos": 29108.916,
       "coins": [
         {
           "id": "BITCOIN",
-          "coinAmount": 0.029225665979863515,
+          "coinAmount": 0.0010243053015115819,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
+        },
+        {
+          "id": "ETHEREUM",
+          "coinAmount": 0.13018155119129138,
+          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+          "symbol": "eth"
+        },
+        {
+          "id": "TETHER",
+          "coinAmount": 321,
+          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
+          "symbol": "usdt"
         }
       ]
     }
   ],
-  "images": [],
-  "comentarios": []
+  "transaccion": [
+    {
+      "id": 1,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0014632932878736885,
+      "tipoTransaccion": 0,
+      "fecha": "10/3/2024, 22:21:54"
+    },
+    {
+      "id": 2,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0004389879863621066,
+      "tipoTransaccion": 1,
+      "fecha": "10/3/2024, 22:22:26"
+    },
+    {
+      "id": 3,
+      "idUser": 3,
+      "idCoin": "ethereum",
+      "coinAmount": 0.13018155119129138,
+      "tipoTransaccion": 0,
+      "fecha": "10/3/2024, 22:22:58"
+    },
+    {
+      "id": 4,
+      "idUser": 3,
+      "idCoin": "tether",
+      "coinAmount": 21,
+      "tipoTransaccion": 0,
+      "fecha": "10/3/2024, 22:25:16"
+    },
+    {
+      "id": 5,
+      "idUser": 3,
+      "idCoin": "tether",
+      "coinAmount": 300,
+      "tipoTransaccion": 0,
+      "fecha": "11/3/2024, 00:03:35"
+    }
+  ]
 }

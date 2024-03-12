@@ -44,7 +44,7 @@ export interface ITransaccion {
   idUser: number | null;
   idCoin: string | null;
   coinAmount: number;
-  tipoTransaccion: string;
+  tipoTransaccion: number;
   fecha: string;
 
 }

@@ -34,7 +34,7 @@ export class WalletComponent implements OnInit {
     const wall = new Wallet();
     wall.idUser = this.userLoged.id;
     this.addWallet(wall);
-    window.location.reload();
+    this.getWallets();
     //! Tuve que poner esta linea de codigo para recargar cuando un usuario se crea una wallet
   }
 
