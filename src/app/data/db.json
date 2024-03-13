@@ -29,25 +29,13 @@
     {
       "id": 1,
       "idUser": 1,
-      "fondos": 856302.615,
+      "fondos": 925112.9094297239,
       "coins": [
         {
-          "id": "BITCOIN",
-          "coinAmount": 1.0047257490312214,
-          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-          "symbol": "btc"
-        },
-        {
           "id": "TETHER",
-          "coinAmount": 200,
+          "coinAmount": 1000.5062561656198,
           "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
           "symbol": "usdt"
-        },
-        {
-          "id": "ETHEREUM",
-          "coinAmount": 0.11450020231238754,
-          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-          "symbol": "eth"
         },
         {
           "id": "BINANCECOIN",
@@ -69,7 +57,7 @@
         },
         {
           "id": "STAKED-ETHER",
-          "coinAmount": 0.12781447473363464,
+          "coinAmount": 0.20366072931917278,
           "image": "https://assets.coingecko.com/coins/images/13442/large/steth_logo.png?1696513206",
           "symbol": "steth"
         },
@@ -90,31 +78,49 @@
           "coinAmount": 41.05191425076151,
           "image": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1696502090",
           "symbol": "ada"
+        },
+        {
+          "id": "NEO",
+          "coinAmount": 100,
+          "image": "https://assets.coingecko.com/coins/images/480/large/NEO_512_512.png?1696501735",
+          "symbol": "neo"
+        },
+        {
+          "id": "BITCOIN",
+          "coinAmount": 0.0014043365913942254,
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+          "symbol": "btc"
         }
       ]
     },
     {
       "id": 2,
       "idUser": 3,
-      "fondos": 29108.916,
+      "fondos": 2500,
       "coins": [
         {
           "id": "BITCOIN",
-          "coinAmount": 0.0010243053015115819,
+          "coinAmount": 0.00000701633151767799,
           "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
           "symbol": "btc"
         },
         {
           "id": "ETHEREUM",
-          "coinAmount": 0.13018155119129138,
+          "coinAmount": 0.05068192530497849,
           "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
           "symbol": "eth"
         },
         {
           "id": "TETHER",
-          "coinAmount": 321,
+          "coinAmount": 300.15187684968595,
           "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
           "symbol": "usdt"
+        },
+        {
+          "id": "BINANCECOIN",
+          "coinAmount": 0.553291160251563,
+          "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
+          "symbol": "bnb"
         }
       ]
     }
@@ -159,6 +165,142 @@
       "coinAmount": 300,
       "tipoTransaccion": 0,
       "fecha": "11/3/2024, 00:03:35"
+    },
+    {
+      "id": 6,
+      "idUser": 1,
+      "idCoin": "bitcoin",
+      "coinAmount": 1.0047257490312214,
+      "tipoTransaccion": 1,
+      "fecha": "12/3/2024, 13:25:51"
+    },
+    {
+      "id": 7,
+      "idUser": 1,
+      "idCoin": "neo",
+      "coinAmount": 100,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 13:26:36"
+    },
+    {
+      "id": 8,
+      "idUser": 3,
+      "idCoin": "binancecoin",
+      "coinAmount": 0.1845392976434332,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 13:28:33"
+    },
+    {
+      "id": 9,
+      "idUser": 1,
+      "idCoin": "ethereum",
+      "coinAmount": 0.11450020231238754,
+      "tipoTransaccion": 1,
+      "fecha": "12/3/2024, 13:33:31"
+    },
+    {
+      "id": 10,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0010243053015115819,
+      "tipoTransaccion": 1,
+      "fecha": "12/3/2024, 15:08:34"
+    },
+    {
+      "id": 11,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0000014031346027024373,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:09:24"
+    },
+    {
+      "id": 12,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0014159693017855373,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:18:50"
+    },
+    {
+      "id": 13,
+      "idUser": 1,
+      "idCoin": "tether",
+      "coinAmount": 1000.5062561656198,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:32:33"
+    },
+    {
+      "id": 14,
+      "idUser": 1,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0000014113529229119034,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:33:09"
+    },
+    {
+      "id": 15,
+      "idUser": 1,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0000014113529229119,
+      "tipoTransaccion": 1,
+      "fecha": "12/3/2024, 15:34:00"
+    },
+    {
+      "id": 16,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0014113529229119034,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:36:24"
+    },
+    {
+      "id": 17,
+      "idUser": 3,
+      "idCoin": "ethereum",
+      "coinAmount": 0.05068192530497849,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:36:28"
+    },
+    {
+      "id": 18,
+      "idUser": 3,
+      "idCoin": "tether",
+      "coinAmount": 300.15187684968595,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:36:32"
+    },
+    {
+      "id": 19,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0014043365913942254,
+      "tipoTransaccion": 1,
+      "fecha": "12/3/2024, 15:42:52"
+    },
+    {
+      "id": 20,
+      "idUser": 1,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0014043365913942254,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:43:57"
+    },
+    {
+      "id": 21,
+      "idUser": 1,
+      "idCoin": "staked-ether",
+      "coinAmount": 0.07584625458553815,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 15:46:38"
+    },
+    {
+      "id": 22,
+      "idUser": 3,
+      "idCoin": "binancecoin",
+      "coinAmount": 0.553291160251563,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 16:05:15"
     }
   ]
 }

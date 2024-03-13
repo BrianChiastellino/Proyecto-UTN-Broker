@@ -2,30 +2,43 @@
   <app-nav-bar></app-nav-bar>
 </header>
 
-<section *ngIf="existWallet">
+<section>
 
-  <div class="fondos-info">
-    <h3>{{ currentWallet.fondos | currency:'USD':'symbol':'1.2-2' }}</h3>
 
-    <form (ngSubmit)="onSubmit()" #f="ngForm">
+  <h3>{{ currentWallet.fondos | currency:'USD':'symbol':'1.2-2' }}</h3>
 
-      <div class="inputbox">
-        <input type="text" pattern="[0-9]*" id="monto" name="monto"  [(ngModel)]="monto" autocomplete="off" required (input)="quitarLetras($event)" maxlength="7">
-      </div>
+  <form (ngSubmit)="onSubmit()" #f="ngForm">
 
-    </form>
-  </div>
+    <div class="inputbox">
+      <input type="text" pattern="[0-9]*" id="monto" name="monto" [(ngModel)]="monto" autocomplete="off" required
+        (input)="quitarLetras($event)" maxlength="7">
+    </div>
+
+  </form>
 
   <p class="info-error" *ngIf="errorDepositar">Deposito minimo $50 dolares</p>
   <p class="info-error" *ngIf="errorRetirar">Retiro minimo $100 dolares</p>
+
 
   <div class="button-container">
     <button type="button" (click)="depositarFondos()">DEPOSITAR</button>
     <button type="button" (click)="retirarFondos()">RETIRAR</button>
   </div>
 
+  <div class="contenedor-general-lista-coin">
+    <div class="contenedor-general-coin" *ngFor="let coin of currentWallet.coins">
+      <div class="contenedor-img">
+        <img class="coin-img" [src]="coin.image">
+      </div>
+      <div>
+        <p class="coin-id">{{coin.id}}</p>
+        <p class="coin-amount">${{coin.coinAmount}}</p>
+      </div>
+    </div>
+  </div>
 
-  <div class="form-box" *ngIf="currentWallet.coins.length > 0">
+
+  <!-- <div class="form-box" *ngIf="currentWallet.coins.length > 0">
 
     <table>
       <thead>
@@ -52,10 +65,7 @@
       </tbody>
     </table>
 
-  </div>
+  </div> -->
 
 
 </section>
-
-
-
