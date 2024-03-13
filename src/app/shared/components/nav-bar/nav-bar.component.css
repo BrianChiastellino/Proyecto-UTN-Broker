@@ -10,15 +10,13 @@
 nav {
   padding: 0;
   /* background: url('src\assets\images\black_001.jpg') center center/cover fixed no-repeat; */
-  background: rgb(226,192,110);
-  background: linear-gradient(90deg, rgb(235, 203, 129) 0%, rgb(226, 191, 96) 50%);
-
+  background: var(--color-navbar-back);
+  color: var(--color-texto);
   position: static;
   display: block;
   left: 0;
   top: 0;
   width: 100%;
-  border-bottom: #e4b233 solid 0.5px;
   width: 100%;
   z-index: 1000;
   /* Asegura que la barra de navegación esté sobre el fondo desenfocado */
@@ -39,26 +37,24 @@ nav {
 
 } */
 
-.navbar-nav {
+/* .navbar-nav {
   position: relative;
   z-index: 1;
-  /* Asegura que los elementos de la barra de navegación estén por encima del fondo desenfocado */
-}
+} */
 
 /* Estilos adicionales según tus necesidades */
 .navbar-nav .nav-link {
   margin-right: 2rem;
   margin-left: 0.5rem;
   margin-top: 1rem;
-  color: var(--color-primario);
   font-family: 'Kanit', sans-serif;
   font-weight: 700;
   transition: color 0.3s;
+  cursor: pointer;
 }
 
 .navbar-nav .nav-link:hover {
-  color: var(--color-primario-hover);
-  cursor: pointer;
+  color: var(--color-texto-hover);
 }
 
 .nav-link {
@@ -76,7 +72,7 @@ li .fa-house-chimney {
 
 .navbar-nav .nav-link,
 .navbar-brand {
-  color: black;
+  color: var(--color-texto);
   font-family: 'Kanit', sans-serif;
   font-weight: 700;
   transition: color 0.3s;
@@ -85,9 +81,6 @@ li .fa-house-chimney {
 
 .navbar-nav .nav-link:hover,
 .navbar-brand:hover {
-  color: #e4b233;
-
-  cursor: pointer;
 }
 
 img {

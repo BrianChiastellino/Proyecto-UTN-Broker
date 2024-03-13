@@ -8,7 +8,7 @@ main {
 h1 {
   font-family: 'Kanit', sans-serif;
   font-weight: bolder;
-  color: rgb(255, 153, 0);
+  color: var(--color-navbar-back);
   line-height: 1.5;
   font-size: 44px;
 }

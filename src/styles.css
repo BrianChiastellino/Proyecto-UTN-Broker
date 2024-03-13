@@ -11,15 +11,21 @@
   --color-boton: #fff;
   --color-boton-hover: #fff;
 
-  --color-texto: #fff;
-  --color-texto-hover: #fff;
+  --color-texto: black;
+  --color-texto-hover: rgba(0, 0, 0, 0.518);
 
-  --color-back: #fff;
-  --color-back-hover: #fff;
+  --color-back: #ffc93c;
+  --color-back-hover: #fcbf25;
+
+  --color-bisabled: #fff;
+  --color-disabled-back: #ff9a3c86;
+
+  --color-navbar-back: #ffc93c;
+  --color-navbar-back-hover: #ffc83ca2;
 }
 
-/* html, body { height: 100%; } */
-/* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 footer {
 

@@ -23,16 +23,21 @@ table {
   overflow: hidden;
 }
 
+.cabecera-tabla {
+  background-color: var(--color-navbar-back);
+  color: var(--color-texto);
+}
+
 .table-container::-webkit-scrollbar {
   width: 12px;
 }
 
-.table-container::-webkit-scrollbar-thumb {
+/* .table-container::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 10px;
-}
+} */
 
-.table-container::-webkit-scrollbar-thumb:hover {
+/* .table-container::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
 
@@ -43,61 +48,36 @@ table {
 
 tbody tr:nth-child(even) {
   background-color: #f2f2f2;
-}
+} */
 
 th {
-  background-color: #ff9a3c;
+  background-color: var(--color-navbar-back);
 }
 
 td {
   background-color: #fff;
+  color: var(--color-texto);
 }
 
-td, th {
+td,
+th {
   padding: 12px;
   border: 1px solid #e0e0e0;
   text-align: center;
 }
 
-.info-coin {
+/* .info-coin {
   color: #000000;
-}
+} */
 
 thead {
-  background-color: #05384d;
   color: #fff;
   /* font-weight: bold; */
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-  font-family: 'Kanit', sans-serif;
-  font-weight: 700;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
 }
 
 .imgTabla {
   width: 2rem;
   margin-right: 1rem;
-}
-
-.button-vermas {
-  display: flex;
-  justify-content: flex-end;
 }
 
 .full-width-input {
@@ -137,24 +117,23 @@ button:disabled {
   font-size: 20px;
 }
 
-.btn-compra{
-
+button {
+  background-color: var(--color-navbar-back);
+  color: var(--color-texto);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.btn-venta{
-background-color: blue;
+button:hover{
+  color: var(--color-texto-hover);
 }
 
-.btn-venta:focus{
+.btn-no-venta {
+  background-color: var(--color-disabled-back);
+  cursor: default;
 
 }
-
-.btn-venta:hover{
-
-}
-
-.btn-no-venta{
-background-color: red;
-}
-
-

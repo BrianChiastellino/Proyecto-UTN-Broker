@@ -40,13 +40,13 @@ button {
   cursor: pointer;
   font-size: 1em;
   font-weight: 600;
-  color: #000000;
+  color: var(--color-texto);
   transition: background-color 0.3s;
   transition: color 0.3s;
 }
 
 button:hover {
-  color: #fff;
+  color: var(--color-texto-hover);
   background-color: var(--color-primario-hover);
 }
 
@@ -162,6 +162,34 @@ th {
   font-weight: 500;
 }
 
+.buscarCoin {
+  position: relative;
+  margin-top: 10px;
+  width: 50%;
+
+}
+
+.search-input {
+  width: 100%;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-bottom: 2px solid #fff;
+  outline: none;
+  background: transparent;
+  text-align: center;
+}
+
+.search-input:focus::placeholder {
+  border-color: #007bff;
+  text-align: center;
+}
+
+.search-input::placeholder {
+  text-align: center;
+  color: #fff;
+}
+
 .contenedor-general-lista-coin {
 
   width: 100%;
@@ -170,6 +198,7 @@ th {
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+
 
 
 }
