@@ -5,6 +5,7 @@
 <section>
 
 
+
   <h3>{{ currentWallet.fondos | currency:'USD':'symbol':'1.2-2' }}</h3>
 
   <form (ngSubmit)="onSubmit()" #f="ngForm">
@@ -20,20 +21,28 @@
   <p class="info-error" *ngIf="errorRetirar">Retiro minimo $100 dolares</p>
 
 
+
   <div class="button-container">
     <button type="button" (click)="depositarFondos()">DEPOSITAR</button>
     <button type="button" (click)="retirarFondos()">RETIRAR</button>
   </div>
 
-  <div class="contenedor-general-lista-coin">
-    <div class="contenedor-general-coin" *ngFor="let coin of currentWallet.coins">
+  <div class="buscarCoin">
+    <input class="search-input" placeholder="Buscar coin" type="text" (keyup)="buscarCoin()"
+      [(ngModel)]="coinBusquedaInput">
+  </div>
+
+
+  <div class=" contenedor-general-lista-coin">
+    <div class="contenedor-general-coin" *ngFor="let coin of coinsApiFiltradas">
       <div class="contenedor-img">
         <img class="coin-img" [src]="coin.image">
       </div>
-      <div>
-        <p class="coin-id">{{coin.id}}</p>
-        <p class="coin-amount">${{coin.coinAmount}}</p>
-      </div>
+
+      <p class="coin-id">{{coin.id}}</p>
+      <p class="coin-amount">${{coin.coinAmount}}</p>
+      <p class="coin-fecha">Ultima compra {{coin.fecha}}</p>
+
     </div>
   </div>
 

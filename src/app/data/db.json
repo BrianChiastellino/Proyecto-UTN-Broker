@@ -28,101 +28,184 @@
   "wallet": [
     {
       "id": 1,
-      "idUser": 1,
-      "fondos": 925112.9094297239,
+      "idUser": 3,
+      "fondos": 200,
       "coins": [
         {
+          "id": "BITCOIN",
+          "coinAmount": 0.012592426197279204,
+          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
+          "symbol": "btc",
+          "fecha": "13/3/2024, 00:08:05"
+        },
+        {
+          "id": "ETHEREUM",
+          "coinAmount": 0.2512038946651829,
+          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
+          "symbol": "eth",
+          "fecha": "12/3/2024, 21:35:46"
+        },
+        {
           "id": "TETHER",
-          "coinAmount": 1000.5062561656198,
+          "coinAmount": 499.50049950049953,
           "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-          "symbol": "usdt"
+          "symbol": "usdt",
+          "fecha": "12/3/2024, 21:35:50"
         },
         {
           "id": "BINANCECOIN",
-          "coinAmount": 1.2002982705121112,
+          "coinAmount": 0.18776874401487126,
           "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
-          "symbol": "bnb"
-        },
-        {
-          "id": "SOLANA",
-          "coinAmount": 500,
-          "image": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1696504756",
-          "symbol": "sol"
-        },
-        {
-          "id": "RIPPLE",
-          "coinAmount": 477.3368422894984,
-          "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
-          "symbol": "xrp"
+          "symbol": "bnb",
+          "fecha": "12/3/2024, 22:16:28"
         },
         {
           "id": "STAKED-ETHER",
-          "coinAmount": 0.20366072931917278,
+          "coinAmount": 0.02506265664160401,
           "image": "https://assets.coingecko.com/coins/images/13442/large/steth_logo.png?1696513206",
-          "symbol": "steth"
+          "symbol": "steth",
+          "fecha": "12/3/2024, 22:30:38"
         },
         {
-          "id": "USD-COIN",
-          "coinAmount": 300.162988502757,
-          "image": "https://assets.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
-          "symbol": "usdc"
+          "id": "RIPPLE",
+          "coinAmount": 144.88134218075396,
+          "image": "https://assets.coingecko.com/coins/images/44/large/xrp-symbol-white-128.png?1696501442",
+          "symbol": "xrp",
+          "fecha": "12/3/2024, 22:46:09"
         },
         {
-          "id": "DOGECOIN",
-          "coinAmount": 3009.854262856593,
-          "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
-          "symbol": "doge"
+          "id": "SOLANA",
+          "coinAmount": 1.996805111821086,
+          "image": "https://assets.coingecko.com/coins/images/4128/large/solana.png?1696504756",
+          "symbol": "sol",
+          "fecha": "12/3/2024, 22:46:15"
         },
         {
           "id": "CARDANO",
-          "coinAmount": 41.05191425076151,
+          "coinAmount": 132.85170163102035,
           "image": "https://assets.coingecko.com/coins/images/975/large/cardano.png?1696502090",
-          "symbol": "ada"
+          "symbol": "ada",
+          "fecha": "12/3/2024, 22:46:18"
         },
         {
-          "id": "NEO",
-          "coinAmount": 100,
-          "image": "https://assets.coingecko.com/coins/images/480/large/NEO_512_512.png?1696501735",
-          "symbol": "neo"
+          "id": "SHIBA-INU",
+          "coinAmount": 3083564.6006783843,
+          "image": "https://assets.coingecko.com/coins/images/11939/large/shiba.png?1696511800",
+          "symbol": "shib",
+          "fecha": "12/3/2024, 22:47:58"
         },
         {
-          "id": "BITCOIN",
-          "coinAmount": 0.0014043365913942254,
-          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-          "symbol": "btc"
+          "id": "AVALANCHE-2",
+          "coinAmount": 1.8474043968224643,
+          "image": "https://assets.coingecko.com/coins/images/12559/large/Avalanche_Circle_RedWhite_Trans.png?1696512369",
+          "symbol": "avax",
+          "fecha": "12/3/2024, 22:48:05"
+        },
+        {
+          "id": "DOGECOIN",
+          "coinAmount": 588.4672194335415,
+          "image": "https://assets.coingecko.com/coins/images/5/large/dogecoin.png?1696501409",
+          "symbol": "doge",
+          "fecha": "12/3/2024, 22:48:11"
+        },
+        {
+          "id": "USD-COIN",
+          "coinAmount": 100.05342853083548,
+          "image": "https://assets.coingecko.com/coins/images/6319/large/usdc.png?1696506694",
+          "symbol": "usdc",
+          "fecha": "12/3/2024, 22:48:18"
+        },
+        {
+          "id": "THE-OPEN-NETWORK",
+          "coinAmount": 23.31002331002331,
+          "image": "https://assets.coingecko.com/coins/images/17980/large/ton_symbol.png?1696517498",
+          "symbol": "ton",
+          "fecha": "12/3/2024, 22:48:33"
+        },
+        {
+          "id": "POLKADOT",
+          "coinAmount": 9.25925925925926,
+          "image": "https://assets.coingecko.com/coins/images/12171/large/polkadot.png?1696512008",
+          "symbol": "dot",
+          "fecha": "12/3/2024, 22:49:05"
+        },
+        {
+          "id": "CHAINLINK",
+          "coinAmount": 19.36108422071636,
+          "image": "https://assets.coingecko.com/coins/images/877/large/chainlink-new-logo.png?1696502009",
+          "symbol": "link",
+          "fecha": "12/3/2024, 22:55:47"
+        },
+        {
+          "id": "TRON",
+          "coinAmount": 304.41168636463954,
+          "image": "https://assets.coingecko.com/coins/images/1094/large/tron-logo.png?1696502193",
+          "symbol": "trx",
+          "fecha": "12/3/2024, 22:55:54"
+        },
+        {
+          "id": "WRAPPED-BITCOIN",
+          "coinAmount": 0.0005577867023650157,
+          "image": "https://assets.coingecko.com/coins/images/7598/large/wrapped_bitcoin_wbtc.png?1696507857",
+          "symbol": "wbtc",
+          "fecha": "12/3/2024, 22:55:59"
+        },
+        {
+          "id": "NEAR",
+          "coinAmount": 36.31961259079903,
+          "image": "https://assets.coingecko.com/coins/images/10365/large/near.jpg?1696510367",
+          "symbol": "near",
+          "fecha": "12/3/2024, 23:11:31"
+        },
+        {
+          "id": "IMMUTABLE-X",
+          "coinAmount": 167.5977653631285,
+          "image": "https://assets.coingecko.com/coins/images/17233/large/immutableX-symbol-BLK-RGB.png?1696516787",
+          "symbol": "imx",
+          "fecha": "12/3/2024, 23:14:34"
+        },
+        {
+          "id": "HEDERA-HASHGRAPH",
+          "coinAmount": 147.2363732736535,
+          "image": "https://assets.coingecko.com/coins/images/3688/large/hbar.png?1696504364",
+          "symbol": "hbar",
+          "fecha": "13/3/2024, 00:15:48"
+        },
+        {
+          "id": "UNISWAP",
+          "coinAmount": 3.5186488388458828,
+          "image": "https://assets.coingecko.com/coins/images/12504/large/uni.jpg?1696512319",
+          "symbol": "uni",
+          "fecha": "13/3/2024, 00:20:09"
+        },
+        {
+          "id": "OKB",
+          "coinAmount": 7.377895824110964,
+          "image": "https://assets.coingecko.com/coins/images/4463/large/WeChat_Image_20220118095654.png?1696505053",
+          "symbol": "okb",
+          "fecha": "13/3/2024, 00:21:56"
+        },
+        {
+          "id": "PEPE",
+          "coinAmount": 12195121.951219512,
+          "image": "https://assets.coingecko.com/coins/images/29850/large/pepe-token.jpeg?1696528776",
+          "symbol": "pepe",
+          "fecha": "13/3/2024, 00:25:07"
+        },
+        {
+          "id": "STELLAR",
+          "coinAmount": 331.76518986921815,
+          "image": "https://assets.coingecko.com/coins/images/100/large/Stellar_symbol_black_RGB.png?1696501482",
+          "symbol": "xlm",
+          "fecha": "13/3/2024, 00:33:13"
         }
       ]
     },
     {
       "id": 2,
       "idUser": 3,
-      "fondos": 2500,
-      "coins": [
-        {
-          "id": "BITCOIN",
-          "coinAmount": 0.00000701633151767799,
-          "image": "https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1696501400",
-          "symbol": "btc"
-        },
-        {
-          "id": "ETHEREUM",
-          "coinAmount": 0.05068192530497849,
-          "image": "https://assets.coingecko.com/coins/images/279/large/ethereum.png?1696501628",
-          "symbol": "eth"
-        },
-        {
-          "id": "TETHER",
-          "coinAmount": 300.15187684968595,
-          "image": "https://assets.coingecko.com/coins/images/325/large/Tether.png?1696501661",
-          "symbol": "usdt"
-        },
-        {
-          "id": "BINANCECOIN",
-          "coinAmount": 0.553291160251563,
-          "image": "https://assets.coingecko.com/coins/images/825/large/bnb-icon2_2x.png?1696501970",
-          "symbol": "bnb"
-        }
-      ]
+      "fondos": 0,
+      "coins": []
     }
   ],
   "transaccion": [
@@ -130,177 +213,233 @@
       "id": 1,
       "idUser": 3,
       "idCoin": "bitcoin",
-      "coinAmount": 0.0014632932878736885,
+      "coinAmount": 0.04201386457530985,
       "tipoTransaccion": 0,
-      "fecha": "10/3/2024, 22:21:54"
+      "fecha": "12/3/2024, 21:34:33"
     },
     {
       "id": 2,
       "idUser": 3,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0004389879863621066,
-      "tipoTransaccion": 1,
-      "fecha": "10/3/2024, 22:22:26"
+      "idCoin": "ethereum",
+      "coinAmount": 0.2512038946651829,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 21:34:37"
     },
     {
       "id": 3,
       "idUser": 3,
-      "idCoin": "ethereum",
-      "coinAmount": 0.13018155119129138,
+      "idCoin": "tether",
+      "coinAmount": 499.50049950049953,
       "tipoTransaccion": 0,
-      "fecha": "10/3/2024, 22:22:58"
+      "fecha": "12/3/2024, 21:34:43"
     },
     {
       "id": 4,
       "idUser": 3,
-      "idCoin": "tether",
-      "coinAmount": 21,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.007002310762551642,
       "tipoTransaccion": 0,
-      "fecha": "10/3/2024, 22:25:16"
+      "fecha": "12/3/2024, 21:35:42"
     },
     {
       "id": 5,
       "idUser": 3,
-      "idCoin": "tether",
-      "coinAmount": 300,
+      "idCoin": "ethereum",
+      "coinAmount": 0.2512038946651829,
       "tipoTransaccion": 0,
-      "fecha": "11/3/2024, 00:03:35"
+      "fecha": "12/3/2024, 21:35:46"
     },
     {
       "id": 6,
-      "idUser": 1,
-      "idCoin": "bitcoin",
-      "coinAmount": 1.0047257490312214,
-      "tipoTransaccion": 1,
-      "fecha": "12/3/2024, 13:25:51"
+      "idUser": 3,
+      "idCoin": "tether",
+      "coinAmount": 499.50049950049953,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 21:35:50"
     },
     {
       "id": 7,
-      "idUser": 1,
-      "idCoin": "neo",
-      "coinAmount": 100,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.004199739616143799,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 13:26:36"
+      "fecha": "12/3/2024, 21:41:50"
     },
     {
       "id": 8,
       "idUser": 3,
       "idCoin": "binancecoin",
-      "coinAmount": 0.1845392976434332,
+      "coinAmount": 0.18776874401487126,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 13:28:33"
+      "fecha": "12/3/2024, 22:16:28"
     },
     {
       "id": 9,
-      "idUser": 1,
-      "idCoin": "ethereum",
-      "coinAmount": 0.11450020231238754,
-      "tipoTransaccion": 1,
-      "fecha": "12/3/2024, 13:33:31"
+      "idUser": 3,
+      "idCoin": "staked-ether",
+      "coinAmount": 0.02506265664160401,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 22:30:38"
     },
     {
       "id": 10,
       "idUser": 3,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0010243053015115819,
-      "tipoTransaccion": 1,
-      "fecha": "12/3/2024, 15:08:34"
+      "idCoin": "ripple",
+      "coinAmount": 144.88134218075396,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 22:46:09"
     },
     {
       "id": 11,
       "idUser": 3,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0000014031346027024373,
+      "idCoin": "solana",
+      "coinAmount": 1.996805111821086,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:09:24"
+      "fecha": "12/3/2024, 22:46:15"
     },
     {
       "id": 12,
       "idUser": 3,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0014159693017855373,
+      "idCoin": "cardano",
+      "coinAmount": 132.85170163102035,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:18:50"
+      "fecha": "12/3/2024, 22:46:18"
     },
     {
       "id": 13,
-      "idUser": 1,
-      "idCoin": "tether",
-      "coinAmount": 1000.5062561656198,
+      "idUser": 3,
+      "idCoin": "shiba-inu",
+      "coinAmount": 3083564.6006783843,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:32:33"
+      "fecha": "12/3/2024, 22:47:58"
     },
     {
       "id": 14,
-      "idUser": 1,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0000014113529229119034,
+      "idUser": 3,
+      "idCoin": "avalanche-2",
+      "coinAmount": 1.8474043968224643,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:33:09"
+      "fecha": "12/3/2024, 22:48:05"
     },
     {
       "id": 15,
-      "idUser": 1,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0000014113529229119,
-      "tipoTransaccion": 1,
-      "fecha": "12/3/2024, 15:34:00"
+      "idUser": 3,
+      "idCoin": "dogecoin",
+      "coinAmount": 588.4672194335415,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 22:48:11"
     },
     {
       "id": 16,
       "idUser": 3,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0014113529229119034,
+      "idCoin": "usd-coin",
+      "coinAmount": 100.05342853083548,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:36:24"
+      "fecha": "12/3/2024, 22:48:18"
     },
     {
       "id": 17,
       "idUser": 3,
-      "idCoin": "ethereum",
-      "coinAmount": 0.05068192530497849,
+      "idCoin": "the-open-network",
+      "coinAmount": 23.31002331002331,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:36:28"
+      "fecha": "12/3/2024, 22:48:33"
     },
     {
       "id": 18,
       "idUser": 3,
-      "idCoin": "tether",
-      "coinAmount": 300.15187684968595,
+      "idCoin": "polkadot",
+      "coinAmount": 9.25925925925926,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:36:32"
+      "fecha": "12/3/2024, 22:49:05"
     },
     {
       "id": 19,
       "idUser": 3,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0014043365913942254,
-      "tipoTransaccion": 1,
-      "fecha": "12/3/2024, 15:42:52"
+      "idCoin": "chainlink",
+      "coinAmount": 19.36108422071636,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 22:55:47"
     },
     {
       "id": 20,
-      "idUser": 1,
-      "idCoin": "bitcoin",
-      "coinAmount": 0.0014043365913942254,
+      "idUser": 3,
+      "idCoin": "tron",
+      "coinAmount": 304.41168636463954,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:43:57"
+      "fecha": "12/3/2024, 22:55:54"
     },
     {
       "id": 21,
-      "idUser": 1,
-      "idCoin": "staked-ether",
-      "coinAmount": 0.07584625458553815,
+      "idUser": 3,
+      "idCoin": "wrapped-bitcoin",
+      "coinAmount": 0.0005577867023650157,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 15:46:38"
+      "fecha": "12/3/2024, 22:55:59"
     },
     {
       "id": 22,
       "idUser": 3,
-      "idCoin": "binancecoin",
-      "coinAmount": 0.553291160251563,
+      "idCoin": "near",
+      "coinAmount": 36.31961259079903,
       "tipoTransaccion": 0,
-      "fecha": "12/3/2024, 16:05:15"
+      "fecha": "12/3/2024, 23:11:31"
+    },
+    {
+      "id": 23,
+      "idUser": 3,
+      "idCoin": "immutable-x",
+      "coinAmount": 167.5977653631285,
+      "tipoTransaccion": 0,
+      "fecha": "12/3/2024, 23:14:34"
+    },
+    {
+      "id": 24,
+      "idUser": 3,
+      "idCoin": "bitcoin",
+      "coinAmount": 0.0013903758185837632,
+      "tipoTransaccion": 0,
+      "fecha": "13/3/2024, 00:08:05"
+    },
+    {
+      "id": 25,
+      "idUser": 3,
+      "idCoin": "hedera-hashgraph",
+      "coinAmount": 147.2363732736535,
+      "tipoTransaccion": 0,
+      "fecha": "13/3/2024, 00:15:48"
+    },
+    {
+      "id": 26,
+      "idUser": 3,
+      "idCoin": "uniswap",
+      "coinAmount": 3.5186488388458828,
+      "tipoTransaccion": 0,
+      "fecha": "13/3/2024, 00:20:09"
+    },
+    {
+      "id": 27,
+      "idUser": 3,
+      "idCoin": "okb",
+      "coinAmount": 7.377895824110964,
+      "tipoTransaccion": 0,
+      "fecha": "13/3/2024, 00:21:56"
+    },
+    {
+      "id": 28,
+      "idUser": 3,
+      "idCoin": "pepe",
+      "coinAmount": 12195121.951219512,
+      "tipoTransaccion": 0,
+      "fecha": "13/3/2024, 00:25:07"
+    },
+    {
+      "id": 29,
+      "idUser": 3,
+      "idCoin": "stellar",
+      "coinAmount": 331.76518986921815,
+      "tipoTransaccion": 0,
+      "fecha": "13/3/2024, 00:33:13"
     }
   ]
 }

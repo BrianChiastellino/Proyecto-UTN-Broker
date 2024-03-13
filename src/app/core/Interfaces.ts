@@ -35,7 +35,7 @@ export interface ICoin {
   id: string | null;
   coinAmount: number | null;
   image: string;
-  //!todo: Agregar fecha para hacer ultima actualizacion (utlima compra)
+  fecha: string;
 
 }
 

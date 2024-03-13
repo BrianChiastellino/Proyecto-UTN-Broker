@@ -69,10 +69,5 @@ export class ViewCoinsApiComponent implements OnChanges, OnInit {
     );
   }
 
-  mostarINfo() {
-    console.log(this.operacionCoinCompraVenta)
-  }
-
-
 
 }

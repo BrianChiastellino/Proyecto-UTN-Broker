@@ -9,32 +9,40 @@
 
 nav {
   padding: 0;
-  position: absolute;
+  /* background: url('src\assets\images\black_001.jpg') center center/cover fixed no-repeat; */
+  background: rgb(226,192,110);
+  background: linear-gradient(90deg, rgb(235, 203, 129) 0%, rgb(226, 191, 96) 50%);
+
+  position: static;
   display: block;
   left: 0;
   top: 0;
   width: 100%;
   border-bottom: #e4b233 solid 0.5px;
   width: 100%;
-  z-index: 1000; /* Asegura que la barra de navegación esté sobre el fondo desenfocado */
+  z-index: 1000;
+  /* Asegura que la barra de navegación esté sobre el fondo desenfocado */
 }
 
-.navbar-background::before {
+/* .navbar-background::before {
   content: "";
   background: url('src\assets\images\black_001.jpg') center center/cover fixed no-repeat;
-  filter: blur(10px); /* Ajusta el valor de desenfoque según tus preferencias */
-  position: absolute;
+  filter: blur(10px);
+
+  position: static;
   display: block;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Coloca el pseudo-elemento detrás de la barra de navegación */
-}
+  z-index: -1;
+
+} */
 
 .navbar-nav {
   position: relative;
-  z-index: 1; /* Asegura que los elementos de la barra de navegación estén por encima del fondo desenfocado */
+  z-index: 1;
+  /* Asegura que los elementos de la barra de navegación estén por encima del fondo desenfocado */
 }
 
 /* Estilos adicionales según tus necesidades */
@@ -53,23 +61,22 @@ nav {
   cursor: pointer;
 }
 
-.nav-link{
+.nav-link {
 
-margin-right: 2rem;
-margin-left: 0.5rem;
-margin-top: 1rem;
+  margin-right: 2rem;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
 
 }
 
-li .fa-house-chimney{
+li .fa-house-chimney {
   text-align: center;
   margin-bottom: 1rem;
 }
 
-.navbar-nav
- .nav-link,
+.navbar-nav .nav-link,
 .navbar-brand {
-  color: #ffc93c;
+  color: black;
   font-family: 'Kanit', sans-serif;
   font-weight: 700;
   transition: color 0.3s;

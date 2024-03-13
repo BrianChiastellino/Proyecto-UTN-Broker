@@ -12,9 +12,11 @@ section {
 }
 
 
+
+
 h3 {
 
-  margin-top: 3rem;
+  margin-top: 4rem;
   font-weight: lighter;
   font-size: 10rem;
 }
@@ -32,7 +34,7 @@ button {
   height: 40px;
   margin: 2px;
   border-radius: 5px;
-  background-color: #1874a8;
+  background-color: var(--color-primario);
   border: none;
   outline: none;
   cursor: pointer;
@@ -45,7 +47,7 @@ button {
 
 button:hover {
   color: #fff;
-  background-color: #1873a862;
+  background-color: var(--color-primario-hover);
 }
 
 .form-box {
@@ -161,31 +163,39 @@ th {
 }
 
 .contenedor-general-lista-coin {
-  padding: 5px;
-  width: 100%;
 
+  width: 100%;
+  margin-top: 5px;
   display: flex;
   flex-flow: row wrap;
-  align-content: flex-start;
+  align-items: center;
+  justify-content: center;
+
 
 }
 
 .contenedor-general-coin {
+  border: 0.5px solid var(--color-primario);
+  background-color: #ffc83c1e;
   border-radius: 50px;
-  border: 1px solid green;
   position: relative;
-  margin: 15px;
+  margin: 20px;
   width: 30%;
-  height: 10%;
-  padding: 10px;
+  height: auto;
+
+  transition: 0.3s;
+  cursor: default;
 
 }
 
+.contenedor-general-coin:hover {
+  transform: scale(1.1);
+  transition: 0.3s;
+}
+
 .contenedor-img {
-  border: 1px solid red;
-
-
   width: 22%;
+  margin: 5px;
 }
 
 .coin-img {
@@ -193,19 +203,38 @@ th {
   max-height: 100%;
 }
 
+
+
 .coin-id {
-  border: 1px solid yellow;
+  color: var(--color-primario);
   position: absolute;
-  left: 46%;
+  left: 50%;
+  transform: translateX(-50%);
   top: 10%;
+  font-size: 1.3rem;
+  font-weight: 450;
 }
 
 .coin-amount {
-  border: 1px solid red;
   position: absolute;
-  left: 25%;
-  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 30%;
   max-width: 100%;
   height: auto;
+  font-size: 1.1rem;
   font-weight: 400;
+  margin-top: 0.5rem;
+}
+
+
+
+.coin-fecha {
+  color: rgba(128, 128, 128, 0.692);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  font-weight: 200;
+  text-decoration: underline;
 }

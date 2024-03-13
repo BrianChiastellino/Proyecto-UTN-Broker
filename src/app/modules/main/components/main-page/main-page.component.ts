@@ -118,23 +118,26 @@ export class MainPageComponent implements OnInit {
       coin.image = coinCompra.image;
       coin.symbol = coinCompra.symbol;
       coin.coinAmount = cantCoinFinal;
+      coin.fecha = new Date().toLocaleString();
 
       const existe = this.existCoinInWallet(coinCompra.id);
 
       if (existe) {
 
-        const index = this.usuarioWallet.coins.findIndex((c) => c.id?.toUpperCase() == coinCompra.id.toUpperCase());
+        let index = this.usuarioWallet.coins.findIndex((c) => c.id?.toUpperCase() == coinCompra.id.toUpperCase());
 
         dialogWallet.coins[index].coinAmount += cantCoinFinal;
       } else {
         dialogWallet.coins.push(coin);
+
       }
 
+      dialogWallet.coins[this.getIndexCoinWallet(coinCompra.id)].fecha = coin.fecha;
       dialogWallet.fondos -= fondosFinal;
 
       this.updateWallet(dialogWallet);
       this.setearTipoNotificacionToast(this.OPERACION_EXITOSA);
-      this.crearTransaccion(this.OPERACION_COMPRA,cantCoinFinal);
+      this.crearTransaccion(this.OPERACION_COMPRA, cantCoinFinal);
 
     } else {
       this.setearTipoNotificacionToast(this.OPERACION_ERROR);
@@ -196,7 +199,7 @@ export class MainPageComponent implements OnInit {
 
   }
 
-  public guardarTrasaccion (transaccion: Transaccion) {
+  public guardarTrasaccion(transaccion: Transaccion) {
     this.transaccion.addTransaccionFromService(transaccion);
   }
 
@@ -225,6 +228,12 @@ export class MainPageComponent implements OnInit {
     }
     return false;
 
+  }
+
+  public getIndexCoinWallet(idCoin: string): number {
+    const index = this.usuarioWallet.coins.findIndex((c) => c.id?.toUpperCase() == idCoin.toUpperCase());
+
+    return index;
   }
 
   public async updateWallet(wallet: Wallet) {

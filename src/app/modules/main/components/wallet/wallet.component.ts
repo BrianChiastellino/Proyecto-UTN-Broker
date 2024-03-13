@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
-import { Coin, User, Wallet } from 'src/app/core/Models';
+import { Coin, CoinApi, User, Wallet } from 'src/app/core/Models';
 import { WalletService } from '../../services/wallet.service';
 
 @Component({
@@ -14,21 +14,33 @@ export class WalletComponent implements OnInit {
   }
 
 
-  userLoged!: User;
-  allWallets: Array<Wallet> = []
-  currentWallet!: Wallet
-  existWallet: boolean = false;
-  monto: string = '';
-  montoReal: number = 0;
+  public userLoged!: User;
+  public allWallets: Array<Wallet> = []
+  public currentWallet!: Wallet
+  public existWallet: boolean = false;
+  public monto: string = '';
+  public montoReal: number = 0;
   public errorDepositar: boolean = false;
   public errorRetirar: boolean = false;
+  public coinsApiFiltradas: Array<Coin> = []
+  public coinBusquedaInput: string = '';
 
-  constructor(private walletService: WalletService) { }
+  constructor(private walletService: WalletService) {
+  }
 
   ngOnInit(): void {
     this.userLoged = new User(JSON.parse(sessionStorage.getItem('userLoged')!));
     this.getWallets();
+    this.ordenarCoins();
+
+
+
   }
+
+
+
+
+
 
   public createWallet(): void {
     const wall = new Wallet();
@@ -48,16 +60,43 @@ export class WalletComponent implements OnInit {
     input.value = input.value.replace(/[^a-zA-Z]/g, '');
   }
 
+  ordenarCoins(): void {
+    this.currentWallet.coins.sort((a, b) => {
+      // Convertir las fechas a objetos Date
+      let dateA = this.parseDateString(a.fecha);
+      let dateB = this.parseDateString(b.fecha);
+
+      // Comparar las fechas en orden descendente
+      return dateB.getTime() - dateA.getTime();
+    });
+  }
+
+  parseDateString(dateString: string): Date {
+
+    let parts = dateString.split(', ');
+    let datePart = parts[0].split('/');
+    let timePart = parts[1].split(':');
+
+
+    let year = parseInt(datePart[2]);
+    let month = parseInt(datePart[1]) - 1;
+    let day = parseInt(datePart[0]);
+    let hours = parseInt(timePart[0]);
+    let minutes = parseInt(timePart[1]);
+    let seconds = parseInt(timePart[2]);
+
+    return new Date(year, month, day, hours, minutes, seconds);
+  }
+
+  public buscarCoin(): void {
+    this.coinsApiFiltradas = this.currentWallet.coins.filter((c) =>
+      c.id?.toLowerCase().includes(this.coinBusquedaInput.toLowerCase()) ||
+      c.symbol.toLowerCase().includes(this.coinBusquedaInput.toLowerCase())
+    );
+  }
 
 
   public depositarFondos() {
-
-    // if(!isNaN(parseFloat(this.monto))){
-    //   this.montoReal = parseFloat(this.monto) || 0;
-    // }
-
-
-
     if (!isNaN(parseFloat(this.monto))) {
 
       this.montoReal = parseFloat(this.monto);
@@ -80,11 +119,7 @@ export class WalletComponent implements OnInit {
         console.error(error)
       }
 
-
-
-
     }
-
 
   }
 
@@ -132,6 +167,9 @@ export class WalletComponent implements OnInit {
       }
 
       this.existWallet = true;
+      this.ordenarCoins();
+      this.coinsApiFiltradas = this.currentWallet.coins.slice();
+
 
     } catch (error) {
       console.error('Error al intentar obtener las wallets', error);
@@ -146,10 +184,6 @@ export class WalletComponent implements OnInit {
       console.error('Error al intentar actualizar la wallet', error);
     }
   }
-
-  // getWallet(): Wallet{
-  //   return this.currentWallet;
-  // }
 
 
 }
